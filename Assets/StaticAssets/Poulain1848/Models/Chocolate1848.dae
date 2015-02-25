@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+	<asset>
+		<contributor>
+			<authoring_tool>PlayUp</authoring_tool>							
+		</contributor>
+		<created>2014-11-21T20:40:00Z</created> 										
+		<modified>2014-11-21T20:40:00Z</modified>										
+		<revision>1.4.1</revision>
+		<unit meter="1.0" name="meter"></unit>
+	</asset>
+	<library_images>
+		<image id="260x260-1284782645-0050d90b1d_tga_img" format="bitmap" height="260" width="260" depth="32">
+			<init_from>PlayUp/Objects/Materials/Textures/260x260-1284782645-0050d90b1d.tga</init_from>
+		</image>
+	</library_images>
+	<library_effects>
+		<effect id="Chocolate1848-1-260x260-1284782645-0050d90b1d_fx">								
+			<profile_COMMON>
+				<newparam sid="260x260-1284782645-0050d90b1d_tga_surface">
+					<surface type="2D">
+						<init_from>260x260-1284782645-0050d90b1d_tga_img</init_from>
+					</surface>
+				</newparam>
+				<newparam sid="260x260-1284782645-0050d90b1d_tga_sampler">
+					<sampler2D>
+						<source>260x260-1284782645-0050d90b1d_tga_surface</source>
+					</sampler2D>
+				</newparam>
+				<technique sid="default">
+					<phong>
+						<emission>
+							<color sid="emission">0.000000 0.000000 0.000000 1.000000</color>
+						</emission>
+						<ambient>
+							<color sid="ambient">0.000000 0.000000 0.000000 1.000000</color>
+						</ambient>
+						<diffuse>
+							<texture texture="260x260-1284782645-0050d90b1d_tga_sampler" texcoord="diffuse_TEXCOORD"></texture> RARRR~!~
+						</diffuse>
+						<specular>
+							<color sid="specular">0.000000 0.000000 0.000000 1.000000</color>
+						</specular>
+						<shininess>
+							<float sid="shininess">0.000000</float>
+						</shininess>
+						<reflective>
+							<color sid="reflective">0.000000 0.000000 0.000000 1.000000</color>
+						</reflective>
+						<reflectivity>
+							<float sid="reflectivity">0.000000</float>
+						</reflectivity>
+						<transparent opaque="RGB_ZERO">
+							<color sid="transparent">0.000000 0.000000 0.000000 0.000000</color>
+						</transparent>
+						<transparency>
+							<float sid="transparency">0.000000</float>
+						</transparency>
+						<index_of_refraction>
+							<float sid="index_of_refraction">0.000000</float>
+						</index_of_refraction>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+
+	</library_effects>
+	<library_materials>
+		<material id="Chocolate1848-1-260x260-1284782645-0050d90b1d">									
+			<instance_effect url="#Chocolate1848-1-260x260-1284782645-0050d90b1d_fx"></instance_effect>	
+		</material>
+	</library_materials>
+	<library_geometries>
+		<geometry id="geometries_0">												
+			<mesh>
+				<source id="geometries_0-Pos">											
+					<float_array id="geometries_0-Pos-array" count="24">				
+						0.08 0.17800503761134 -0.0
+						0.0 0.17800503761134 -0.00955646229123184
+						0.0 0.17800503761134 -2.24053316938509e-016
+						0.08 0.17800503761134 -0.00955646229123163
+						0.0 9.66733417051764e-017 -0.00955646229123185
+						0.08 0.0 -0.00955646229123164
+						0.0 1.52599873425494e-016 -6.33274664404711e-016
+						0.08 5.66307551035627e-017 -4.24034789908418e-016
+					</float_array>
+					<technique_common>
+						<accessor source="#geometries_0-Pos-array" count="8" stride="3"> 	
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="geometries_0-Normal">									
+					<float_array id="geometries_0-Normal-array" count="18">			
+						1.24746744485465e-015 1.0 1.5258627694692e-014						2.62616145671677e-015 1.28369537222284e-016 -1.0						-1.21089673800229e-015 -1.0 5.82173198537816e-015						1.0 0.0 -0.0						-1.0 0.0 -0.0						-2.62616145671677e-015 -2.37657116208823e-015 1.0					</float_array>
+					<technique_common>
+						<accessor source="#geometries_0-Normal-array" count="6" stride="3">	
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="geometries_0-Texture_Projection">
+					<float_array id="geometries_0-Texture_Projection-array" count="48">
+						0.712964 1.000000
+						0.290158 1.000000
+						0.290158 1.000000
+						0.712964 1.000000
+						1.709842 0.000000
+						1.287036 1.000000
+						1.287036 0.000000
+						1.709842 1.000000
+						0.712964 0.000000
+						0.290158 0.000000
+						0.290158 0.000000
+						0.712964 0.000000
+						0.712964 0.000000
+						0.712964 1.000000
+						0.712964 1.000000
+						0.712964 0.000000
+						0.290158 1.000000
+						0.290158 0.000000
+						0.290158 1.000000
+						0.290158 0.000000
+						0.712964 1.000000
+						0.290158 0.000000
+						0.712964 0.000000
+						0.290158 1.000000
+					</float_array>
+					<technique_common>
+						<accessor source="#geometries_0-Texture_Projection-array" count="24" stride="2">
+							<param name="S" type="float"/>
+							<param name="T" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="geometries_0-Vtx">										
+					<input semantic="POSITION" source="#geometries_0-Pos"/>				
+				</vertices>
+				<triangles count="12" material="Chocolate1848-1-260x260-1284782645-0050d90b1d">		
+					<input semantic="VERTEX" source="#geometries_0-Vtx" offset="0"/>
+					<input semantic="NORMAL" source="#geometries_0-Normal" offset="1"/>	
+					<input semantic="TEXCOORD" source="#geometries_0-Texture_Projection" offset="2"/>
+					<p>
+						0	0	0
+						1	0	1
+						2	0	2
+						1	0	1
+						0	0	0
+						3	0	3
+						4	1	4
+						3	1	5
+						5	1	6
+						3	1	5
+						4	1	4
+						1	1	7
+						5	2	8
+						6	2	9
+						4	2	10
+						6	2	9
+						5	2	8
+						7	2	11
+						7	3	12
+						3	3	13
+						0	3	14
+						3	3	13
+						7	3	12
+						5	3	15
+						1	4	16
+						6	4	17
+						2	4	18
+						6	4	17
+						1	4	16
+						4	4	19
+						0	5	20
+						6	5	21
+						7	5	22
+						6	5	21
+						0	5	20
+						2	5	23
+					</p>
+				</triangles>
+			</mesh>
+		</geometry>
+	</library_geometries>
+	<library_visual_scenes>
+		<visual_scene id="visual_scenes_0" name="untitled">
+			<node id="UnityExportNode_Chocolate1848">					
+				<translate sid="translation">0.000000 0.000000 0.000000</translate>
+				<rotate sid="rotation_z">0.000000 0.000000 1.000000 0.000000</rotate>
+				<rotate sid="rotation_y">0.000000 1.000000 0.000000 0.000000</rotate>
+				<rotate sid="rotation_x">1.000000 0.000000 0.000000 0.000000</rotate>
+				<scale sid="scale">1.000000 1.000000 1.000000</scale>
+							<node id="mesh0%root%0%">													
+								<translate sid="translation">0 0 0</translate><rotate>0 0 0 0</rotate><scale sid="scale">1.000000 1.000000 1.000000</scale>
+								<instance_geometry url="#geometries_0">
+									<bind_material>
+										<technique_common>
+											<instance_material symbol="Chocolate1848-1-260x260-1284782645-0050d90b1d" target="#Chocolate1848-1-260x260-1284782645-0050d90b1d"> 
+
+
+
+
+												<bind semantic="diffuse_TEXCOORD" target="geometries_0-"></bind>
+											</instance_material>	
+										</technique_common>
+									</bind_material>
+								</instance_geometry>
+				</node>
+			</node>
+		</visual_scene>
+	</library_visual_scenes>
+	<scene>
+		<instance_visual_scene url="#visual_scenes_0"/>
+	</scene>
+</COLLADA>

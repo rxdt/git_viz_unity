@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+	<asset>
+		<contributor>
+			<authoring_tool>PlayUp</authoring_tool>							
+		</contributor>
+		<created>2014-02-15T15:49:46Z</created> 										
+		<modified>2014-02-15T15:49:46Z</modified>										
+		<revision>1.4.1</revision>
+		<unit meter="1.0" name="meter"></unit>
+	</asset>
+	<library_images>
+		<image id="SUDCColorA06_tga_img" format="bitmap" height="32" width="32" depth="32">
+			<init_from>PlayUp/Objects/Materials/Textures/playup_nomaterial.tga</init_from>
+		</image>
+		<image id="Bruidsuikers_tga_img" format="bitmap" height="397" width="596" depth="32">
+			<init_from>PlayUp/Objects/Materials/Textures/Bruidsuikers.tga</init_from>
+		</image>
+	</library_images>
+	<library_effects>
+		<effect id="Bruidsuikers-1-SUDCColorA06_fx">								
+			<profile_COMMON>
+				<newparam sid="SUDCColorA06_tga_surface">
+					<surface type="2D">
+						<init_from>SUDCColorA06_tga_img</init_from>
+					</surface>
+				</newparam>
+				<newparam sid="SUDCColorA06_tga_sampler">
+					<sampler2D>
+						<source>SUDCColorA06_tga_surface</source>
+					</sampler2D>
+				</newparam>
+				<technique sid="default">
+					<phong>
+						<emission>
+							<color sid="emission">0.000000 0.000000 0.000000 1.000000</color>
+						</emission>
+						<ambient>
+							<color sid="ambient">0.000000 0.000000 0.000000 1.000000</color>
+						</ambient>
+						<diffuse>
+							<color sid="diffuse">0.7999999944 0.0 0.0 1.000000</color>
+						</diffuse>
+						<specular>
+							<color sid="specular">0.000000 0.000000 0.000000 1.000000</color>
+						</specular>
+						<shininess>
+							<float sid="shininess">0.000000</float>
+						</shininess>
+						<reflective>
+							<color sid="reflective">0.000000 0.000000 0.000000 1.000000</color>
+						</reflective>
+						<reflectivity>
+							<float sid="reflectivity">0.000000</float>
+						</reflectivity>
+						<transparent opaque="RGB_ZERO">
+							<color sid="transparent">0.000000 0.000000 0.000000 0.000000</color>
+						</transparent>
+						<transparency>
+							<float sid="transparency">0.000000</float>
+						</transparency>
+						<index_of_refraction>
+							<float sid="index_of_refraction">0.000000</float>
+						</index_of_refraction>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="Bruidsuikers-2-Bruidsuikers_fx">								
+			<profile_COMMON>
+				<newparam sid="Bruidsuikers_tga_surface">
+					<surface type="2D">
+						<init_from>Bruidsuikers_tga_img</init_from>
+					</surface>
+				</newparam>
+				<newparam sid="Bruidsuikers_tga_sampler">
+					<sampler2D>
+						<source>Bruidsuikers_tga_surface</source>
+					</sampler2D>
+				</newparam>
+				<technique sid="default">
+					<phong>
+						<emission>
+							<color sid="emission">0.000000 0.000000 0.000000 1.000000</color>
+						</emission>
+						<ambient>
+							<color sid="ambient">0.000000 0.000000 0.000000 1.000000</color>
+						</ambient>
+						<diffuse>
+							<texture texture="Bruidsuikers_tga_sampler" texcoord="diffuse_TEXCOORD"></texture> RARRR~!~
+						</diffuse>
+						<specular>
+							<color sid="specular">0.000000 0.000000 0.000000 1.000000</color>
+						</specular>
+						<shininess>
+							<float sid="shininess">0.000000</float>
+						</shininess>
+						<reflective>
+							<color sid="reflective">0.000000 0.000000 0.000000 1.000000</color>
+						</reflective>
+						<reflectivity>
+							<float sid="reflectivity">0.000000</float>
+						</reflectivity>
+						<transparent opaque="RGB_ZERO">
+							<color sid="transparent">0.000000 0.000000 0.000000 0.000000</color>
+						</transparent>
+						<transparency>
+							<float sid="transparency">0.000000</float>
+						</transparency>
+						<index_of_refraction>
+							<float sid="index_of_refraction">0.000000</float>
+						</index_of_refraction>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+
+	</library_effects>
+	<library_materials>
+		<material id="Bruidsuikers-1-SUDCColorA06">									
+			<instance_effect url="#Bruidsuikers-1-SUDCColorA06_fx"></instance_effect>	
+		</material>
+		<material id="Bruidsuikers-2-Bruidsuikers">									
+			<instance_effect url="#Bruidsuikers-2-Bruidsuikers_fx"></instance_effect>	
+		</material>
+	</library_materials>
+	<library_geometries>
+		<geometry id="geometries_0">												
+			<mesh>
+				<source id="geometries_0-Pos">											
+					<float_array id="geometries_0-Pos-array" count="24">				
+						-0.15 0.2 -0.025
+						-0.15 0.0 0.025
+						-0.15 0.2 0.025
+						-0.15 0.0 -0.025
+						0.15 0.2 0.025
+						0.15 0.2 -0.025
+						0.15 0.0 -0.025
+						0.15 0.0 0.025
+					</float_array>
+					<technique_common>
+						<accessor source="#geometries_0-Pos-array" count="8" stride="3"> 	
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="geometries_0-Normal">									
+					<float_array id="geometries_0-Normal-array" count="15">			
+						-1.0 -0.0 0.0						0.0 1.0 -0.0						1.0 0.0 -0.0						0.0 -1.0 -0.0						0.0 0.0 -1.0					</float_array>
+					<technique_common>
+						<accessor source="#geometries_0-Normal-array" count="5" stride="3">	
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="geometries_0-Texture_Projection">
+					<float_array id="geometries_0-Texture_Projection-array" count="24">
+						-0.984252 7.874016
+						0.984252 0.000000
+						0.984252 7.874016
+						-0.984252 0.000000
+						5.905512 -0.984252
+						-5.905512 0.984252
+						-5.905512 -0.984252
+						5.905512 0.984252
+						5.905512 7.874016
+						-5.905512 0.000000
+						5.905512 0.000000
+						-5.905512 7.874016
+					</float_array>
+					<technique_common>
+						<accessor source="#geometries_0-Texture_Projection-array" count="12" stride="2">
+							<param name="S" type="float"/>
+							<param name="T" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="geometries_0-Vtx">										
+					<input semantic="POSITION" source="#geometries_0-Pos"/>				
+				</vertices>
+				<triangles count="10" material="Bruidsuikers-1-SUDCColorA06">		
+					<input semantic="VERTEX" source="#geometries_0-Vtx" offset="0"/>
+					<input semantic="NORMAL" source="#geometries_0-Normal" offset="1"/>	
+					<input semantic="TEXCOORD" source="#geometries_0-Texture_Projection" offset="2"/>
+					<p>
+						0	0	0
+						1	0	1
+						2	0	2
+						1	0	1
+						0	0	0
+						3	0	3
+						4	1	4
+						0	1	5
+						2	1	6
+						0	1	5
+						4	1	4
+						5	1	7
+						6	2	1
+						4	2	0
+						7	2	3
+						4	2	0
+						6	2	1
+						5	2	2
+						6	3	5
+						1	3	4
+						3	3	7
+						1	3	4
+						6	3	5
+						7	3	6
+						0	4	8
+						6	4	9
+						3	4	10
+						6	4	9
+						0	4	8
+						5	4	11
+					</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="geometries_1">												
+			<mesh>
+				<source id="geometries_1-Pos">											
+					<float_array id="geometries_1-Pos-array" count="12">				
+						0.15 0.2 0.025
+						-0.15 0.0 0.025
+						0.15 0.0 0.025
+						-0.15 0.2 0.025
+					</float_array>
+					<technique_common>
+						<accessor source="#geometries_1-Pos-array" count="4" stride="3"> 	
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="geometries_1-Normal">									
+					<float_array id="geometries_1-Normal-array" count="3">			
+						0.0 0.0 1.0					</float_array>
+					<technique_common>
+						<accessor source="#geometries_1-Normal-array" count="1" stride="3">	
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="geometries_1-Texture_Projection">
+					<float_array id="geometries_1-Texture_Projection-array" count="8">
+						1.000000 1.000840
+						0.000000 0.000000
+						1.000000 0.000000
+						0.000000 1.000840
+					</float_array>
+					<technique_common>
+						<accessor source="#geometries_1-Texture_Projection-array" count="4" stride="2">
+							<param name="S" type="float"/>
+							<param name="T" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="geometries_1-Vtx">										
+					<input semantic="POSITION" source="#geometries_1-Pos"/>				
+				</vertices>
+				<triangles count="2" material="Bruidsuikers-2-Bruidsuikers">		
+					<input semantic="VERTEX" source="#geometries_1-Vtx" offset="0"/>
+					<input semantic="NORMAL" source="#geometries_1-Normal" offset="1"/>	
+					<input semantic="TEXCOORD" source="#geometries_1-Texture_Projection" offset="2"/>
+					<p>
+						0	0	0
+						1	0	1
+						2	0	2
+						1	0	1
+						0	0	0
+						3	0	3
+					</p>
+				</triangles>
+			</mesh>
+		</geometry>
+	</library_geometries>
+	<library_visual_scenes>
+		<visual_scene id="visual_scenes_0" name="untitled">
+			<node id="UnityExportNode_Bruidsuikers">					
+				<translate sid="translation">0.000000 0.000000 0.000000</translate>
+				<rotate sid="rotation_z">0.000000 0.000000 1.000000 0.000000</rotate>
+				<rotate sid="rotation_y">0.000000 1.000000 0.000000 0.000000</rotate>
+				<rotate sid="rotation_x">1.000000 0.000000 0.000000 0.000000</rotate>
+				<scale sid="scale">1.000000 1.000000 1.000000</scale>
+							<node id="mesh0%root%0%">													
+								<translate sid="translation">0 0 0</translate><rotate>0 0 0 0</rotate><scale sid="scale">1.000000 1.000000 1.000000</scale>
+								<instance_geometry url="#geometries_0">
+									<bind_material>
+										<technique_common>
+											<instance_material symbol="Bruidsuikers-1-SUDCColorA06" target="#Bruidsuikers-1-SUDCColorA06"> 
+
+
+
+
+												<bind semantic="diffuse_TEXCOORD" target="geometries_0-"></bind>
+											</instance_material>	
+										</technique_common>
+									</bind_material>
+								</instance_geometry>
+							<node id="mesh0%root%1%">													
+								<translate sid="translation">0 0 0</translate><rotate>0 0 0 0</rotate><scale sid="scale">1.000000 1.000000 1.000000</scale>
+								<instance_geometry url="#geometries_1">
+									<bind_material>
+										<technique_common>
+											<instance_material symbol="Bruidsuikers-2-Bruidsuikers" target="#Bruidsuikers-2-Bruidsuikers"> 
+
+
+
+
+												<bind semantic="diffuse_TEXCOORD" target="geometries_1-"></bind>
+											</instance_material>	
+										</technique_common>
+									</bind_material>
+								</instance_geometry>
+				</node>
+				</node>
+			</node>
+		</visual_scene>
+	</library_visual_scenes>
+	<scene>
+		<instance_visual_scene url="#visual_scenes_0"/>
+	</scene>
+</COLLADA>

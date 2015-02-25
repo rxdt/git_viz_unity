@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+	<asset>
+		<contributor>
+			<authoring_tool>PlayUp</authoring_tool>							
+		</contributor>
+		<created>2013-12-20T21:38:34Z</created> 										
+		<modified>2013-12-20T21:38:34Z</modified>										
+		<revision>1.4.1</revision>
+		<unit meter="1.0" name="meter"></unit>
+	</asset>
+	<library_images>
+		<image id="WoodRough0106_2_S_tga_img" format="bitmap" height="350" width="700" depth="32">
+			<init_from>PlayUp/Objects/Materials/Textures/WoodRough0106_2_S.tga</init_from>
+		</image>
+	</library_images>
+	<library_effects>
+		<effect id="Emmer-Handvat-1-WoodRough0106_2_S_fx">								
+			<profile_COMMON>
+				<newparam sid="WoodRough0106_2_S_tga_surface">
+					<surface type="2D">
+						<init_from>WoodRough0106_2_S_tga_img</init_from>
+					</surface>
+				</newparam>
+				<newparam sid="WoodRough0106_2_S_tga_sampler">
+					<sampler2D>
+						<source>WoodRough0106_2_S_tga_surface</source>
+					</sampler2D>
+				</newparam>
+				<technique sid="default">
+					<phong>
+						<emission>
+							<color sid="emission">0.000000 0.000000 0.000000 1.000000</color>
+						</emission>
+						<ambient>
+							<color sid="ambient">0.000000 0.000000 0.000000 1.000000</color>
+						</ambient>
+						<diffuse>
+							<texture texture="WoodRough0106_2_S_tga_sampler" texcoord="diffuse_TEXCOORD"></texture> RARRR~!~
+						</diffuse>
+						<specular>
+							<color sid="specular">0.000000 0.000000 0.000000 1.000000</color>
+						</specular>
+						<shininess>
+							<float sid="shininess">0.000000</float>
+						</shininess>
+						<reflective>
+							<color sid="reflective">0.000000 0.000000 0.000000 1.000000</color>
+						</reflective>
+						<reflectivity>
+							<float sid="reflectivity">0.000000</float>
+						</reflectivity>
+						<transparent opaque="RGB_ZERO">
+							<color sid="transparent">0.000000 0.000000 0.000000 0.000000</color>
+						</transparent>
+						<transparency>
+							<float sid="transparency">0.000000</float>
+						</transparency>
+						<index_of_refraction>
+							<float sid="index_of_refraction">0.000000</float>
+						</index_of_refraction>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+
+	</library_effects>
+	<library_materials>
+		<material id="Emmer-Handvat-1-WoodRough0106_2_S">									
+			<instance_effect url="#Emmer-Handvat-1-WoodRough0106_2_S_fx"></instance_effect>	
+		</material>
+	</library_materials>
+	<library_geometries>
+		<geometry id="geometries_0">												
+			<mesh>
+				<source id="geometries_0-Pos">											
+					<float_array id="geometries_0-Pos-array" count="48">				
+						-0.0499996715857462 4.66977625604856e-010 -0.00863918031931461
+						0.0500065455194071 -0.00484358110882263 -0.00864500120241007
+						-0.049993374133293 -0.0049702746395458 -0.00864926767466612
+						0.050000248066954 0.000126693997700797 -0.00863491384705856
+						-0.0500060134687209 0.00500534243851854 -0.00862902179447632
+						0.0499939061839793 0.00513203596924171 -0.00862475532222027
+						-0.0499873699807979 -0.00999997137829284 -2.02953081340349e-005
+						0.0500125496719023 -0.00987327784756967 -1.60288358779896e-005
+						0.0500058527740567 -0.00487864890779492 0.00863328826673235
+						-0.0499940668786435 -0.00500534243851809 0.0086290217944763
+						0.049999510891082 0.000126693063745907 0.00864344679157064
+						0.0499872092861337 0.0101266649090164 2.4561780390066e-005
+						0.0499932134386288 0.00509696817026942 0.00865353414692215
+						-0.0500004087616182 -4.66977264656292e-010 0.0086391803193146
+						-0.0500067062140713 0.00497027463954625 0.00864926767466611
+						-0.0500127103665665 0.0099999713782932 2.0295308134015e-005
+					</float_array>
+					<technique_common>
+						<accessor source="#geometries_0-Pos-array" count="16" stride="3"> 	
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="geometries_0-Normal">									
+					<float_array id="geometries_0-Normal-array" count="48">			
+						4.00933162021988e-005 0.00202958323975597 -0.999997939590077						0.000667093705043939 -0.497325150852847 -0.867563974191634						0.000667093705043939 -0.497325150852847 -0.867563974191634						-0.000597607750153242 0.500842633136766 -0.865538156118844						-0.000597607750153241 0.500842633136765 -0.865538156118844						0.00126701928843144 -0.999997137829304 -0.00202953081340313						0.00126701928843144 -0.999997137829304 -0.00202953081340235						0.000597607750153274 -0.500842633136766 0.865538156118843						0.000597607750153274 -0.500842633136766 0.865538156118843						0.999999196527002 0.00126693530723174 4.2664722560426e-005						-4.00933162020875e-005 -0.00202958323975622 0.999997939590077						-0.000667093705043907 0.497325150852847 0.867563974191633						-0.000667093705043907 0.497325150852847 0.867563974191634						-0.0012670192884315 0.999997137829304 0.00202953081340223						-0.0012670192884315 0.999997137829304 0.00202953081340162						-0.999999196527002 -0.00126693530723174 -4.2664722560426e-005					</float_array>
+					<technique_common>
+						<accessor source="#geometries_0-Normal-array" count="16" stride="3">	
+							<param name="X" type="float"/>
+							<param name="Y" type="float"/>
+							<param name="Z" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="geometries_0-Texture_Projection">
+					<float_array id="geometries_0-Texture_Projection-array" count="86">
+						1.000000 1.679630
+						1.261480 1.705622
+						1.000000 1.705622
+						1.261480 1.679630
+						1.000000 1.653454
+						1.261480 1.653454
+						1.261480 1.705622
+						1.000000 1.757855
+						1.000000 1.705622
+						1.261480 1.757855
+						1.000000 1.757855
+						1.261480 1.810087
+						1.000000 1.810087
+						1.261480 1.757855
+						1.272227 1.849785
+						1.261480 1.912195
+						1.261480 1.862256
+						1.283051 1.837225
+						1.304728 1.862012
+						1.283156 1.936982
+						1.293980 1.924423
+						1.304728 1.911951
+						1.261480 1.810087
+						1.000000 1.836263
+						1.000000 1.810087
+						1.261480 1.836263
+						1.000000 1.862256
+						1.261480 1.862256
+						1.000000 1.862256
+						1.261480 1.912195
+						1.000000 1.912195
+						1.261480 1.862256
+						1.261480 1.601222
+						1.000000 1.653454
+						1.000000 1.601222
+						1.261480 1.653454
+						1.000000 1.912195
+						0.989252 1.849785
+						1.000000 1.862256
+						0.978428 1.837225
+						0.956752 1.862012
+						0.978323 1.936982
+						0.956752 1.911951
+					</float_array>
+					<technique_common>
+						<accessor source="#geometries_0-Texture_Projection-array" count="43" stride="2">
+							<param name="S" type="float"/>
+							<param name="T" type="float"/>
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="geometries_0-Vtx">										
+					<input semantic="POSITION" source="#geometries_0-Pos"/>				
+				</vertices>
+				<triangles count="27" material="Emmer-Handvat-1-WoodRough0106_2_S">		
+					<input semantic="VERTEX" source="#geometries_0-Vtx" offset="0"/>
+					<input semantic="NORMAL" source="#geometries_0-Normal" offset="1"/>	
+					<input semantic="TEXCOORD" source="#geometries_0-Texture_Projection" offset="2"/>
+					<p>
+						0	0	0
+						1	1	1
+						2	2	2
+						1	1	1
+						0	0	0
+						3	0	3
+						3	0	3
+						0	0	0
+						4	3	4
+						3	0	3
+						4	3	4
+						5	4	5
+						1	1	6
+						6	5	7
+						2	2	8
+						6	5	7
+						1	1	6
+						7	6	9
+						6	5	10
+						8	7	11
+						9	8	12
+						8	7	11
+						6	5	10
+						7	6	13
+						10	9	14
+						11	9	15
+						12	9	16
+						11	9	15
+						10	9	14
+						8	9	17
+						11	9	15
+						8	9	17
+						7	9	18
+						11	9	15
+						7	9	18
+						5	9	19
+						5	9	19
+						7	9	18
+						3	9	20
+						3	9	20
+						7	9	18
+						1	9	21
+						8	7	22
+						13	10	23
+						9	8	24
+						13	10	23
+						8	7	22
+						10	10	25
+						13	10	23
+						10	10	25
+						14	11	26
+						14	11	26
+						10	10	25
+						12	12	27
+						14	11	28
+						11	13	29
+						15	14	30
+						11	13	29
+						14	11	28
+						12	12	31
+						11	13	32
+						4	3	33
+						15	14	34
+						4	3	33
+						11	13	32
+						5	4	35
+						15	15	36
+						13	15	37
+						14	15	38
+						13	15	37
+						15	15	36
+						9	15	39
+						9	15	39
+						15	15	36
+						6	15	40
+						6	15	40
+						15	15	36
+						4	15	41
+						6	15	40
+						4	15	41
+						2	15	42
+					</p>
+				</triangles>
+			</mesh>
+		</geometry>
+	</library_geometries>
+	<library_visual_scenes>
+		<visual_scene id="visual_scenes_0" name="untitled">
+			<node id="UnityExportNode_Emmer-Handvat">					
+				<translate sid="translation">0.000000 0.000000 0.000000</translate>
+				<rotate sid="rotation_z">0.000000 0.000000 1.000000 0.000000</rotate>
+				<rotate sid="rotation_y">0.000000 1.000000 0.000000 0.000000</rotate>
+				<rotate sid="rotation_x">1.000000 0.000000 0.000000 0.000000</rotate>
+				<scale sid="scale">1.000000 1.000000 1.000000</scale>
+							<node id="mesh0%root%0%">													
+								<translate sid="translation">0 0 0</translate><rotate>0 0 0 0</rotate><scale sid="scale">1.000000 1.000000 1.000000</scale>
+								<instance_geometry url="#geometries_0">
+									<bind_material>
+										<technique_common>
+											<instance_material symbol="Emmer-Handvat-1-WoodRough0106_2_S" target="#Emmer-Handvat-1-WoodRough0106_2_S"> 
+
+
+
+
+												<bind semantic="diffuse_TEXCOORD" target="geometries_0-"></bind>
+											</instance_material>	
+										</technique_common>
+									</bind_material>
+								</instance_geometry>
+				</node>
+			</node>
+		</visual_scene>
+	</library_visual_scenes>
+	<scene>
+		<instance_visual_scene url="#visual_scenes_0"/>
+	</scene>
+</COLLADA>
