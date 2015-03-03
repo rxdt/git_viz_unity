@@ -2,7 +2,8 @@ fileFormatVersion: 2
 guid: 582aca01f386b4f91adae0685ecaae01
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sphere: {fileID: 149406, guid: 89103ccadb3d245fcaf7a7c89e7c4731, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

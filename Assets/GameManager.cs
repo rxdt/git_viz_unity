@@ -24,8 +24,7 @@ public class GameManager : MonoBehaviour {
 		//values = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
 
 		// currently, returns one node 
-		Node node = new Node ();
-		return node;
+		return new Node ();
 	}
 
 	// interacts with OR to render things
@@ -36,6 +35,7 @@ public class GameManager : MonoBehaviour {
 	}
 }
 
+// /Users/rxdt/git/GameManaagerTester.cs
 
 public class Node {
 	public string filename { get; private set; }
