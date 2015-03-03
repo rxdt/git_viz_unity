@@ -4,15 +4,16 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 	
-	public GameObject ROOTLOCATION;
 	public GameObject sphere;
-	private static Dictionary<string, string> values;
+	public GameObject Tree;
 	public Node root;
 
+	private static Vector3 ROOTLOCATION;
+
 	void Start(){
-		ROOTLOCATION = GameObject.Find ("ROOTLOCATION");
 		root = parseJSON (); // returns refernece to 'root' node of repo
 		renderTree ();
+		ROOTLOCATION = new Vector3(0, 0, 0);
 	}
 
 	// returns root node of tree
@@ -31,14 +32,15 @@ public class GameManager : MonoBehaviour {
 	public void renderTree(){
 		// create branch
 		// connect nodes to branch
-		Instantiate (sphere, new Vector3(2, 4, 88), Quaternion.identity);
+		Instantiate (sphere, new Vector3(2, 0, 88), Quaternion.identity);
+		Instantiate (Tree, ROOTLOCATION, Quaternion.identity);
 	}
 }
 
-// /Users/rxdt/git/GameManaagerTester.cs
 
 public class Node {
 	public string filename { get; private set; }
 	public Node parent;
 	public List<Node> children;
 }
+
