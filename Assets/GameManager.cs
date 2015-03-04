@@ -8,22 +8,20 @@ public class GameManager : MonoBehaviour {
 	public GameObject Tree;
 	public Node root;
 	private static Vector3 ROOTLOCATION;
-	private static Dictionary<int, Dictionary<string, string>> children;
 
-	public int nodeCount = 10;
+	List<Dictionary<char, List<string>>> commits = new List<Dictionary<char, List<string>>>();
+	public int nodeCount = 3;
 
 	void Start(){
+		createDummyCommitsList();
+
 		// the start of tree trunk and center of our environment - child of terrain and GameManager
 		ROOTLOCATION = new Vector3(0, 0, 0);
 
 		root = parseJSON (); // returns reference to 'root' node of repo
 		createNode(root);
 
-		while()
-//		renderTree ();
 		createToyTree();
-
-
 	}
 
 	/**
@@ -31,7 +29,7 @@ public class GameManager : MonoBehaviour {
 	 **/
 	public void createNode(Node parent){
 		Node node = new Node(null, root, "filename whatever");
-		Vector3 newNodeVector = root;
+//		Vector3 newNodeVector = root;
 	}
 
 	public void createToyTree(){
@@ -56,6 +54,19 @@ public class GameManager : MonoBehaviour {
 		// connect nodes to branch
 		Instantiate (sphere, new Vector3(2, 0, 88), Quaternion.identity);
 		Instantiate (Tree, ROOTLOCATION, Quaternion.identity);
+	}
+
+	public void createDummyCommitsList(){
+		for(int i = 0; i < nodeCount; i++){
+			Dictionary<char, List<string>> commit1 = new Dictionary<char, List<string>>();
+			List<string> list1 = new List<string>();
+			list1.Add("file_one");
+			list1.Add("file_two");
+			list1.Add("file_three");
+			commit1['A'] = list1;
+			commits.Add(commit1);
+		}
+		Debug.Log("\t\t\tHELLO\t\t!!!!!!!");
 	}
 }
 
