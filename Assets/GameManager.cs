@@ -15,29 +15,32 @@ public class GameManager : MonoBehaviour {
 		// the start of tree trunk and center of our environment - child of terrain and GameManager
 		ROOTLOCATION = new Vector3(-9, 5.7f, 125);
 		Vector3 root = ROOTLOCATION;
-		GameObject parent = createNode(null, ROOTLOCATION);	
+		GameObject parent = createSphere(null, ROOTLOCATION);	
 		Vector3 offset = new Vector3(10, 10, 10);
 
-		while(nodeCount > 0){
-			Vector3 newVector = root + offset;
-			parent = createNode(parent, newVector);
-			root = newVector;
-			nodeCount--;
-		}
+//		while(nodeCount > 0){
+//			Vector3 newVector = root + offset;
+//			parent = createSphere(parent, newVector);
+//			root = newVector;
+//			nodeCount--;
+//		}
 
 		createToyTree();
 	}
 
 	/**
 	 * This creates a new node x,y,z distance from its parent.
+	 * what if i create a dictionary that "contains" nodes and spheres somehow
 	 **/
-	public GameObject createNode(GameObject parent, Vector3 coordinates){
-		Instantiate (sphere, coordinates, Quaternion.identity); 
+	public GameObject createSphere(GameObject parent, Vector3 coordinates){
+//		Instantiate (sphere, coordinates, Quaternion.identity); 
 		return sphere;
+
+//		Node node = new Node(coordinates, parent);
+//		return node;
 	}
 
 	public void createToyTree(){
-
 	}
 
 	// returns root node of tree
@@ -58,19 +61,28 @@ public class GameManager : MonoBehaviour {
 		// create branch
 		// connect nodes to branch
 	}
+ }
+//
+//public class Node : MonoBehaviour {
+//	public string filename 		{ get; set; }
+//	public Node parent 			{ get; set; }
+//	public GameObject sphere;
+//	
+//	public Node(){}
+//	
+//	public Node(Node parent){
+//		this.parent = parent;
+////		makeSphere(coordinates);
+//	}
+//	
+//	public GameObject makeSphere(Vector3 coordinates){
+//		GameObject clone = (GameObject)Instantiate(sphere, coordinates, Quaternion.identity); 
+//		return clone;
+//	}
+//}
 
 
-}
 
 
-public class Node {
-	public string filename 		{ get; set; }
-	public Node parent 			{ get; set; }
-	public List<Node> children 	{ get; set; } // do i need if i am already tracking the parent?
-	
-	public Node(){}
-	
-	public Node(Node parent){
-		Debug.Log ("Does this get here?");
-	}
-}
+
+
