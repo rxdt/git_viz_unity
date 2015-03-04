@@ -159,6 +159,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 805560051}
+  - 122: {fileID: 805560052}
   m_Layer: 0
   m_Name: ROOTLOCATION
   m_TagString: Untagged
@@ -173,11 +174,22 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 805560050}
   m_LocalRotation: {x: -1.54543116e-08, y: .707106829, z: -1.54543116e-08, w: .707106829}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: .0725999996, y: 0, z: -0}
   m_LocalScale: {x: .00205048337, y: .00205048383, z: .00205048337}
   m_Children: []
   m_Father: {fileID: 2065964988}
   m_RootOrder: 0
+--- !u!122 &805560052
+Halo:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 805560050}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4282118744
+  m_Size: 5
 --- !u!1 &810461707
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sphere: {fileID: 149406, guid: 89103ccadb3d245fcaf7a7c89e7c4731, type: 2}
   Tree: {fileID: 195968, guid: 24f688b4110444e3691fe7c8b40455f3, type: 2}
+  root: {fileID: 0}
 --- !u!4 &810461709
 Transform:
   m_ObjectHideFlags: 0
@@ -214,7 +227,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 810461707}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1000, y: 0, z: 1000}
+  m_LocalPosition: {x: 1000, y: 0, z: 1033.40002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2065964988}

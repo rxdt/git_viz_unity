@@ -37,10 +37,3 @@ public class GameManager : MonoBehaviour {
 	}
 }
 
-
-public class Node {
-	public string filename { get; private set; }
-	public Node parent;
-	public List<Node> children;
-}
-

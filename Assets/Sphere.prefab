@@ -11,7 +11,6 @@ GameObject:
   - 33: {fileID: 3349406}
   - 135: {fileID: 13549406}
   - 23: {fileID: 2349406}
-  - 114: {fileID: 11401394}
   - 114: {fileID: 11472746}
   m_Layer: 0
   m_Name: Sphere
@@ -47,7 +46,7 @@ Renderer:
   - {fileID: 2100000, guid: 1e94cba1c2e70664a9e1ebcc8379d2e5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
+  m_UseLightProbes: 1
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
@@ -59,17 +58,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149406}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &11401394
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 149406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e2b6a1aac38b4435b695271a8ac2832, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11472746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -78,7 +66,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 149406}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 896eb58be76c34a67ac176e5f2be2291, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ea30cdd6b2a549188b2143982f77a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &13549406
