@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour {
 	public int nodeCount = 10;
 
 	void Start(){
-		commits = Parser.createDummyCommitsList(3);
-
 		// the start of tree trunk and center of our environment - child of terrain and GameManager
 		ROOTLOCATION = new Vector3(-9, 5.7f, 125);
 		Vector3 root = ROOTLOCATION;

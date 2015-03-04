@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
 public class Node : MonoBehaviour {
 	public string filename 		{ get; set; }
 	public Node parent 			{ get; set; }
 	public GameObject sphere;
 
 	void Start(){
-		makeSphere();
+//		Invoke("makeSphere", 7);
 	}
 
 	public void makeSphere(){
