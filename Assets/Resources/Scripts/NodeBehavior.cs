@@ -45,14 +45,4 @@ public class NodeBehavior : MonoBehaviour {
 		//I dont actually need to call Destroy() on myself, because someone already, hence triggered OnDestroy()
 		//Destroy(this.gameObject);
 	}
-
-	
-//	public void createDummyCommitsList(){
-//		commit = new Dictionary<char, List<string>>();
-//		List<string> list = new List<string>();
-//		list.Add("file_one");
-//		list.Add("file_two");
-//		list.Add("file_three");
-//		commit['A'] = list;
-//	}
 }

@@ -28,12 +28,14 @@ public class InstantiateThingsBehavior : MonoBehaviour {
 
 		//Actually setting jimmy's transform as a parent for timmy's transform otherwise they wont move. (Now Timmy is actually Jimmy's kid)
 		timmy.transform.SetParent (jimmy.transform);
+
 	}
 
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
 
 
 
