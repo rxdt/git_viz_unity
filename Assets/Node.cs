@@ -7,7 +7,7 @@ public class Node : MonoBehaviour {
 	public GameObject sphere;
 
 	void Start(){
-//		Invoke("makeSphere", 7);
+		Invoke("makeSphere", 7);
 	}
 
 	public void makeSphere(){
