@@ -12,9 +12,6 @@ public class InstantiateThingsBehavior : MonoBehaviour {
 	public Dictionary<char, List<string>> singleCommit;
 	public JSONObject commitsLog = Parser.parseCommitLog("");
 
-	public List<string> files;
-	public char commitNum;
-	
 	public GameObject NodePrefab; 
 	public List<GameObject> MyKids; 
 
@@ -23,8 +20,7 @@ public class InstantiateThingsBehavior : MonoBehaviour {
 
 	void Start () {
 		Debug.Log ("****************************- - IN MANAGER START() AFTER GET COMMITS- - *********************************");
-		List<char, Dictionary<fileActions, files>>[] commitsLog = commitsLog.Select(files => commitNum).ToArray();
-//		Debug.Log (commitsLog.ToString());
+		Debug.Log (commitsLog.ToString());
 		Debug.Log ("****************************- - - - *********************************");
 		createTree ();
 	}
@@ -40,8 +36,6 @@ public class InstantiateThingsBehavior : MonoBehaviour {
 //			nodeBehavior.myPath = commits[0][i];
 
 			MyKids.Add (node);
-
-
 		}
 
 
