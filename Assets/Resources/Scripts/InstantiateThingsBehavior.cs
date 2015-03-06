@@ -9,8 +9,8 @@ using System.Linq;
 public class InstantiateThingsBehavior : MonoBehaviour {
 	
 	private static Vector3 ROOTLOCATION;
-	public Dictionary<char, List<string>> singleCommit;
-	public JSONObject commitsLog = Parser.parseCommitLog("");
+	public Dictionary<string, List<string>> singleCommit;
+	public List<Dictionary<string, List<string>>> commitsLog = Parser.parseCommitLog("");
 
 	public GameObject NodePrefab; 
 	public List<GameObject> MyKids; 
@@ -19,16 +19,13 @@ public class InstantiateThingsBehavior : MonoBehaviour {
 	Vector3 offset = new Vector3(10, 10, 10); // start = start+offset; inside of commits if new node instantiated after parent
 
 	void Start () {
-		Debug.Log ("****************************- - IN MANAGER START() AFTER GET COMMITS- - *********************************");
-		Debug.Log (commitsLog.ToString());
-		Debug.Log ("****************************- - - - *********************************");
 		createTree ();
 	}
 
 	void createTree(){
 		// for each each commit within the entire commit log i.e. each dictionary in commits do this...
 		for(int i = 0; i < commitsLog.Count; i++){
-			// pull out the commit
+			// pull out one commit
 //			singleCommit = commitsLog[(char)i];
 
 			GameObject node = (GameObject)Instantiate(NodePrefab, start, Quaternion.identity);
