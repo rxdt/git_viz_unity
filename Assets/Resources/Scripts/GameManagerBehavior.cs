@@ -10,10 +10,14 @@ using Newtonsoft.Json.Linq;
 
 public class GameManagerBehavior : MonoBehaviour {
 
-	private const int 			   MAX_NODE_POOL = 1000;
-	public 		  List<GameObject> MyNodePool;
-	public 		  GameObject	   NodePrefab; 
-	public 		  List<GameObject> MyKids; 
+	private const  int 			    MAX_NODE_POOL = 500;
+	public 		   List<GameObject> MyNodePool;
+	public 		   GameObject	    NodePrefab; 
+	public 		   List<GameObject> MyKids; 
+	private static int			    commitNum;
+	private static GameObject		root;
+	public		   string 			filesAction;
+	
 
 	// returns a List of dictinoaries. Each dictionary is one commit with the key a character and the value a list of strings/filnames;
 	List<
@@ -38,27 +42,71 @@ public class GameManagerBehavior : MonoBehaviour {
 		createTree ();
 	}
 
+//	public bool fileLeaf;
+//	public string myPath;
+//	public GameObject parent;
+//	public List<Transform> myKids;
+
 	//check for the first commit (commit[0])
 	//logically build the tree.
 	//place the nodes in the scene using something like PlaceNodeInScene()
 	void createTree(){
 
-		int commitNum = 0;		
-		
-		// 1st for loop gives us an inner dictionary from commits-list
+		commitNum = 0;		
+
+		// Each time through the commits List gives us a dictionary that represents one commit
 		foreach( Dictionary<string, List<string>> d in commits ){
-			
-			// 2nd gets us the key and its associated files list
-			foreach(KeyValuePair<string, List<string>> files in d){
-				
-				// actual list of files to go into innermost list
-				foreach(string file in files.Value){
-					int numFiles = 0;
-					
-					Debug.Log (file);
+			parseSingleCommit(d);
+			commitNum++;
+		}
+	}
+
+	void createNode(Vector3 start, string myPath){
+		GameObject node = (GameObject)Instantiate(NodePrefab, start, Quaternion.identity);
+		NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior> ();
+//		nodeBehavior.myPath = myPath;
+//		nodeBehavior.parent = parent;
+//		MyKids.Add (node);
+	}
+
+	// Gets us the key and its associated files list
+	void parseSingleCommit(Dictionary<string, List<string>> d){
+
+
+		foreach(KeyValuePair<string, List<string>> files in d){
+
+			foreach(string key in d.Keys){
+
+
+
+				switch(key){
+					case "A":
+						Debug.Log ("CASE A");
+
+						// actual list of files to go into innermost list
+						foreach(string file in files.Value){
+							if(commitNum == 0){
+								createNode(ROOTLOCATION, null);
+							}
+							else{
+								int numFiles = 0;
+							}
+						}
+						break;
+					case "D":
+						Debug.Log ("CASE B");
+						break;
+					case "M":
+						Debug.Log ("CASE C");
+						break;
+					default:
+						Debug.Log ("default fell through");
+						break;
 				}
 			}
-			commitNum++; 
+
+
+
 		}
 	}
 

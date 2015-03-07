@@ -15,6 +15,9 @@ public static class NodeMovement {
 		current_node.transform.parent = null;
 		current_node.transform.position = new Vector3(0,0,0);
 	}
+
+
+
 	
 	public static void PlaceNodeInScene(List<GameObject> MyNodePool, Vector3 final_position)
 	{
@@ -25,7 +28,10 @@ public static class NodeMovement {
 		current_node.transform.parent = null;
 		current_node.transform.position = final_position;
 	}
-	
+
+
+
+
 	public static void PlaceNodeBackInPool(List<GameObject> MyNodePool,  GameObject target, GameManagerBehavior GameManager)
 	{
 		NodeBehavior target_behavior = target.GetComponent<NodeBehavior>();
