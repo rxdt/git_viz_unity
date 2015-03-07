@@ -226,9 +226,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 810461707}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 582aca01f386b4f91adae0685ecaae01, type: 3}
+  m_Script: {fileID: 11500000, guid: 8487f8114efbe4d568484a8a6e2fd02e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MyNodePool: []
   NodePrefab: {fileID: 128520, guid: 5a87a233587264d6086f635b7ff27fc8, type: 2}
   MyKids: []
 --- !u!4 &810461709
