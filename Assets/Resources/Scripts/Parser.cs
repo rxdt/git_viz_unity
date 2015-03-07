@@ -7,9 +7,9 @@ using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-
-// parses commits_json_log into a dictionary of dictionaries that is stored in a JSON object
 public static class Parser {
+
+	// parses filename into a dictionary of dictionaries that is stored in a JSON object
 	public static List<Dictionary<string, List<string>>> parseCommitLog(string fileName){
 		try{
 			StreamReader theReader = new StreamReader("/Users/rxdt/commits_json.txt", Encoding.Default);
@@ -21,23 +21,6 @@ public static class Parser {
 					accessData(commitsJson);
 					List<Dictionary<string, List<string>>> commits = JsonConvert.DeserializeObject< List<Dictionary<string, List<string>>> >(json);
 
-					int commitNum = 0;		
-					
-					// 1st for loop gives us an inner dictionary from commits-list
-					foreach( Dictionary<string, List<string>> d in commits ){
-						
-						// 2nd gets us the key and its associated files list
-						foreach(KeyValuePair<string, List<string>> files in d){
-							
-							// actual list of files to go into innermost list
-							foreach(string file in files.Value){
-								int numFiles = 0;
-								
-								Debug.Log (file);
-							}
-						}
-						commitNum++; 
-					}
 					theReader.Close ();
 					return commits;
 				}
@@ -72,35 +55,6 @@ public static class Parser {
 			break;
 		case JSONObject.Type.NULL:
 			break;
-			
 		}
 	}
 }
-
-
-
-
-
-
-//					int i = 0;		
-//
-//					// 1st for loop gives us an inner dictionary from commits-list
-//					foreach( Dictionary<string, List<string>> d in commits ){
-//						Debug.Log ("commit " + i);
-//
-//						// 2nd gets us the key and its associated files list
-//						foreach(KeyValuePair<string, List<string>> files in d){
-//
-//							// actual list of files to go into innermost list
-//							Debug.Log (files.Key);
-//
-//							// actual list of files to go into innermost list
-//							foreach(string file in files.Value){
-//								Debug.Log (file);
-//								if(i == 0){
-//
-//								}
-//							}
-//						}
-//						i++;
-//					}

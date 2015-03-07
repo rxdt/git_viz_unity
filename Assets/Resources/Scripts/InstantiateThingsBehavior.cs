@@ -9,16 +9,16 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 public class InstantiateThingsBehavior : MonoBehaviour {
-	
+	private const int MAX_NODE_POOL = 100;
+	public List<GameObject> MyNodePool;
+
 	private static Vector3 ROOTLOCATION;
-	public Dictionary<string, List<string>> singleCommit;
-	public List<Dictionary<string, List<string>>> commitsLog = Parser.parseCommitLog("");
+	public List<Dictionary<string, List<string>>> commits = Parser.parseCommitLog("");
 
 	public GameObject NodePrefab; 
 	public List<GameObject> MyKids; 
 
-	Vector3 start = new Vector3(0, 0, 0);
-	Vector3 offset = new Vector3(10, 10, 10); // start = start+offset; inside of commits if new node instantiated after parent
+	Vector3 start = new Vector3(0, 0, 0); // center of scene
 
 	void Start () {
 		createTree ();
@@ -28,7 +28,7 @@ public class InstantiateThingsBehavior : MonoBehaviour {
 		int commitNum = 0;		
 		
 		// 1st for loop gives us an inner dictionary from commits-list
-		foreach( Dictionary<string, List<string>> d in commitsLog ){
+		foreach( Dictionary<string, List<string>> d in commits ){
 			
 			// 2nd gets us the key and its associated files list
 			foreach(KeyValuePair<string, List<string>> files in d){
@@ -36,31 +36,46 @@ public class InstantiateThingsBehavior : MonoBehaviour {
 				// actual list of files to go into innermost list
 				foreach(string file in files.Value){
 					int numFiles = 0;
-
-					Debug.Log (file);
-
-					GameObject node = (GameObject)Instantiate(NodePrefab, start, Quaternion.identity); 
-					node.hideFlags = HideFlags.HideInHierarchy;
-					NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior> ();
-					nodeBehavior.myPath = file;
-					MyKids.Add(node);
-
-					if(commitNum == 0){
-						nodeBehavior.parent = null;
-					}
 					
-					bool fileLeaf;
-					if(file.EndsWith("/")){
-						fileLeaf = false;
-					}
-					else{
-						fileLeaf = true;
-					}
+					Debug.Log (file);
 				}
 			}
 			commitNum++; 
 		}
 	}
+
+	float transformChild(int numChildren){
+
+		float angle = 360.0f / numChildren; // separation b/t siblings 
+		float radians = Mathf.Deg2Rad * angle;
+		
+		for (int i = 0; i < numChildren; ++i){
+			Vector3 childPos = new Vector3();
+			childPos.x = Mathf.Cos(i*radians);
+			childPos.z = -Mathf.Sin (i*radians);
+			
+			GameObject n = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+			
+			n.transform.position = childPos * 5;
+			n.transform.position += Vector3.up * 2;
+		}
+
+		return 0;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //
 //		void create(){
 //			GameObject node = (GameObject)Instantiate(NodePrefab, start, Quaternion.identity);
