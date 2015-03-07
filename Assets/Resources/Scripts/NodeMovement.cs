@@ -26,7 +26,7 @@ public static class NodeMovement {
 		current_node.transform.position = final_position;
 	}
 	
-	public static void PlaceNodeBackInPool(List<GameObject> MyNodePool,  GameObject target, InstantiateThingsBehavior GameManager)
+	public static void PlaceNodeBackInPool(List<GameObject> MyNodePool,  GameObject target, GameManagerBehavior GameManager)
 	{
 		NodeBehavior target_behavior = target.GetComponent<NodeBehavior>();
 		foreach(Transform t_kid in target_behavior.myKids)
