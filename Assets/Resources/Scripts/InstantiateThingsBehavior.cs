@@ -15,32 +15,34 @@ public class InstantiateThingsBehavior : MonoBehaviour {
 	public 		  GameObject	   NodePrefab; 
 	public 		  List<GameObject> MyKids; 
 
+	// returns a List of dictinoaries. Each dictionary is one commit with the key a character and the value a list of strings/filnames;
 	List<
 		Dictionary<
 			string, List<string>>> commits = Parser.parseCommitLog("");
 
-	private static Vector3 ROOTLOCATION = new Vector3(0, 0, 0); // center of scene
+	// center of scene
+	private static Vector3 ROOTLOCATION = new Vector3(0, 0, 0); 
+
 
 	void Start () {
 
-		createTree ();
-
+		// creates the pool of 1000 node clones ready for use in the scene as needed
 		for(int count = 0; count < MAX_NODE_POOL; count++)
 		{
-			GameObject current_node = (GameObject)Instantiate(NodePrefab, new Vector3(-1.0f, 0, 0), Quaternion.identity);
-			MyNodePool.Add(current_node);
-			current_node.transform.SetParent(this.transform);
-			current_node.SetActive(false);
-		}
-		
-		//parse the Json
-		//make a structure that contains all the commits separated List(commit0,commit1,...,commitN);
-		//check for the first commit (commit[0])
-		//logically build the tree.
-		//place the nodes in the scene using something like PlaceNodeInScene()
+			GameObject currentNode = (GameObject)Instantiate(NodePrefab, new Vector3(-1.0f, 0, 0), Quaternion.identity);
+			MyNodePool.Add(currentNode);
+			currentNode.transform.SetParent(this.transform);
+			currentNode.SetActive(false);
+		} 
+
+		createTree ();
 	}
 
+	//check for the first commit (commit[0])
+	//logically build the tree.
+	//place the nodes in the scene using something like PlaceNodeInScene()
 	void createTree(){
+
 		int commitNum = 0;		
 		
 		// 1st for loop gives us an inner dictionary from commits-list
@@ -82,10 +84,12 @@ public class InstantiateThingsBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		Vector3 final_position = new Vector3(5, 5, 5);
+
 		//print(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 		if (Input.GetKeyUp ("space"))
 		{
-			NodeMovement.PlaceNodeInScene();
+			NodeMovement.PlaceNodeInScene(MyNodePool, final_position);
 		}
 		else if (Input.GetMouseButtonDown (0))
 		{
@@ -94,7 +98,7 @@ public class InstantiateThingsBehavior : MonoBehaviour {
 			if(Physics.Raycast(ray, out hit, 100.0f) && hit.transform.tag == "Nodes")
 			{
 				print("Hit a node!");
-				NodeMovement.PlaceNodeBackInPool(hit.transform.gameObject);
+				NodeMovement.PlaceNodeBackInPool(MyNodePool, hit.transform.gameObject, this);
 			}
 		}
 		

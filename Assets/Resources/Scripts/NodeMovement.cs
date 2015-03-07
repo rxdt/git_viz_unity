@@ -1,12 +1,14 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 public static class NodeMovement {
 
-	public static void PlaceNodeInScene()
+	public static void PlaceNodeInSceneMyNodePool(List<GameObject> MyNodePool)
 	{
-		print ("Im placing a node in the scene!");
+		Debug.Log ("Im placing a node in the scene!");
 		GameObject current_node = MyNodePool[0];
 		MyNodePool.Remove(current_node);
 		current_node.SetActive(true);
@@ -14,9 +16,9 @@ public static class NodeMovement {
 		current_node.transform.position = new Vector3(0,0,0);
 	}
 	
-	public static void PlaceNodeInScene(Vector3 final_position)
+	public static void PlaceNodeInScene(List<GameObject> MyNodePool, Vector3 final_position)
 	{
-		print ("Im placing a node in the scene!");
+		Debug.Log ("Im placing a node in the scene!");
 		GameObject current_node = MyNodePool[0];
 		MyNodePool.Remove(current_node);
 		current_node.SetActive(true);
@@ -24,17 +26,17 @@ public static class NodeMovement {
 		current_node.transform.position = final_position;
 	}
 	
-	public static void PlaceNodeBackInPool(GameObject target)
+	public static void PlaceNodeBackInPool(List<GameObject> MyNodePool,  GameObject target, InstantiateThingsBehavior GameManager)
 	{
 		NodeBehavior target_behavior = target.GetComponent<NodeBehavior>();
-		foreach(Transform t_kid in target_behavior.my_kids)
+		foreach(Transform t_kid in target_behavior.myKids)
 		{
-			PlaceNodeBackInPool(t_kid.gameObject);
+			PlaceNodeBackInPool(MyNodePool, t_kid.gameObject, GameManager);
 		}
 		
-		print ("Im placing a node back to the pool!");
+		Debug.Log ("Im placing a node back to the pool!");
 		target.SetActive(false);
-		target.transform.SetParent(this.transform);
+		target.transform.SetParent(GameManager.transform);
 		MyNodePool.Add(target);
 	}
 }
