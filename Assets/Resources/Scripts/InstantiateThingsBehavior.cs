@@ -9,19 +9,35 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 public class InstantiateThingsBehavior : MonoBehaviour {
-	private const int MAX_NODE_POOL = 100;
-	public List<GameObject> MyNodePool;
 
-	private static Vector3 ROOTLOCATION;
-	public List<Dictionary<string, List<string>>> commits = Parser.parseCommitLog("");
+	private const int 			   MAX_NODE_POOL = 1000;
+	public 		  List<GameObject> MyNodePool;
+	public 		  GameObject	   NodePrefab; 
+	public 		  List<GameObject> MyKids; 
 
-	public GameObject NodePrefab; 
-	public List<GameObject> MyKids; 
+	List<
+		Dictionary<
+			string, List<string>>> commits = Parser.parseCommitLog("");
 
-	Vector3 start = new Vector3(0, 0, 0); // center of scene
+	private static Vector3 ROOTLOCATION = new Vector3(0, 0, 0); // center of scene
 
 	void Start () {
+
 		createTree ();
+
+		for(int count = 0; count < MAX_NODE_POOL; count++)
+		{
+			GameObject current_node = (GameObject)Instantiate(NodePrefab, new Vector3(-1.0f, 0, 0), Quaternion.identity);
+			MyNodePool.Add(current_node);
+			current_node.transform.SetParent(this.transform);
+			current_node.SetActive(false);
+		}
+		
+		//parse the Json
+		//make a structure that contains all the commits separated List(commit0,commit1,...,commitN);
+		//check for the first commit (commit[0])
+		//logically build the tree.
+		//place the nodes in the scene using something like PlaceNodeInScene()
 	}
 
 	void createTree(){
@@ -63,12 +79,26 @@ public class InstantiateThingsBehavior : MonoBehaviour {
 		return 0;
 	}
 
-
-
-
-
-
-
+	// Update is called once per frame
+	void Update () 
+	{
+		//print(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+		if (Input.GetKeyUp ("space"))
+		{
+			NodeMovement.PlaceNodeInScene();
+		}
+		else if (Input.GetMouseButtonDown (0))
+		{
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+			if(Physics.Raycast(ray, out hit, 100.0f) && hit.transform.tag == "Nodes")
+			{
+				print("Hit a node!");
+				NodeMovement.PlaceNodeBackInPool(hit.transform.gameObject);
+			}
+		}
+		
+	}
 
 
 
