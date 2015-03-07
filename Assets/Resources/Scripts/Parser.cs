@@ -78,14 +78,8 @@ public static class Parser {
 }
 
 
-public class Commits{
-	public Commit commit { get; set; }
-}
 
-public class Commit{
-	public string specificfileAction;
-	public List<string> files;
-}
+
 
 
 //					int i = 0;		
