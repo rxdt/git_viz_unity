@@ -21,25 +21,22 @@ public static class Parser {
 					accessData(commitsJson);
 					List<Dictionary<string, List<string>>> commits = JsonConvert.DeserializeObject< List<Dictionary<string, List<string>>> >(json);
 
-					int i = 0;		
+					int commitNum = 0;		
+					
 					// 1st for loop gives us an inner dictionary from commits-list
 					foreach( Dictionary<string, List<string>> d in commits ){
-						Debug.Log ("commit " + i);
-						// 2nd gets us each list associated with a particular key in the inner dictionary
-//						foreach(List<string> files in d.Values){
+						
 						// 2nd gets us the key and its associated files list
 						foreach(KeyValuePair<string, List<string>> files in d){
-							// actual list of files to go into innermost list
-//							foreach(string file in files){
-							Debug.Log (files.Key);
+							
 							// actual list of files to go into innermost list
 							foreach(string file in files.Value){
+								int numFiles = 0;
+								
 								Debug.Log (file);
-								if(i == 0){
-								}
 							}
 						}
-						i++;
+						commitNum++; 
 					}
 					theReader.Close ();
 					return commits;
@@ -91,4 +88,25 @@ public class Commit{
 }
 
 
-
+//					int i = 0;		
+//
+//					// 1st for loop gives us an inner dictionary from commits-list
+//					foreach( Dictionary<string, List<string>> d in commits ){
+//						Debug.Log ("commit " + i);
+//
+//						// 2nd gets us the key and its associated files list
+//						foreach(KeyValuePair<string, List<string>> files in d){
+//
+//							// actual list of files to go into innermost list
+//							Debug.Log (files.Key);
+//
+//							// actual list of files to go into innermost list
+//							foreach(string file in files.Value){
+//								Debug.Log (file);
+//								if(i == 0){
+//
+//								}
+//							}
+//						}
+//						i++;
+//					}
