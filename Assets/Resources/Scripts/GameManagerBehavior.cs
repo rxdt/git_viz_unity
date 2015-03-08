@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System;
-using System.Linq;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 public class GameManagerBehavior : MonoBehaviour {
 
@@ -47,6 +44,9 @@ public class GameManagerBehavior : MonoBehaviour {
 		createTree ();
 	}
 
+
+
+
 	GameObject createNullRoot(){
 		ROOT = (GameObject)Instantiate(NodePrefab, ROOTLOCATION, Quaternion.identity);
 		parentBehavior = ROOT.GetComponent<NodeBehavior> ();
@@ -61,15 +61,9 @@ public class GameManagerBehavior : MonoBehaviour {
 		return ROOT;
 	}
 
-	// NODEBEHAVIOR ATTRIBUTES
-//	public bool leaf default false;
-//	public string myPath;
-//	public GameObject parent default null;
-//	public List<Transform> myKids;
 
-	//check for the first commit (commit[0])
-	//logically build the tree.
-	//place the nodes in the scene using something like PlaceNodeInScene()
+
+
 	void createTree(){
 
 		// sets global static ROOT game object and rootBehavior
@@ -83,87 +77,94 @@ public class GameManagerBehavior : MonoBehaviour {
 		}
 	}
 
+
+
+
 	void createNode(Vector3 start, string myPath){
-		GameObject node = (GameObject)Instantiate(NodePrefab, start, Quaternion.identity);
-		NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior> ();
+//		GameObject node = (GameObject)Instantiate(NodePrefab, start, Quaternion.identity);
+//		NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior> ();
 //		nodeBehavior.myPath = myPath;
 //		nodeBehavior.parent = parent;
 //		MyKids.Add (node);
 	}
 
+
+
+
 	// Gets us the key and its associated files list
 	void parseSingleCommit(Dictionary<string, List<string>> d){
-
-		// for each key->value pair (letter->fileslist)
-		foreach(KeyValuePair<string, List<string>> files in d){
-
-			// for each key of the key->value pairs
-			foreach(string key in d.Keys){
-
-				// get the list of files associated with this particular key in this particular commit (e.g. the A/Additions in commit no.0)
-				List<string> listToAffect = d[key];
-
-				switch(key){
-
-					case "A":
-						// actual list of files to be Added
-						foreach(string filePath in listToAffect){
-
-							// split the filename string
-							string[] singleFilePathArray = filePath.Split ('/');
 		
-							for(int directoryLevel = 0; directoryLevel < singleFilePathArray.Length; directoryLevel++){
+		// for each key of the key->value pairs
+		foreach(string key in d.Keys){
+//				Debug.Log("Key is; " + key.ToString());
 
-								string pathSubstring = singleFilePathArray[directoryLevel];
+			// get the list of files associated with this particular key in this particular commit (e.g. the A/Additions in commit no.0)
+			List<string> listToAffect = d[key];
 
-								if(!stringExistsAsNode(pathSubstring)){
-									// create node object & get node class
-									GameObject node = NodeMovement.PlaceNodeInSceneMyNodePool(MyNodePool);
-									NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior> ();
-									
-									// accesses parent and adds a reference of the new node as being a child of parent
-									parentBehavior = parent.GetComponent<NodeBehavior> ();
-									parentBehavior.myKids.Add(node.transform);
-									nodeBehavior.parent = parent;
-									nodeBehavior.myPath = singleFilePathArray[directoryLevel];
+			foreach(string str in listToAffect){
+//					Debug.Log ("File: " + str);
+			}
 
-									// Actually setting the parent's transform as the parent of the node's transform. Otherwise they wont move together.
-									node.transform.SetParent (parent.transform);
+			switch(key){
 
-									if(directoryLevel == singleFilePathArray.Length - 1){
-										// filepath has a leaf node at the end i.e. when we're at the end of singleFilePathArray
-										nodeBehavior.leaf = true;
-										// start back at base pseudo-root
-										parent = ROOT;
-										parentBehavior = ROOT.GetComponent<NodeBehavior> ();
-									}
-									else{
-										parent = node;
-										parentBehavior = node.GetComponent<NodeBehavior>();
-									}
+				case "A":
+				Debug.Log ("####\t\t\tCASE 'A'\t\t\t####");
+					// actual list of files to be Added
+					foreach(string filePath in listToAffect){
+
+						// split the filename string
+						string[] singleFilePathArray = filePath.Split ('/');
+	
+						for(int directoryLevel = 0; directoryLevel < singleFilePathArray.Length; directoryLevel++){
+
+							string pathSubstring = singleFilePathArray[directoryLevel];
+
+							if(!stringExistsAsNode(pathSubstring)){
+								// create node object & get node class
+								GameObject node = NodeMovement.PlaceNodeInSceneMyNodePool(MyNodePool);
+								NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior> ();
+								
+								// accesses parent and adds a reference of the new node as being a child of parent
+								parentBehavior = parent.GetComponent<NodeBehavior> ();
+								parentBehavior.myKids.Add(node.transform);
+								nodeBehavior.parent = parent;
+								nodeBehavior.myPath = singleFilePathArray[directoryLevel];
+							Debug.Log(nodeBehavior.myPath);
+								// Actually setting the parent's transform as the parent of the node's transform. Otherwise they wont move together.
+								node.transform.SetParent (parent.transform);
+
+								if(directoryLevel == singleFilePathArray.Length - 1){
+									// filepath has a leaf node at the end i.e. when we're at the end of singleFilePathArray
+									nodeBehavior.leaf = true;
+									// start back at base pseudo-root
+									parent = ROOT;
+									parentBehavior = ROOT.GetComponent<NodeBehavior> ();
+								}
+								else{
+									parent = node;
+									parentBehavior = node.GetComponent<NodeBehavior>();
 								}
 							}
 						}
-						break;
+					}
+					break;
 
-					case "D":
+				case "D":
 //						NodeMovement.PlaceNodeBackInPool(MyNodePool, getNode(), this);
-						break;
+					break;
 
-					case "M":
-						NodeMovement.showModificationEffect(getNode());
-						break;
+				case "M":
+					//NodeMovement.showModificationEffect(getNode());
+					break;
 
-					default:
-						break;
-				}
+				default:
+					break;
 			}
 		}
 	}
 
-	GameObject getNode(){
-		return null;
-	}
+
+
 
 	bool stringExistsAsNode(string baseOfString){
 
@@ -178,6 +179,9 @@ public class GameManagerBehavior : MonoBehaviour {
 
 		return false; 
 	}
+
+
+
 
 	float transformChild(int numChildren){
 
@@ -197,6 +201,9 @@ public class GameManagerBehavior : MonoBehaviour {
 
 		return 0;
 	}
+
+
+
 
 	// Update is called once per frame
 	void Update () 
@@ -220,47 +227,6 @@ public class GameManagerBehavior : MonoBehaviour {
 		}
 		
 	}
-
-
-
-
-//
-//	GameObject parent = (GameObject)Instantiate(NodePrefab, new Vector3(-1.0f, 0, 0), Quaternion.identity);
-//	GameObject child = (GameObject)Instantiate(NodePrefab, new Vector3(-1.0f, 0, 0), Quaternion.identity);
-//
-//	NodeBehavior parent_behavior = jimmy.GetComponent<NodeBehavior> ();
-//	parent_behavior.myKids.Add (child.transform);
-//	timmy.transform.SetParent (parent.transform);
-	
-//
-//		void create(){
-//			GameObject node = (GameObject)Instantiate(NodePrefab, start, Quaternion.identity);
-//			NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior> ();
-//			nodeBehavior.myPath = "";
-//			MyKids.Add (node);
-//
-//		//Instantiate a Node from NodePrefab var; 
-//		GameObject jimmy = (GameObject)Instantiate(NodePrefab, new Vector3(-1.0f, 0, 0), Quaternion.identity);
-//
-//		//Keeping the gameobject reference from Jimmy for later use
-//		MyKids.Add (jimmy);
-//
-//		//Instantiate a Bananas from SquarePrefab var;	
-//		GameObject timmy = (GameObject)Instantiate(NodePrefab, new Vector3(0, 1.0f, 0), Quaternion.identity);
-//
-//		//Keeping the gameobject reference from Timmy for later use
-//		MyKids.Add (timmy);
-//		
-//		//Accessing Jimmy NodeBehavior component because that's where his children list will be.
-//		NodeBehavior j_behavior = jimmy.GetComponent<NodeBehavior> ();
-//		
-//		//Adding timmy as child to jimmy's kids (var my_kids) (Note that Im just keeping their references, not actually setting them as kids)
-//		j_behavior.myKids.Add (timmy.transform);
-//		
-//		//Actually setting jimmy's transform as a parent for timmy's transform otherwise they wont move. (Now Timmy is actually Jimmy's kid)
-//		timmy.transform.SetParent (jimmy.transform);
-//
-//	}
 
 
 

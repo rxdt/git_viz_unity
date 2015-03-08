@@ -8,7 +8,7 @@ public static class NodeMovement {
 
 	public static GameObject PlaceNodeInSceneMyNodePool(List<GameObject> MyNodePool)
 	{
-//		Debug.Log ("Im placing a node in the scene!");
+		Debug.Log ("Im placing a node in the scene!");
 		GameObject currentNode = MyNodePool[0];
 		MyNodePool.Remove(currentNode);
 		currentNode.SetActive(true);
