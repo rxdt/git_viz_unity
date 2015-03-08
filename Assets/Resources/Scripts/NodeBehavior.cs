@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 public class NodeBehavior : MonoBehaviour {
 
-	public bool fileLeaf;
-	public string myPath;
-	public GameObject parent;
+	public bool fileLeaf = false;
+	public string myPath = null;
+	public GameObject parent = null;
 	public List<Transform> myKids;
 	
 }

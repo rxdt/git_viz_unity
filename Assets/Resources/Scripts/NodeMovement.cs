@@ -9,40 +9,51 @@ public static class NodeMovement {
 	public static void PlaceNodeInSceneMyNodePool(List<GameObject> MyNodePool)
 	{
 		Debug.Log ("Im placing a node in the scene!");
-		GameObject current_node = MyNodePool[0];
-		MyNodePool.Remove(current_node);
-		current_node.SetActive(true);
-		current_node.transform.parent = null;
-		current_node.transform.position = new Vector3(0,0,0);
+		GameObject currentNode = MyNodePool[0];
+		MyNodePool.Remove(currentNode);
+		currentNode.SetActive(true);
+		currentNode.transform.parent = null;
+		currentNode.transform.position = new Vector3(0,0,0);
 	}
 
 
 
 	
-	public static void PlaceNodeInScene(List<GameObject> MyNodePool, Vector3 final_position)
+	public static void PlaceNodeInScene(List<GameObject> MyNodePool, Vector3 finalPosition)
 	{
 		Debug.Log ("Im placing a node in the scene!");
-		GameObject current_node = MyNodePool[0];
-		MyNodePool.Remove(current_node);
-		current_node.SetActive(true);
-		current_node.transform.parent = null;
-		current_node.transform.position = final_position;
+		GameObject currentNode = MyNodePool[0];
+		MyNodePool.Remove(currentNode);
+		currentNode.SetActive(true);
+		currentNode.transform.parent = null;
+		currentNode.transform.position = finalPosition;
 	}
 
 
 
 
-	public static void PlaceNodeBackInPool(List<GameObject> MyNodePool,  GameObject target, GameManagerBehavior GameManager)
+	public static void PlaceNodeBackInPool(List<GameObject> MyNodePool,  GameObject node, GameManagerBehavior GameManager)
 	{
-		NodeBehavior target_behavior = target.GetComponent<NodeBehavior>();
-		foreach(Transform t_kid in target_behavior.myKids)
+		NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior>();
+		foreach(Transform nodeChildren in nodeBehavior.myKids)
 		{
-			PlaceNodeBackInPool(MyNodePool, t_kid.gameObject, GameManager);
+			PlaceNodeBackInPool(MyNodePool, nodeChildren.gameObject, GameManager);
 		}
 		
 		Debug.Log ("Im placing a node back to the pool!");
-		target.SetActive(false);
-		target.transform.SetParent(GameManager.transform);
-		MyNodePool.Add(target);
+		node.SetActive(false);
+		node.transform.SetParent(GameManager.transform);
+		MyNodePool.Add(node);
 	}
+
+
+
+
+	public static void showModificationEffect(GameObject node){}
 }
+
+
+
+
+
+

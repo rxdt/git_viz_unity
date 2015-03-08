@@ -10,26 +10,28 @@ using Newtonsoft.Json.Linq;
 
 public class GameManagerBehavior : MonoBehaviour {
 
-	private const  int 			    MAX_NODE_POOL = 500;
-	public 		   List<GameObject> MyNodePool;
-	public 		   GameObject	    NodePrefab; 
-	public 		   List<GameObject> MyKids; 
-	private static int			    commitNum;
-	private static GameObject		root;
-	public		   string 			filesAction;
-	
+	private const  	int 			    MAX_NODE_POOL = 500;
+	public 		   	List<GameObject>  	MyNodePool;
+	public 		   	GameObject	    	NodePrefab; 
+	public 		   	List<GameObject> 	MyKids; 
+	private static 	int			    	commitNum;
+	private static 	GameObject			root;
+	public		   	string 				filesAction;
+	private			GameObject			parent;
 
 	// returns a List of dictinoaries. Each dictionary is one commit with the key a character and the value a list of strings/filnames;
 	List<
 		Dictionary<
 			string, List<string>>> commits = Parser.parseCommitLog("");
 
-	// center of scene
-	private static Vector3 ROOTLOCATION = new Vector3(0, 0, 0); 
+	// off-center of the scene and right below the terrain surface
+	private static Vector3 ROOTLOCATION = new Vector3(0, -2, 53); 
 
+	// the pseudo-root never changes
+	private static GameObject ROOT; 
+	private static NodeBehavior rootBehavior ;
 
 	void Start () {
-
 		// creates the pool of 1000 node clones ready for use in the scene as needed
 		for(int count = 0; count < MAX_NODE_POOL; count++)
 		{
@@ -38,10 +40,18 @@ public class GameManagerBehavior : MonoBehaviour {
 			currentNode.transform.SetParent(this.transform);
 			currentNode.SetActive(false);
 		} 
-
 		createTree ();
 	}
 
+	GameObject createNullRoot(){
+		ROOT = (GameObject)Instantiate(NodePrefab, ROOTLOCATION, Quaternion.identity);
+		rootBehavior = ROOT.GetComponent<NodeBehavior> ();
+		// root's parent is the game manager which is at 0,0,0 the center of world
+		rootBehavior.transform.SetParent(this.transform); 
+		return ROOT;
+	}
+
+	// NODEBEHAVIOR ATTRIBUTES
 //	public bool fileLeaf;
 //	public string myPath;
 //	public GameObject parent;
@@ -51,7 +61,7 @@ public class GameManagerBehavior : MonoBehaviour {
 	//logically build the tree.
 	//place the nodes in the scene using something like PlaceNodeInScene()
 	void createTree(){
-
+		parent = createNullRoot();
 		commitNum = 0;		
 
 		// Each time through the commits List gives us a dictionary that represents one commit
@@ -72,47 +82,65 @@ public class GameManagerBehavior : MonoBehaviour {
 	// Gets us the key and its associated files list
 	void parseSingleCommit(Dictionary<string, List<string>> d){
 
-
+		// for each key->value pair (letter->fileslist)
 		foreach(KeyValuePair<string, List<string>> files in d){
 
+			// for each key of the key->value pairs
 			foreach(string key in d.Keys){
 
-
+				// get the list of files associated with this particular key in this particular commit (e.g. the A/Additions in commit no.0)
+				List<string> listToAffect = d[key];
 
 				switch(key){
 					case "A":
-						Debug.Log ("CASE A");
-
 						// actual list of files to go into innermost list
-						foreach(string file in files.Value){
-							if(commitNum == 0){
-								createNode(ROOTLOCATION, null);
-							}
-							else{
-								int numFiles = 0;
+						foreach(string filePath in listToAffect){
+
+							// split the filename string
+							string[] singleFilePathArray = filePath.Split ('/');
+	
+						for(int i = 0; i < singleFilePathArray.Length; i++){
+
+								string baseOfString = singleFilePathArray[0];
+								
+								if(!stringExistsAsNode(baseOfString)){
+									
+									// createNode object
+									// set node behavior
+									// filepath is a fileleaf node
+									// set its parent 
+									// add it to its parent's children
+								}
 							}
 						}
 						break;
+
 					case "D":
-						Debug.Log ("CASE B");
+//						NodeMovement.PlaceNodeBackInPool(MyNodePool, getNode(), this);
 						break;
+
 					case "M":
-						Debug.Log ("CASE C");
+						NodeMovement.showModificationEffect(getNode());
 						break;
+
 					default:
-						Debug.Log ("default fell through");
 						break;
 				}
 			}
-
-
-
 		}
+	}
+
+	GameObject getNode(){
+		return null;
+	}
+
+	bool stringExistsAsNode(string baseOfString){
+		return false; // 
 	}
 
 	float transformChild(int numChildren){
 
-		float angle = 360.0f / numChildren; // separation b/t siblings 
+		float angle = 360.0f / numChildren; // separation b/t siblings around a unit circle
 		float radians = Mathf.Deg2Rad * angle;
 		
 		for (int i = 0; i < numChildren; ++i){
