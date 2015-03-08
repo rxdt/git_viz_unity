@@ -11,17 +11,15 @@ using Newtonsoft.Json.Linq;
 public class GameManagerBehavior : MonoBehaviour {
 
 	private const  	int 			    MAX_NODE_POOL = 500;
-	public 		   	List<GameObject>  	MyNodePool;
-	public 		   	GameObject	    	NodePrefab; 
-	public 		   	List<GameObject> 	MyKids; 
 	private static 	int			    	commitNum;
-	private static 	GameObject			root;
-	public		   	string 				filesAction;
-	private			GameObject			parent;
+	public 		   	List<GameObject>  	MyNodePool;
+	public 		   	List<GameObject> 	MyKids; 
+	public 		   	GameObject	    	NodePrefab; 
 
 	// The pseudo-root never changes.
-	private static 	GameObject 			ROOT; 
 	private static 	NodeBehavior 		rootBehavior;
+	private static 	GameObject 			ROOT; 
+	private			GameObject			parent 		 = createNullRoot();
 
 	// Off-center of scene center and below terrain surface is the tree's pseudo-root. 
 	// Position is relative to parent GameManager as set in createNullRoot()
@@ -110,9 +108,9 @@ public class GameManagerBehavior : MonoBehaviour {
 							// split the filename string
 							string[] singleFilePathArray = filePath.Split ('/');
 		
-							for(int i = 0; i < singleFilePathArray.Length; i++){
+							for(int directoryLevels = 0; directoryLevels < singleFilePathArray.Length; directoryLevels++){
 
-								string pathSubstring = singleFilePathArray[i];
+								string pathSubstring = singleFilePathArray[directoryLevels];
 
 								if(!stringExistsAsNode(pathSubstring)){
 									// create node object
@@ -139,7 +137,7 @@ public class GameManagerBehavior : MonoBehaviour {
 									// Actually setting the parent's transform as the parent of the node's transform. Otherwise they wont move together.
 									node.transform.SetParent (parent.transform);
 
-									if(i == singleFilePathArray.Length - 1){
+									if(directoryLevels == singleFilePathArray.Length - 1){
 										// filepath has a leaf node at the end i.e. when we're at the end of singleFilePathArray
 										nodeBehavior.leaf = true;
 										// start back at base pseudo-root
