@@ -125,7 +125,7 @@ public class GameManagerBehavior : MonoBehaviour {
 									parentBehavior = parent.GetComponent<NodeBehavior> ();
 									parentBehavior.myKids.Add(node.transform);
 									nodeBehavior.parent = parent;
-//									nodeBehavior.parentName = parentBehavior.myPath;
+									nodeBehavior.myPath = singleFilePathArray[directoryLevel];
 
 									// Actually setting the parent's transform as the parent of the node's transform. Otherwise they wont move together.
 									node.transform.SetParent (parent.transform);
