@@ -17,9 +17,9 @@ public class GameManagerBehavior : MonoBehaviour {
 	public 		   	GameObject	    	NodePrefab; 
 
 	// The pseudo-root never changes.
-	private static 	NodeBehavior 		rootBehavior;
+	private static 	NodeBehavior 		parentBehavior;
 	private static 	GameObject 			ROOT; 
-	private			GameObject			parent 		 = createNullRoot();
+	private			GameObject			parent;
 
 	// Off-center of scene center and below terrain surface is the tree's pseudo-root. 
 	// Position is relative to parent GameManager as set in createNullRoot()
@@ -49,10 +49,14 @@ public class GameManagerBehavior : MonoBehaviour {
 
 	GameObject createNullRoot(){
 		ROOT = (GameObject)Instantiate(NodePrefab, ROOTLOCATION, Quaternion.identity);
-		rootBehavior = ROOT.GetComponent<NodeBehavior> ();
+		parentBehavior = ROOT.GetComponent<NodeBehavior> ();
 
 		// root's parent is the game manager which is at 0,0,0 the center of world
-		rootBehavior.transform.SetParent(this.transform); 
+		parentBehavior.transform.SetParent(this.transform); 
+
+		// the first 'parent' is the ROOT
+		parent = ROOT;
+		parentBehavior.myPath = "ROOT";
 
 		return ROOT;
 	}
@@ -108,43 +112,34 @@ public class GameManagerBehavior : MonoBehaviour {
 							// split the filename string
 							string[] singleFilePathArray = filePath.Split ('/');
 		
-							for(int directoryLevels = 0; directoryLevels < singleFilePathArray.Length; directoryLevels++){
+							for(int directoryLevel = 0; directoryLevel < singleFilePathArray.Length; directoryLevel++){
 
-								string pathSubstring = singleFilePathArray[directoryLevels];
+								string pathSubstring = singleFilePathArray[directoryLevel];
 
 								if(!stringExistsAsNode(pathSubstring)){
-									// create node object
+									// create node object & get node class
 									GameObject node = NodeMovement.PlaceNodeInSceneMyNodePool(MyNodePool);
-									
-									// sets node behavior
 									NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior> ();
-
-									// sets its parent 
-									nodeBehavior.parent = parent;
 									
-									// adds GameObject reference to GameManager MyKids list for future use
-									MyKids.Add(node); 
-
-									if(commitNum == 0){
-										rootBehavior.myKids.Add(node.transform);
-									}	
-									else{
-										// accesses parent and adds a reference of the new node as being a child of parent
-										NodeBehavior parentBehavior = node.GetComponent<NodeBehavior> ();
-										parentBehavior.myKids.Add (node.transform);
-									}
+									// accesses parent and adds a reference of the new node as being a child of parent
+									parentBehavior = parent.GetComponent<NodeBehavior> ();
+									parentBehavior.myKids.Add(node.transform);
+									nodeBehavior.parent = parent;
+//									nodeBehavior.parentName = parentBehavior.myPath;
 
 									// Actually setting the parent's transform as the parent of the node's transform. Otherwise they wont move together.
 									node.transform.SetParent (parent.transform);
 
-									if(directoryLevels == singleFilePathArray.Length - 1){
+									if(directoryLevel == singleFilePathArray.Length - 1){
 										// filepath has a leaf node at the end i.e. when we're at the end of singleFilePathArray
 										nodeBehavior.leaf = true;
 										// start back at base pseudo-root
 										parent = ROOT;
+										parentBehavior = ROOT.GetComponent<NodeBehavior> ();
 									}
 									else{
-										parent = nodeBehavior.parent;
+										parent = node;
+										parentBehavior = node.GetComponent<NodeBehavior>();
 									}
 								}
 							}
@@ -229,9 +224,14 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 
-
-
-
+//
+//	GameObject parent = (GameObject)Instantiate(NodePrefab, new Vector3(-1.0f, 0, 0), Quaternion.identity);
+//	GameObject child = (GameObject)Instantiate(NodePrefab, new Vector3(-1.0f, 0, 0), Quaternion.identity);
+//
+//	NodeBehavior parent_behavior = jimmy.GetComponent<NodeBehavior> ();
+//	parent_behavior.myKids.Add (child.transform);
+//	timmy.transform.SetParent (parent.transform);
+	
 //
 //		void create(){
 //			GameObject node = (GameObject)Instantiate(NodePrefab, start, Quaternion.identity);
