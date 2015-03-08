@@ -21,7 +21,6 @@ public class GameManagerBehavior : MonoBehaviour {
 	// Off-center of scene center and below terrain surface is the tree's pseudo-root. 
 	// Position is relative to parent GameManager as set in createNullRoot()
 	private static  Vector3 			ROOTLOCATION = new Vector3(0, -2, 53); 
-	private 		Queue 				bfsQueue 	 = new Queue();
 
 	// Returns a List of dictinoaries. 
 	// Each dictionary is one commit with the key a character and the value as a list of strings/filnames.
@@ -108,7 +107,7 @@ public class GameManagerBehavior : MonoBehaviour {
 			switch(key){
 
 				case "A":
-				Debug.Log ("####\t\t\tCASE 'A'\t\t\t####");
+//				Debug.Log ("####\t\t\tCASE 'A'\t\t\t####");
 					// actual list of files to be Added
 					foreach(string filePath in listToAffect){
 
@@ -119,19 +118,25 @@ public class GameManagerBehavior : MonoBehaviour {
 
 							string pathSubstring = singleFilePathArray[directoryLevel];
 
-							if(!stringExistsAsNode(pathSubstring)){
+							if(!NodeMovement.stringExistsAsNode(pathSubstring, ROOT)){
+
 								// create node object & get node class
 								GameObject node = NodeMovement.PlaceNodeInSceneMyNodePool(MyNodePool);
 								NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior> ();
 								
+
 								// accesses parent and adds a reference of the new node as being a child of parent
 								parentBehavior = parent.GetComponent<NodeBehavior> ();
 								parentBehavior.myKids.Add(node.transform);
+
 								nodeBehavior.parent = parent;
 								nodeBehavior.myPath = singleFilePathArray[directoryLevel];
-							Debug.Log(nodeBehavior.myPath);
+								parentBehavior.kidNames.Add (nodeBehavior.myPath);
+							                             
+
 								// Actually setting the parent's transform as the parent of the node's transform. Otherwise they wont move together.
 								node.transform.SetParent (parent.transform);
+
 
 								if(directoryLevel == singleFilePathArray.Length - 1){
 									// filepath has a leaf node at the end i.e. when we're at the end of singleFilePathArray
@@ -161,23 +166,6 @@ public class GameManagerBehavior : MonoBehaviour {
 					break;
 			}
 		}
-	}
-
-
-
-
-	bool stringExistsAsNode(string baseOfString){
-
-//		foreach(NodeBehavior child in rootBehavior){
-//
-//		}
-//
-//		if(ROOT.child.pathname != baseOfString){
-//			bfsQueue.push(node);
-//			node.visited = true;
-//		}
-
-		return false; 
 	}
 
 

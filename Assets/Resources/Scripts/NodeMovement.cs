@@ -8,7 +8,7 @@ public static class NodeMovement {
 
 	public static GameObject PlaceNodeInSceneMyNodePool(List<GameObject> MyNodePool)
 	{
-		Debug.Log ("Im placing a node in the scene!");
+//		Debug.Log ("Im placing a node in the scene!");
 		GameObject currentNode = MyNodePool[0];
 		MyNodePool.Remove(currentNode);
 		currentNode.SetActive(true);
@@ -46,6 +46,35 @@ public static class NodeMovement {
 		node.SetActive(false);
 		node.transform.SetParent(GameManager.transform);
 		MyNodePool.Add(node);
+	}
+
+
+
+
+	public static bool stringExistsAsNode(string pathSubstringToFind, GameObject ROOT){
+		Queue bfsQueue = new Queue();
+		NodeBehavior rootBehavior = ROOT.GetComponent<NodeBehavior> ();
+		
+		rootBehavior.visited = true;
+		
+		bfsQueue.Enqueue(rootBehavior.kidNames);
+
+		while(bfsQueue.Count > 0){
+			List<string> kidNamesList = (List<string>)bfsQueue.Dequeue();
+		
+			foreach(string kidName in kidNamesList){
+
+				if(kidName.parent.visited == false){
+					string str = n.myPath;
+					if(str == pathSubstringToFind){
+						return true;
+					}
+					n.visited = true;
+					//	bfsQueue.Enqueue(kidName.parent.GetComponent<NodeBehavior>);
+				}
+			}
+		}
+		return false; 
 	}
 
 
