@@ -19,23 +19,29 @@ public class GameManagerBehavior : MonoBehaviour {
 	public		   	string 				filesAction;
 	private			GameObject			parent;
 
-	// returns a List of dictinoaries. Each dictionary is one commit with the key a character and the value a list of strings/filnames;
+	// The pseudo-root never changes.
+	private static 	GameObject 			ROOT; 
+	private static 	NodeBehavior 		rootBehavior;
+
+	// Off-center of scene center and below terrain surface is the tree's pseudo-root. 
+	// Position is relative to parent GameManager as set in createNullRoot()
+	private static  Vector3 			ROOTLOCATION = new Vector3(0, -2, 53); 
+	private 		Queue 				bfsQueue 	 = new Queue();
+
+	// Returns a List of dictinoaries. 
+	// Each dictionary is one commit with the key a character and the value as a list of strings/filnames.
 	List<
 		Dictionary<
-			string, List<string>>> commits = Parser.parseCommitLog("");
+			string, List<string>>> 		commits = Parser.parseCommitLog("");
 
-	// off-center of the scene and right below the terrain surface
-	private static Vector3 ROOTLOCATION = new Vector3(0, -2, 53); 
 
-	// the pseudo-root never changes
-	private static GameObject ROOT; 
-	private static NodeBehavior rootBehavior ;
+
 
 	void Start () {
-		// creates the pool of 1000 node clones ready for use in the scene as needed
+		// creates the pool of 500 node clones ready for use in the scene as needed
 		for(int count = 0; count < MAX_NODE_POOL; count++)
 		{
-			GameObject currentNode = (GameObject)Instantiate(NodePrefab, new Vector3(-1.0f, 0, 0), Quaternion.identity);
+			GameObject currentNode = (GameObject)Instantiate(NodePrefab, new Vector3(0, 0, 0), Quaternion.identity);
 			MyNodePool.Add(currentNode);
 			currentNode.transform.SetParent(this.transform);
 			currentNode.SetActive(false);
@@ -46,22 +52,26 @@ public class GameManagerBehavior : MonoBehaviour {
 	GameObject createNullRoot(){
 		ROOT = (GameObject)Instantiate(NodePrefab, ROOTLOCATION, Quaternion.identity);
 		rootBehavior = ROOT.GetComponent<NodeBehavior> ();
+
 		// root's parent is the game manager which is at 0,0,0 the center of world
 		rootBehavior.transform.SetParent(this.transform); 
+
 		return ROOT;
 	}
 
 	// NODEBEHAVIOR ATTRIBUTES
-//	public bool fileLeaf;
+//	public bool leaf default false;
 //	public string myPath;
-//	public GameObject parent;
+//	public GameObject parent default null;
 //	public List<Transform> myKids;
 
 	//check for the first commit (commit[0])
 	//logically build the tree.
 	//place the nodes in the scene using something like PlaceNodeInScene()
 	void createTree(){
-		parent = createNullRoot();
+
+		// sets global static ROOT game object and rootBehavior
+		createNullRoot(); 
 		commitNum = 0;		
 
 		// Each time through the commits List gives us a dictionary that represents one commit
@@ -92,24 +102,52 @@ public class GameManagerBehavior : MonoBehaviour {
 				List<string> listToAffect = d[key];
 
 				switch(key){
+
 					case "A":
-						// actual list of files to go into innermost list
+						// actual list of files to be Added
 						foreach(string filePath in listToAffect){
 
 							// split the filename string
 							string[] singleFilePathArray = filePath.Split ('/');
-	
-						for(int i = 0; i < singleFilePathArray.Length; i++){
+		
+							for(int i = 0; i < singleFilePathArray.Length; i++){
 
-								string baseOfString = singleFilePathArray[0];
-								
-								if(!stringExistsAsNode(baseOfString)){
+								string pathSubstring = singleFilePathArray[i];
+
+								if(!stringExistsAsNode(pathSubstring)){
+									// create node object
+									GameObject node = NodeMovement.PlaceNodeInSceneMyNodePool(MyNodePool);
 									
-									// createNode object
-									// set node behavior
-									// filepath is a fileleaf node
-									// set its parent 
-									// add it to its parent's children
+									// sets node behavior
+									NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior> ();
+
+									// sets its parent 
+									nodeBehavior.parent = parent;
+									
+									// adds GameObject reference to GameManager MyKids list for future use
+									MyKids.Add(node); 
+
+									if(commitNum == 0){
+										rootBehavior.myKids.Add(node.transform);
+									}	
+									else{
+										// accesses parent and adds a reference of the new node as being a child of parent
+										NodeBehavior parentBehavior = node.GetComponent<NodeBehavior> ();
+										parentBehavior.myKids.Add (node.transform);
+									}
+
+									// Actually setting the parent's transform as the parent of the node's transform. Otherwise they wont move together.
+									node.transform.SetParent (parent.transform);
+
+									if(i == singleFilePathArray.Length - 1){
+										// filepath has a leaf node at the end i.e. when we're at the end of singleFilePathArray
+										nodeBehavior.leaf = true;
+										// start back at base pseudo-root
+										parent = ROOT;
+									}
+									else{
+										parent = nodeBehavior.parent;
+									}
 								}
 							}
 						}
@@ -135,7 +173,17 @@ public class GameManagerBehavior : MonoBehaviour {
 	}
 
 	bool stringExistsAsNode(string baseOfString){
-		return false; // 
+
+//		foreach(NodeBehavior child in rootBehavior){
+//
+//		}
+//
+//		if(ROOT.child.pathname != baseOfString){
+//			bfsQueue.push(node);
+//			node.visited = true;
+//		}
+
+		return false; 
 	}
 
 	float transformChild(int numChildren){

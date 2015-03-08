@@ -6,27 +6,29 @@ using System.Text;
 
 public static class NodeMovement {
 
-	public static void PlaceNodeInSceneMyNodePool(List<GameObject> MyNodePool)
+	public static GameObject PlaceNodeInSceneMyNodePool(List<GameObject> MyNodePool)
 	{
-		Debug.Log ("Im placing a node in the scene!");
+//		Debug.Log ("Im placing a node in the scene!");
 		GameObject currentNode = MyNodePool[0];
 		MyNodePool.Remove(currentNode);
 		currentNode.SetActive(true);
 		currentNode.transform.parent = null;
 		currentNode.transform.position = new Vector3(0,0,0);
+		return currentNode;
 	}
 
 
 
 	
-	public static void PlaceNodeInScene(List<GameObject> MyNodePool, Vector3 finalPosition)
+	public static GameObject PlaceNodeInScene(List<GameObject> MyNodePool, Vector3 finalPosition)
 	{
-		Debug.Log ("Im placing a node in the scene!");
+//		Debug.Log ("Im placing a node in the scene!");
 		GameObject currentNode = MyNodePool[0];
 		MyNodePool.Remove(currentNode);
 		currentNode.SetActive(true);
 		currentNode.transform.parent = null;
 		currentNode.transform.position = finalPosition;
+		return currentNode;
 	}
 
 
@@ -40,7 +42,7 @@ public static class NodeMovement {
 			PlaceNodeBackInPool(MyNodePool, nodeChildren.gameObject, GameManager);
 		}
 		
-		Debug.Log ("Im placing a node back to the pool!");
+//		Debug.Log ("Im placing a node back to the pool!");
 		node.SetActive(false);
 		node.transform.SetParent(GameManager.transform);
 		MyNodePool.Add(node);
