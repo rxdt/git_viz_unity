@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class NodeBehavior : MonoBehaviour {
 
-	public 		bool 			visited 	= false;
 	public 		bool 			leaf 		= false;
 
 	public 		string 			myPath 		= null;
@@ -12,8 +11,9 @@ public class NodeBehavior : MonoBehaviour {
 	
 	public 		GameObject 		parent 		= null;
 
-	// may make these into one dictionary later:
 	public 		List<Transform> myKids;
-	public 		List<string> 	kidNames;
 
+	public string GetNodeFilepath(){
+		return this.myPath;
+	}
 }

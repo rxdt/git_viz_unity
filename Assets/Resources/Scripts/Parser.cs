@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 public static class Parser {
 
 	// parses filename into a dictionary of dictionaries that is stored in a JSON object
-	public static List<Dictionary<string, List<string>>> parseCommitLog(string fileName){
+	public static List<Dictionary<char, List<string>>> parseCommitLog(string fileName){
 		try{
 			StreamReader theReader = new StreamReader("/Users/rxdt/commits_json.txt", Encoding.Default);
 			string json = theReader.ReadToEnd();
@@ -19,9 +19,9 @@ public static class Parser {
 				if(json != null){
 					JSONObject commitsJson = new JSONObject(json); // creates a dictionary of dictionaries
 					accessData(commitsJson);
-					List<Dictionary<string, List<string>>> commits = JsonConvert.DeserializeObject< List<Dictionary<string, List<string>>> >(json);
+					List<Dictionary<char, List<string>>> commits = JsonConvert.DeserializeObject< List<Dictionary<char, List<string>>> >(json);
 
-					theReader.Close ();
+					theReader.Close (); Debug.Log(commits.ToString());
 					return commits;
 				}
 			}
@@ -37,7 +37,7 @@ public static class Parser {
 		switch(obj.type){
 		case JSONObject.Type.OBJECT:
 			for(int i = 0; i < obj.list.Count; i++){
-				string key = (string)obj.keys[i];
+				char key = (obj.keys[i])[0];
 				JSONObject j = (JSONObject)obj.list[i];
 				accessData(j);
 			}

@@ -18,15 +18,15 @@ public class GameManagerBehavior : MonoBehaviour {
 	private static 	GameObject 			ROOT; 
 	private			GameObject			parent;
 
-	// Off-center of scene center and below terrain surface is the tree's pseudo-root. 
-	// Position is relative to parent GameManager as set in createNullRoot()
+	// Off-center of scene-center(0,0,0) and just below the terrain surface is the tree's pseudo-root. 
+	// Pseudo-root position is relative to parent GameManager (pseudo-root position set in createNullRoot())
 	private static  Vector3 			ROOTLOCATION = new Vector3(0, -2, 53); 
 
 	// Returns a List of dictinoaries. 
-	// Each dictionary is one commit with the key a character and the value as a list of strings/filnames.
+	// Each dictionary is one commit. Key is a string. Value as a list of strings/filnames.
 	List<
 		Dictionary<
-			string, List<string>>> 		commits = Parser.parseCommitLog("");
+			char, List<string>>> 		commits = Parser.parseCommitLog("");
 
 
 
@@ -70,7 +70,7 @@ public class GameManagerBehavior : MonoBehaviour {
 		commitNum = 0;		
 
 		// Each time through the commits List gives us a dictionary that represents one commit
-		foreach( Dictionary<string, List<string>> d in commits ){
+		foreach( Dictionary<char, List<string>> d in commits ){
 			parseSingleCommit(d);
 			commitNum++;
 		}
@@ -91,11 +91,10 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 	// Gets us the key and its associated files list
-	void parseSingleCommit(Dictionary<string, List<string>> d){
+	void parseSingleCommit(Dictionary<char, List<string>> d){
 		
 		// for each key of the key->value pairs
-		foreach(string key in d.Keys){
-//				Debug.Log("Key is; " + key.ToString());
+		foreach(char key in d.Keys){
 
 			// get the list of files associated with this particular key in this particular commit (e.g. the A/Additions in commit no.0)
 			List<string> listToAffect = d[key];
@@ -106,7 +105,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 			switch(key){
 
-				case "A":
+				case 'A':
 
 					// actual list of files to be Added
 					foreach(string filePath in listToAffect){
@@ -132,12 +131,7 @@ public class GameManagerBehavior : MonoBehaviour {
 								parentBehavior = parent.GetComponent<NodeBehavior> ();
 								parentBehavior.myKids.Add(node.transform);
 								nodeBehavior.parent = parent;
-
 								nodeBehavior.myPath = singleFilePathArray[directoryLevel];
-
-								// puts kid's name in parent's kid list & puts parent's name as kid's parentName
-								parentBehavior.kidNames.Add (nodeBehavior.myPath);
-								nodeBehavior.parentName = parentBehavior.myPath;
 
 								// Actually setting the parent's transform as the parent of the node's transform. Otherwise they wont move together.
 								node.transform.SetParent (parent.transform);
@@ -159,11 +153,11 @@ public class GameManagerBehavior : MonoBehaviour {
 					}
 					break;
 
-				case "D":
+				case 'D':
 //						NodeMovement.PlaceNodeBackInPool(MyNodePool, getNode(), this);
 					break;
 
-				case "M":
+				case 'M':
 					//NodeMovement.showModificationEffect(getNode());
 					break;
 
@@ -220,8 +214,6 @@ public class GameManagerBehavior : MonoBehaviour {
 		}
 		
 	}
-
-
 
 }
 

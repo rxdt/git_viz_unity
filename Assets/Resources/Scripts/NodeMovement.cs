@@ -52,26 +52,11 @@ public static class NodeMovement {
 
 
 	public static bool stringExistsAsNode(string pathSubstringToFind, GameObject ROOT){
-		Queue bfsQueue = new Queue();
-		NodeBehavior rootBehavior = ROOT.GetComponent<NodeBehavior> ();
-		
-		rootBehavior.visited = true;
-		
-		bfsQueue.Enqueue(rootBehavior.kidNames);
+		NodeBehavior rootBehavior = ROOT.GetComponent<NodeBehavior>();
 
-		while(bfsQueue.Count > 0){
-			List<string> kidNamesList = (List<string>)bfsQueue.Dequeue();
-		
-			foreach(string kidName in kidNamesList){
-
-//				if(kidName.parent.visited == false){
-//					string str = n.myPath;
-//					if(str == pathSubstringToFind){
-//						return true;
-//					}
-//					n.visited = true;
-//					//	bfsQueue.Enqueue(kidName.parent.GetComponent<NodeBehavior>);
-//				}
+		foreach(Transform k_t in rootBehavior.myKids){
+			if(k_t.GetComponent<NodeBehavior>().GetNodeFilepath() == pathSubstringToFind){
+				return true;
 			}
 		}
 		return false; 
