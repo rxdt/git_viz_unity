@@ -69,9 +69,8 @@ public static class NodeMovement {
 
 	public static GameObject getNodeWithGivenPath(string pathSubstringToFind, GameObject root){
 		NodeBehavior rootBehavior = root.GetComponent<NodeBehavior>();
-		
 		foreach(Transform kidTransform in rootBehavior.myKids){
-			if(kidTransform.GetComponent<NodeBehavior>().GetNodeFilepath() == pathSubstringToFind){
+			if(kidTransform.GetComponent<NodeBehavior>().GetNodeFilepath() == pathSubstringToFind){ 
 				return kidTransform.gameObject;
 			}
 		}

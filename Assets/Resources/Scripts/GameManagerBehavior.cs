@@ -53,7 +53,7 @@ public class GameManagerBehavior : MonoBehaviour {
 		// root's parent is the game manager which is at 0,0,0 the center of world
 		parentBehavior.transform.SetParent(this.transform); 
 
-		// the first 'parent' is the ROOT
+		// the first 'parent' is the ROOT and program will always start traversal with new filepath at ROOT
 		parent = ROOT;
 		parentBehavior.myPath = "ROOT";
 
@@ -87,48 +87,42 @@ public class GameManagerBehavior : MonoBehaviour {
 
 			// get the list of files associated with this particular key in this particular commit (e.g. the A/Additions in commit no.0)
 			List<string> listToAffect = d[key];
+			foreach(string filePath in listToAffect){
+				parent = ROOT;
+				string[] singleFilePathArray = filePath.Split ('/');
 
-			switch(key){
+				for(int directoryLevel = 0; directoryLevel < singleFilePathArray.Length; directoryLevel++){
+					string pathSubstring = singleFilePathArray[directoryLevel];
 
-				case 'A':
 
-					// actual list of files to be Added
-					foreach(string filePath in listToAffect){
+					switch(key){
 
-						// start back at base pseudo-root
-						parent = ROOT;
-						parentBehavior = ROOT.GetComponent<NodeBehavior> ();	
-
-						// split the filename string
-						string[] singleFilePathArray = filePath.Split ('/');
-	
-						for(int directoryLevel = 0; directoryLevel < singleFilePathArray.Length; directoryLevel++){
-
-							string pathSubstring = singleFilePathArray[directoryLevel];
-							
+	/******* CASE A *******/
+						case 'A':
+							parentBehavior = ROOT.GetComponent<NodeBehavior> ();	
 							if(NodeMovement.stringExistsAsNode(pathSubstring, parent) == false){
 
 								// create node object & get node class
-								GameObject node = NodeMovement.PlaceNodeInSceneMyNodePool(MyNodePool);
-								NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior> ();
+								GameObject nodeAdd = NodeMovement.PlaceNodeInSceneMyNodePool(MyNodePool);
+								NodeBehavior nodeAddBehavior = nodeAdd.GetComponent<NodeBehavior> ();
 
 								// accesses parent and adds a reference of the new node as being a child of parent
 								parentBehavior = parent.GetComponent<NodeBehavior> ();
-								parentBehavior.myKids.Add(node.transform);
-								nodeBehavior.parent = parent;
-								nodeBehavior.myPath = singleFilePathArray[directoryLevel];
+								parentBehavior.myKids.Add(nodeAdd.transform);
+								nodeAddBehavior.parent = parent;
+								nodeAddBehavior.myPath = singleFilePathArray[directoryLevel];
 
 								// Actually setting the parent's transform as the parent of the node's transform. Otherwise they wont move together.
-								node.transform.SetParent (parent.transform);
+								nodeAdd.transform.SetParent (parent.transform);
 
 								// finishing up one file's entire path
 								if(directoryLevel == singleFilePathArray.Length - 1){
 									// filepath has a leaf node at the end i.e. when we're at the end of singleFilePathArray
-									nodeBehavior.leaf = true;
+									nodeAddBehavior.leaf = true;
 								}
 								else{
-									parent = node;
-									parentBehavior = node.GetComponent<NodeBehavior>();
+									parent = nodeAdd;
+									parentBehavior = nodeAdd.GetComponent<NodeBehavior>();
 								}
 
 							} // close if(NodeMovement.stringExistsAsNode(pathSubstring, parent) == false)
@@ -138,34 +132,19 @@ public class GameManagerBehavior : MonoBehaviour {
 								parent = NodeMovement.getNodeWithGivenPath(pathSubstring, parent); // get node GameObject
 								parentBehavior = parent.GetComponent<NodeBehavior>();
 							} // close else
+							break;
 
-
-						} // close for loop
-					}
-					break;
-
-				case 'D':
-
-					// actual list of files to be Deleted
-					foreach(string filePath in listToAffect){
+	/******* CASE D *******/
+						case 'D':
+							GameObject nodeToDelete = NodeMovement.getNodeWithGivenPath(pathSubstring, parent);
+							NodeBehavior nodeToDeleteBehavior = nodeToDelete.GetComponent<NodeBehavior>();
 						
-						parent = ROOT;
-						
-						string[] singleFilePathArray = filePath.Split ('/');
-
-						for(int directoryLevel = 0; directoryLevel < singleFilePathArray.Length; directoryLevel++){
-
-							string pathSubstring = singleFilePathArray[directoryLevel];
-
-							GameObject node = NodeMovement.getNodeWithGivenPath(pathSubstring, parent);
-							NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior>();
-
-							if(nodeBehavior.leaf){
-
+							if(nodeToDeleteBehavior.leaf){
+								// myKids is read-only so put it into a usable variable
 								int parentKidsCount = parent.GetComponent<NodeBehavior>().myKids.Count;
 
 								// this doesn't decrement the parentBehavior's myKids.Count so using parentKidsCount...
-								NodeMovement.PlaceNodeBackInPool(MyNodePool, node, this);
+								NodeMovement.PlaceNodeBackInPool(MyNodePool, nodeToDelete, this);
 
 								directoryLevel = singleFilePathArray.Length;
 
@@ -177,43 +156,32 @@ public class GameManagerBehavior : MonoBehaviour {
 									NodeMovement.PlaceNodeBackInPool(MyNodePool, parent, this);
 								}
 							}
-							parent = node;	
-						}
-					}
-					break;
+							parent = nodeToDelete;	
+							break;
 
-				case 'M':
-
-					foreach(string filePath in listToAffect){
-					
-						parent = ROOT;
-						
-						string[] singleFilePathArray = filePath.Split ('/');
-						
-						for(int directoryLevel = 0; directoryLevel < singleFilePathArray.Length; directoryLevel++){
-							
-							string pathSubstring = singleFilePathArray[directoryLevel];
-								
-							GameObject node = NodeMovement.getNodeWithGivenPath(singleFilePathArray[directoryLevel], parent);
-							NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior>();
-							
-							if(nodeBehavior.leaf){
+	/******* CASE M *******/
+						case 'M':
+							GameObject nodeToModify = NodeMovement.getNodeWithGivenPath(pathSubstring, parent);
+							NodeBehavior nodeToModifyBehavior = nodeToModify.GetComponent<NodeBehavior>();
+							if(nodeToModifyBehavior.leaf){
 								// TODO some visual effect goes here:
-								NodeMovement.showModificationEffect(node, pathSubstring);
+								NodeMovement.showModificationEffect(nodeToModify, pathSubstring);
 							}
 							else{
-								parent = node;	
+								parent = nodeToModify;	
 							}
-						}
-					}
+							break;
 
-					break;
+						default:
+							break;
 
-				default:
-					break;
-			}
-		}
-	}
+					} // close switch(key)
+
+
+				} // close for loop
+			} // close foreach filepath in listToAffect
+		} // close foreach key in d.keys
+	} // close function
 
 
 
