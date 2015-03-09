@@ -155,7 +155,9 @@ public class GameManagerBehavior : MonoBehaviour {
 
 						for(int directoryLevel = 0; directoryLevel < singleFilePathArray.Length; directoryLevel++){
 
-							GameObject node = NodeMovement.getNodeWithGivenPath(singleFilePathArray[directoryLevel], parent);
+							string pathSubstring = singleFilePathArray[directoryLevel];
+
+							GameObject node = NodeMovement.getNodeWithGivenPath(pathSubstring, parent);
 							NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior>();
 
 							if(nodeBehavior.leaf){
@@ -181,7 +183,30 @@ public class GameManagerBehavior : MonoBehaviour {
 					break;
 
 				case 'M':
-					//NodeMovement.showModificationEffect(getNode());
+
+					foreach(string filePath in listToAffect){
+					
+						parent = ROOT;
+						
+						string[] singleFilePathArray = filePath.Split ('/');
+						
+						for(int directoryLevel = 0; directoryLevel < singleFilePathArray.Length; directoryLevel++){
+							
+							string pathSubstring = singleFilePathArray[directoryLevel];
+								
+							GameObject node = NodeMovement.getNodeWithGivenPath(singleFilePathArray[directoryLevel], parent);
+							NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior>();
+							
+							if(nodeBehavior.leaf){
+								// TODO some visual effect goes here:
+								NodeMovement.showModificationEffect(node, pathSubstring);
+							}
+							else{
+								parent = node;	
+							}
+						}
+					}
+
 					break;
 
 				default:

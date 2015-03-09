@@ -81,7 +81,9 @@ public static class NodeMovement {
 
 
 
-	public static void showModificationEffect(GameObject node){}
+	public static void showModificationEffect(GameObject node, string pathSubstring){
+		Debug.Log(" pathsubstring of file/node to get visual: " + pathSubstring);
+	}
 }
 
 
