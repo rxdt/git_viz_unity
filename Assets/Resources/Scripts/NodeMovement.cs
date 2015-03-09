@@ -36,16 +36,18 @@ public static class NodeMovement {
 
 	public static void PlaceNodeBackInPool(List<GameObject> MyNodePool,  GameObject node, GameManagerBehavior GameManager)
 	{
-		NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior>();
-		foreach(Transform nodeChildren in nodeBehavior.myKids)
-		{
-			PlaceNodeBackInPool(MyNodePool, nodeChildren.gameObject, GameManager);
+		if(node != null){
+			NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior>();
+
+			foreach(Transform nodeChildren in nodeBehavior.myKids)
+			{
+				PlaceNodeBackInPool(MyNodePool, nodeChildren.gameObject, GameManager);
+			}
+//			Debug.Log ("Im placing a node back to the pool!");
+			node.SetActive(false);
+			node.transform.SetParent(GameManager.transform);
+			MyNodePool.Add(node);
 		}
-		
-//		Debug.Log ("Im placing a node back to the pool!");
-		node.SetActive(false);
-		node.transform.SetParent(GameManager.transform);
-		MyNodePool.Add(node);
 	}
 
 
@@ -65,8 +67,8 @@ public static class NodeMovement {
 
 
 
-	public static GameObject nodeWithGivenPath(string pathSubstringToFind, GameObject ROOT){
-		NodeBehavior rootBehavior = ROOT.GetComponent<NodeBehavior>();
+	public static GameObject getNodeWithGivenPath(string pathSubstringToFind, GameObject root){
+		NodeBehavior rootBehavior = root.GetComponent<NodeBehavior>();
 		
 		foreach(Transform kidTransform in rootBehavior.myKids){
 			if(kidTransform.GetComponent<NodeBehavior>().GetNodeFilepath() == pathSubstringToFind){

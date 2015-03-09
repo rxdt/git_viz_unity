@@ -79,17 +79,6 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 
-	void createNode(Vector3 start, string myPath){
-//		GameObject node = (GameObject)Instantiate(NodePrefab, start, Quaternion.identity);
-//		NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior> ();
-//		nodeBehavior.myPath = myPath;
-//		nodeBehavior.parent = parent;
-//		MyKids.Add (node);
-	}
-
-
-
-
 	// Gets us the key and its associated files list
 	void parseSingleCommit(Dictionary<char, List<string>> d){
 
@@ -146,8 +135,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 							else{
-							Debug.Log ("in the outer ELSE substring == " + pathSubstring);
-								parent = NodeMovement.nodeWithGivenPath(pathSubstring, parent); // get node GameObject
+								parent = NodeMovement.getNodeWithGivenPath(pathSubstring, parent); // get node GameObject
 								parentBehavior = parent.GetComponent<NodeBehavior>();
 							} // close else
 
@@ -157,7 +145,39 @@ public class GameManagerBehavior : MonoBehaviour {
 					break;
 
 				case 'D':
-//						NodeMovement.PlaceNodeBackInPool(MyNodePool, getNode(), this);
+
+					// actual list of files to be Deleted
+					foreach(string filePath in listToAffect){
+						
+						parent = ROOT;
+						
+						string[] singleFilePathArray = filePath.Split ('/');
+
+						for(int directoryLevel = 0; directoryLevel < singleFilePathArray.Length; directoryLevel++){
+
+							GameObject node = NodeMovement.getNodeWithGivenPath(singleFilePathArray[directoryLevel], parent);
+							NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior>();
+
+							if(nodeBehavior.leaf){
+
+								int parentKidsCount = parent.GetComponent<NodeBehavior>().myKids.Count;
+
+								// this doesn't decrement the parentBehavior's myKids.Count so using parentKidsCount...
+								NodeMovement.PlaceNodeBackInPool(MyNodePool, node, this);
+
+								directoryLevel = singleFilePathArray.Length;
+
+								// using parentKidsCount to check if a parent directory will be empty after node deletions
+								parentKidsCount--;
+								
+								// git doesn't allow empty directories - it considers them implicitly deleted
+								if(parentKidsCount < 2){
+									NodeMovement.PlaceNodeBackInPool(MyNodePool, parent, this);
+								}
+							}
+							parent = node;	
+						}
+					}
 					break;
 
 				case 'M':
