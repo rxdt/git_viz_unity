@@ -64,14 +64,14 @@ public static class NodeMovement {
 		
 			foreach(string kidName in kidNamesList){
 
-				if(kidName.parent.visited == false){
-					string str = n.myPath;
-					if(str == pathSubstringToFind){
-						return true;
-					}
-					n.visited = true;
-					//	bfsQueue.Enqueue(kidName.parent.GetComponent<NodeBehavior>);
-				}
+//				if(kidName.parent.visited == false){
+//					string str = n.myPath;
+//					if(str == pathSubstringToFind){
+//						return true;
+//					}
+//					n.visited = true;
+//					//	bfsQueue.Enqueue(kidName.parent.GetComponent<NodeBehavior>);
+//				}
 			}
 		}
 		return false; 

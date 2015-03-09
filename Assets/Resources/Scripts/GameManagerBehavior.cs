@@ -107,7 +107,7 @@ public class GameManagerBehavior : MonoBehaviour {
 			switch(key){
 
 				case "A":
-//				Debug.Log ("####\t\t\tCASE 'A'\t\t\t####");
+
 					// actual list of files to be Added
 					foreach(string filePath in listToAffect){
 
@@ -118,26 +118,31 @@ public class GameManagerBehavior : MonoBehaviour {
 
 							string pathSubstring = singleFilePathArray[directoryLevel];
 
+
+							parentBehavior = parent.GetComponent<NodeBehavior> ();
+							
+
 							if(!NodeMovement.stringExistsAsNode(pathSubstring, ROOT)){
 
 								// create node object & get node class
 								GameObject node = NodeMovement.PlaceNodeInSceneMyNodePool(MyNodePool);
 								NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior> ();
-								
 
 								// accesses parent and adds a reference of the new node as being a child of parent
 								parentBehavior = parent.GetComponent<NodeBehavior> ();
 								parentBehavior.myKids.Add(node.transform);
-
 								nodeBehavior.parent = parent;
+
 								nodeBehavior.myPath = singleFilePathArray[directoryLevel];
+
+								// puts kid's name in parent's kid list & puts parent's name as kid's parentName
 								parentBehavior.kidNames.Add (nodeBehavior.myPath);
-							                             
+								nodeBehavior.parentName = parentBehavior.myPath;
 
 								// Actually setting the parent's transform as the parent of the node's transform. Otherwise they wont move together.
 								node.transform.SetParent (parent.transform);
 
-
+								// finishing up one file's entire path
 								if(directoryLevel == singleFilePathArray.Length - 1){
 									// filepath has a leaf node at the end i.e. when we're at the end of singleFilePathArray
 									nodeBehavior.leaf = true;
