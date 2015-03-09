@@ -92,16 +92,12 @@ public class GameManagerBehavior : MonoBehaviour {
 
 	// Gets us the key and its associated files list
 	void parseSingleCommit(Dictionary<char, List<string>> d){
-		
+
 		// for each key of the key->value pairs
 		foreach(char key in d.Keys){
 
 			// get the list of files associated with this particular key in this particular commit (e.g. the A/Additions in commit no.0)
 			List<string> listToAffect = d[key];
-
-			foreach(string str in listToAffect){
-//					Debug.Log ("File: " + str);
-			}
 
 			switch(key){
 
@@ -110,18 +106,18 @@ public class GameManagerBehavior : MonoBehaviour {
 					// actual list of files to be Added
 					foreach(string filePath in listToAffect){
 
+						// start back at base pseudo-root
+						parent = ROOT;
+						parentBehavior = ROOT.GetComponent<NodeBehavior> ();	
+
 						// split the filename string
 						string[] singleFilePathArray = filePath.Split ('/');
 	
 						for(int directoryLevel = 0; directoryLevel < singleFilePathArray.Length; directoryLevel++){
 
 							string pathSubstring = singleFilePathArray[directoryLevel];
-
-
-							parentBehavior = parent.GetComponent<NodeBehavior> ();
 							
-
-							if(!NodeMovement.stringExistsAsNode(pathSubstring, ROOT)){
+							if(NodeMovement.stringExistsAsNode(pathSubstring, parent) == false){
 
 								// create node object & get node class
 								GameObject node = NodeMovement.PlaceNodeInSceneMyNodePool(MyNodePool);
@@ -140,16 +136,23 @@ public class GameManagerBehavior : MonoBehaviour {
 								if(directoryLevel == singleFilePathArray.Length - 1){
 									// filepath has a leaf node at the end i.e. when we're at the end of singleFilePathArray
 									nodeBehavior.leaf = true;
-									// start back at base pseudo-root
-									parent = ROOT;
-									parentBehavior = ROOT.GetComponent<NodeBehavior> ();
 								}
 								else{
 									parent = node;
 									parentBehavior = node.GetComponent<NodeBehavior>();
 								}
-							}
-						}
+
+							} // close if(NodeMovement.stringExistsAsNode(pathSubstring, parent) == false)
+
+
+							else{
+							Debug.Log ("in the outer ELSE substring == " + pathSubstring);
+								parent = NodeMovement.nodeWithGivenPath(pathSubstring, parent); // get node GameObject
+								parentBehavior = parent.GetComponent<NodeBehavior>();
+							} // close else
+
+
+						} // close for loop
 					}
 					break;
 

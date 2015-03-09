@@ -21,7 +21,6 @@ public static class Parser {
 					accessData(commitsJson);
 					List<Dictionary<char, List<string>>> commits = JsonConvert.DeserializeObject< List<Dictionary<char, List<string>>> >(json);
 
-					theReader.Close (); Debug.Log(commits.ToString());
 					return commits;
 				}
 			}

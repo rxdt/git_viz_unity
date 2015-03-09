@@ -54,12 +54,26 @@ public static class NodeMovement {
 	public static bool stringExistsAsNode(string pathSubstringToFind, GameObject ROOT){
 		NodeBehavior rootBehavior = ROOT.GetComponent<NodeBehavior>();
 
-		foreach(Transform k_t in rootBehavior.myKids){
-			if(k_t.GetComponent<NodeBehavior>().GetNodeFilepath() == pathSubstringToFind){
+		foreach(Transform kidTransform in rootBehavior.myKids){
+			if(kidTransform.GetComponent<NodeBehavior>().GetNodeFilepath() == pathSubstringToFind){
 				return true;
 			}
 		}
 		return false; 
+	}
+
+
+
+
+	public static GameObject nodeWithGivenPath(string pathSubstringToFind, GameObject ROOT){
+		NodeBehavior rootBehavior = ROOT.GetComponent<NodeBehavior>();
+		
+		foreach(Transform kidTransform in rootBehavior.myKids){
+			if(kidTransform.GetComponent<NodeBehavior>().GetNodeFilepath() == pathSubstringToFind){
+				return kidTransform.gameObject;
+			}
+		}
+		return null;
 	}
 
 
