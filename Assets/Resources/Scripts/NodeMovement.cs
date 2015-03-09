@@ -6,20 +6,40 @@ using System.Text;
 
 public static class NodeMovement {
 
-	public static GameObject PlaceNodeInSceneMyNodePool(List<GameObject> MyNodePool)
-	{
-//		Debug.Log ("Im placing a node in the scene!");
+	public static GameObject PlaceNodeInSceneMyNodePool(List<GameObject> MyNodePool, GameObject parent){
+		int numChildren = parent.GetComponent<NodeBehavior>().myKids.Count;
 		GameObject currentNode = MyNodePool[0];
 		MyNodePool.Remove(currentNode);
+
+		// Actually setting the parent's transform as the parent of the node's transform. Otherwise they wont move together.
+		currentNode.transform.SetParent (parent.transform);
 		currentNode.SetActive(true);
-		currentNode.transform.parent = null;
-		currentNode.transform.position = new Vector3(0,0,0);
+
+		float angle = 360.0f / numChildren; // separation b/t siblings around a unit circle
+		float radians = Mathf.Deg2Rad * angle;
+		
+		for (int i = 0; i < numChildren; ++i){
+			Vector3 childPos = new Vector3();
+			childPos.x = Mathf.Cos(i*radians);
+			childPos.z = -Mathf.Sin (i*radians);
+			
+			currentNode.transform.position = childPos * 2;
+			currentNode.transform.position += Vector3.up * 6;
+		}
+
 		return currentNode;
 	}
 
 
 
-	
+
+//	float transformChild(int numChildren){
+//		return 0;
+//	}
+
+
+
+
 	public static GameObject PlaceNodeInScene(List<GameObject> MyNodePool, Vector3 finalPosition)
 	{
 //		Debug.Log ("Im placing a node in the scene!");
@@ -30,6 +50,7 @@ public static class NodeMovement {
 		currentNode.transform.position = finalPosition;
 		return currentNode;
 	}
+
 
 
 

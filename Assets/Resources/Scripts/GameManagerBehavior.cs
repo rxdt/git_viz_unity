@@ -35,7 +35,7 @@ public class GameManagerBehavior : MonoBehaviour {
 		// creates the pool of 500 node clones ready for use in the scene as needed
 		for(int count = 0; count < MAX_NODE_POOL; count++)
 		{
-			GameObject currentNode = (GameObject)Instantiate(NodePrefab, new Vector3(0, 0, 0), Quaternion.identity);
+			GameObject currentNode = (GameObject)Instantiate(NodePrefab, ROOTLOCATION, Quaternion.identity);
 			MyNodePool.Add(currentNode);
 			currentNode.transform.SetParent(this.transform);
 			currentNode.SetActive(false);
@@ -93,7 +93,8 @@ public class GameManagerBehavior : MonoBehaviour {
 
 				for(int directoryLevel = 0; directoryLevel < singleFilePathArray.Length; directoryLevel++){
 					string pathSubstring = singleFilePathArray[directoryLevel];
-
+							Vector3 start = ROOTLOCATION;
+					
 
 					switch(key){
 
@@ -103,7 +104,7 @@ public class GameManagerBehavior : MonoBehaviour {
 							if(NodeMovement.stringExistsAsNode(pathSubstring, parent) == false){
 
 								// create node object & get node class
-								GameObject nodeAdd = NodeMovement.PlaceNodeInSceneMyNodePool(MyNodePool);
+								GameObject nodeAdd = NodeMovement.PlaceNodeInSceneMyNodePool(MyNodePool, parent);
 								NodeBehavior nodeAddBehavior = nodeAdd.GetComponent<NodeBehavior> ();
 
 								// accesses parent and adds a reference of the new node as being a child of parent
@@ -111,9 +112,6 @@ public class GameManagerBehavior : MonoBehaviour {
 								parentBehavior.myKids.Add(nodeAdd.transform);
 								nodeAddBehavior.parent = parent;
 								nodeAddBehavior.myPath = singleFilePathArray[directoryLevel];
-
-								// Actually setting the parent's transform as the parent of the node's transform. Otherwise they wont move together.
-								nodeAdd.transform.SetParent (parent.transform);
 
 								// finishing up one file's entire path
 								if(directoryLevel == singleFilePathArray.Length - 1){
@@ -182,28 +180,6 @@ public class GameManagerBehavior : MonoBehaviour {
 			} // close foreach filepath in listToAffect
 		} // close foreach key in d.keys
 	} // close function
-
-
-
-
-	float transformChild(int numChildren){
-
-		float angle = 360.0f / numChildren; // separation b/t siblings around a unit circle
-		float radians = Mathf.Deg2Rad * angle;
-		
-		for (int i = 0; i < numChildren; ++i){
-			Vector3 childPos = new Vector3();
-			childPos.x = Mathf.Cos(i*radians);
-			childPos.z = -Mathf.Sin (i*radians);
-			
-			GameObject n = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-			
-			n.transform.position = childPos * 5;
-			n.transform.position += Vector3.up * 2;
-		}
-
-		return 0;
-	}
 
 
 
