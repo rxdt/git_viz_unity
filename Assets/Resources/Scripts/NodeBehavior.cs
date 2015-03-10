@@ -19,7 +19,7 @@ public class NodeBehavior : MonoBehaviour {
 	public 		List<Transform> myKids;
 
 	public Vector3 desiredPos;
-	public float speed = 0.5f;
+	public float speed = 0.8f;
 
 	public string GetNodeFilepath(){
 		return this.myPath;
