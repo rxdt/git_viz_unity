@@ -106,7 +106,7 @@ public class GameManagerBehavior : MonoBehaviour {
 								// create node object & get node class
 								GameObject nodeAdd = NodeMovement.PlaceNodeInSceneMyNodePool(MyNodePool, parent);
 								NodeBehavior nodeAddBehavior = nodeAdd.GetComponent<NodeBehavior> ();
-
+								
 								// accesses parent and adds a reference of the new node as being a child of parent
 								parentBehavior = parent.GetComponent<NodeBehavior> ();
 								nodeAddBehavior.transform.localPosition = Vector3.zero;
