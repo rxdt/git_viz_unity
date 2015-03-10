@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class NodeBehavior : MonoBehaviour {
 
+	private LineRenderer line;
+
 	public 		bool 			leaf 		= false;
 
 	public 		string 			myPath 		= null;
@@ -22,6 +24,7 @@ public class NodeBehavior : MonoBehaviour {
 
 	public void Awake(){
 		desiredPos = transform.localPosition;
+		line = GetComponent<LineRenderer>();
 	}
 
 	// update function that moves node towards desired pos
@@ -33,6 +36,10 @@ public class NodeBehavior : MonoBehaviour {
 		}
 		else{
 			transform.localPosition += dir * speed * Time.deltaTime;
+		}
+		if(parent != null){
+			line.SetPosition(0, parent.transform.position);
+			line.SetPosition(1, transform.position);
 		}
 	}
 }

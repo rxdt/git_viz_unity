@@ -12,6 +12,7 @@ GameObject:
   - 135: {fileID: 13528520}
   - 23: {fileID: 2328520}
   - 114: {fileID: 11481372}
+  - 120: {fileID: 12067008}
   m_Layer: 0
   m_Name: NodePrefab
   m_TagString: Untagged
@@ -69,6 +70,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d1b206a8e11c48a085ed0caf48c57f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leaf: 0
+  myPath: 
+  parentName: 
+  parent: {fileID: 0}
+  myKids: []
+  desiredPos: {x: 0, y: 0, z: 0}
+  speed: 5
+--- !u!120 &12067008
+LineRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128520}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    startWidth: 1
+    endWidth: 1
+    m_StartColor:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_EndColor:
+      serializedVersion: 2
+      rgba: 4294967295
+  m_UseWorldSpace: 1
 --- !u!135 &13528520
 SphereCollider:
   m_ObjectHideFlags: 1

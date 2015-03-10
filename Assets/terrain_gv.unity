@@ -564,7 +564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeTime: 2
   fadeColor: {r: .00999999978, g: .00999999978, b: .00999999978, a: 1}
-  fadeShader: {fileID: 30, guid: 0000000000000000f000000000000000, type: 3}
+  fadeShader: {fileID: 30, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!20 &1298107445
 Camera:
   m_ObjectHideFlags: 0
@@ -768,7 +768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeTime: 2
   fadeColor: {r: .00999999978, g: .00999999978, b: .00999999978, a: 1}
-  fadeShader: {fileID: 30, guid: 0000000000000000f000000000000000, type: 3}
+  fadeShader: {fileID: 30, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!20 &2070557137
 Camera:
   m_ObjectHideFlags: 0
