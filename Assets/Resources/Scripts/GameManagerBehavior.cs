@@ -35,12 +35,12 @@ public class GameManagerBehavior : MonoBehaviour {
 		// creates the pool of 500 node clones ready for use in the scene as needed
 		for(int count = 0; count < MAX_NODE_POOL; count++)
 		{
-			GameObject currentNode = (GameObject)Instantiate(NodePrefab, ROOTLOCATION, Quaternion.identity);
+			GameObject currentNode = (GameObject)Instantiate(NodePrefab, new Vector3(0,0,0), Quaternion.identity);
 			MyNodePool.Add(currentNode);
 			currentNode.transform.SetParent(this.transform);
 			currentNode.SetActive(false);
 		} 
-		createTree ();
+		StartCoroutine(createTree ());
 	}
 
 
@@ -63,7 +63,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 
-	void createTree(){
+	IEnumerator createTree(){
 
 		// sets global static ROOT game object and rootBehavior
 		createNullRoot(); 
@@ -73,7 +73,9 @@ public class GameManagerBehavior : MonoBehaviour {
 		foreach( Dictionary<char, List<string>> d in commits ){
 			parseSingleCommit(d);
 			commitNum++;
+			yield return new WaitForSeconds(2);
 		}
+		yield break;
 	}
 
 
@@ -93,14 +95,12 @@ public class GameManagerBehavior : MonoBehaviour {
 
 				for(int directoryLevel = 0; directoryLevel < singleFilePathArray.Length; directoryLevel++){
 					string pathSubstring = singleFilePathArray[directoryLevel];
-							Vector3 start = ROOTLOCATION;
 					
 
 					switch(key){
 
 	/******* CASE A *******/
 						case 'A':
-							parentBehavior = ROOT.GetComponent<NodeBehavior> ();	
 							if(NodeMovement.stringExistsAsNode(pathSubstring, parent) == false){
 
 								// create node object & get node class
@@ -109,7 +109,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 								// accesses parent and adds a reference of the new node as being a child of parent
 								parentBehavior = parent.GetComponent<NodeBehavior> ();
-								parentBehavior.myKids.Add(nodeAdd.transform);
+								nodeAddBehavior.transform.localPosition = Vector3.zero;
 								nodeAddBehavior.parent = parent;
 								nodeAddBehavior.myPath = singleFilePathArray[directoryLevel];
 
@@ -182,30 +182,30 @@ public class GameManagerBehavior : MonoBehaviour {
 	} // close function
 
 
-
-
-	// Update is called once per frame
-	void Update () 
-	{
-		Vector3 final_position = new Vector3(5, 5, 5);
-
-		//print(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-		if (Input.GetKeyUp ("space"))
-		{
-			NodeMovement.PlaceNodeInScene(MyNodePool, final_position);
-		}
-		else if (Input.GetMouseButtonDown (0))
-		{
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			RaycastHit hit;
-			if(Physics.Raycast(ray, out hit, 100.0f) && hit.transform.tag == "Nodes")
-			{
-				print("Hit a node!");
-				NodeMovement.PlaceNodeBackInPool(MyNodePool, hit.transform.gameObject, this);
-			}
-		}
-		
-	}
+//
+//
+//	// Update is called once per frame
+//	void Update () 
+//	{
+//		Vector3 final_position = new Vector3(5, 5, 5);
+//
+//		//print(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+//		if (Input.GetKeyUp ("space"))
+//		{
+//			NodeMovement.PlaceNodeInScene(MyNodePool, final_position);
+//		}
+//		else if (Input.GetMouseButtonDown (0))
+//		{
+//			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+//			RaycastHit hit;
+//			if(Physics.Raycast(ray, out hit, 100.0f) && hit.transform.tag == "Nodes")
+//			{
+//				print("Hit a node!");
+//				NodeMovement.PlaceNodeBackInPool(MyNodePool, hit.transform.gameObject, this);
+//			}
+//		}
+//		
+//	}
 
 }
 

@@ -7,35 +7,37 @@ using System.Text;
 public static class NodeMovement {
 
 	public static GameObject PlaceNodeInSceneMyNodePool(List<GameObject> MyNodePool, GameObject parent){
-		int numChildren = parent.GetComponent<NodeBehavior>().myKids.Count;
+		// give currentNodeBehavior a desired pos
+
+		int i = 0;
+		NodeBehavior pb = parent.GetComponent<NodeBehavior>();
 		GameObject currentNode = MyNodePool[0];
 		MyNodePool.Remove(currentNode);
-
+		pb.myKids.Add(currentNode.transform);
+		int numChildren = pb.myKids.Count;
+		
 		// Actually setting the parent's transform as the parent of the node's transform. Otherwise they wont move together.
 		currentNode.transform.SetParent (parent.transform);
 		currentNode.SetActive(true);
 
 		float angle = 360.0f / numChildren; // separation b/t siblings around a unit circle
 		float radians = Mathf.Deg2Rad * angle;
-		
-		for (int i = 0; i < numChildren; ++i){
+
+		foreach(Transform kT in pb.myKids){
 			Vector3 childPos = new Vector3();
 			childPos.x = Mathf.Cos(i*radians);
 			childPos.z = -Mathf.Sin (i*radians);
 			
-			currentNode.transform.position = childPos * 2;
-			currentNode.transform.position += Vector3.up * 6;
+			Debug.Log(i*radians*Mathf.Rad2Deg + ": " + childPos);
+			
+//			kT.transform.localPosition = childPos * 3;
+//			kT.transform.localPosition += Vector3.up * 5;
+			kT.GetComponent<NodeBehavior>().desiredPos = childPos * 3 + Vector3.up * 5;
+			
+			i++;
 		}
-
 		return currentNode;
 	}
-
-
-
-
-//	float transformChild(int numChildren){
-//		return 0;
-//	}
 
 
 
@@ -102,7 +104,7 @@ public static class NodeMovement {
 
 
 	public static void showModificationEffect(GameObject node, string pathSubstring){
-		Debug.Log(" pathsubstring of file/node to get visual: " + pathSubstring);
+//		Debug.Log(" pathsubstring of file/node to get visual: " + pathSubstring);
 	}
 }
 
