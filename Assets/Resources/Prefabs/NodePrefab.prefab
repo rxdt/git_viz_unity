@@ -13,8 +13,6 @@ GameObject:
   - 23: {fileID: 2328520}
   - 114: {fileID: 11481372}
   - 120: {fileID: 12067008}
-  - 54: {fileID: 5439884}
-  - 59: {fileID: 5925456}
   m_Layer: 0
   m_Name: NodePrefab
   m_TagString: Untagged
@@ -61,51 +59,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128520}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &5439884
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128520}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!59 &5925456
-HingeJoint:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128520}
-  m_ConnectedBody: {fileID: 0}
-  m_Anchor: {x: 0, y: .5, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
-  m_UseSpring: 1
-  m_Spring:
-    spring: 0
-    damper: 1
-    targetPosition: 0
-  m_UseMotor: 0
-  m_Motor:
-    targetVelocity: 0
-    force: 0
-    freeSpin: 0
-  m_UseLimits: 0
-  m_Limits:
-    min: 0
-    max: 0
-    minBounce: 0
-    maxBounce: 0
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 1
 --- !u!114 &11481372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,7 +89,7 @@ LineRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 259e5557aed9a4afd898d5865e3d6787, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -148,14 +101,14 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
-    startWidth: 1
-    endWidth: 1
+    startWidth: .100000001
+    endWidth: .100000001
     m_StartColor:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 4279569810
     m_EndColor:
       serializedVersion: 2
-      rgba: 4294967295
+      rgba: 4284688165
   m_UseWorldSpace: 1
 --- !u!135 &13528520
 SphereCollider:
