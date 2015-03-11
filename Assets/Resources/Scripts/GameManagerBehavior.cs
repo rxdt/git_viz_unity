@@ -7,7 +7,6 @@ using System;
 
 public class GameManagerBehavior : MonoBehaviour {
 
-	private const  	int 			    MAX_NODE_POOL = 500;
 	private static 	int			    	commitNum;
 	public 		   	List<GameObject>  	MyNodePool;
 	public 		   	List<GameObject> 	MyKids; 
@@ -31,15 +30,24 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 
-	void Start () {
-		// creates the pool of 500 node clones ready for use in the scene as needed
-		for(int count = 0; count < MAX_NODE_POOL; count++)
+	// creates the pool of 500 node clones ready for use in the scene as needed
+	void createNullNodes(int numNodesToCreate){
+		Debug.Log("creating null nodes and the commit num is:  " + commitNum);
+		
+		for(int count = 0; count < numNodesToCreate; count++)
 		{
 			GameObject currentNode = (GameObject)Instantiate(NodePrefab, new Vector3(0,0,0), Quaternion.identity);
 			MyNodePool.Add(currentNode);
 			currentNode.transform.SetParent(this.transform);
 			currentNode.SetActive(false);
 		} 
+	}
+
+
+
+
+	void Start () {
+		createNullNodes (500);
 		StartCoroutine(createTree ());
 	}
 
@@ -69,7 +77,7 @@ public class GameManagerBehavior : MonoBehaviour {
 		createNullRoot(); 
 		commitNum = 0;		
 
-		// Each time through the commits List gives us a dictionary that represents one commit
+		// Each time3/11 Wednesday through the commits List gives us a dictionary that represents one commit
 		foreach( Dictionary<char, List<string>> d in commits ){
 			parseSingleCommit(d);
 			commitNum++;
@@ -83,7 +91,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 	// Gets us the key and its associated files list
 	void parseSingleCommit(Dictionary<char, List<string>> d){
-
+		Debug.Log("parsing a single commit and the COMMIT NUM:  " + commitNum);
 		// for each key of the key->value pairs
 		foreach(char key in d.Keys){
 
@@ -102,7 +110,9 @@ public class GameManagerBehavior : MonoBehaviour {
 	/******* CASE A *******/
 						case 'A':
 							if(NodeMovement.stringExistsAsNode(pathSubstring, parent) == false){
-
+//								if(MyNodePool.Count == 1){
+//									createNullNodes(499);
+//								}
 								// create node object & get node class
 								GameObject nodeAdd = NodeMovement.PlaceNodeInSceneMyNodePool(MyNodePool, parent);
 								NodeBehavior nodeAddBehavior = nodeAdd.GetComponent<NodeBehavior> ();

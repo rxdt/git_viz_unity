@@ -7,32 +7,37 @@ using System.Text;
 public static class NodeMovement {
 
 	public static GameObject PlaceNodeInSceneMyNodePool(List<GameObject> MyNodePool, GameObject parent){
-		// give currentNodeBehavior a desired pos
-
-		int i = 0;
-		NodeBehavior pb = parent.GetComponent<NodeBehavior>();
+		NodeBehavior parentBehavior = parent.GetComponent<NodeBehavior>();
 		GameObject currentNode = MyNodePool[0];
 		MyNodePool.Remove(currentNode);
-		pb.myKids.Add(currentNode.transform);
-		int numChildren = pb.myKids.Count;
+		parentBehavior.myKids.Add(currentNode.transform);
 		
 		// Actually setting the parent's transform as the parent of the node's transform. Otherwise they wont move together.
 		currentNode.transform.SetParent (parent.transform);
 		currentNode.SetActive(true);
 
-		float angle = 360.0f / numChildren; // separation b/t siblings around a unit circle
-		float radians = Mathf.Deg2Rad * angle;
+		return separateChildren(currentNode, parentBehavior);
+	}
 
-		foreach(Transform kT in pb.myKids){
+
+
+
+	// Separation of space b/t siblings around a unit circle
+	static GameObject separateChildren(GameObject currentNode, NodeBehavior parentBehavior){
+		int i = 0;
+		int numChildren = parentBehavior.myKids.Count;
+		
+		float angle = 360.0f / numChildren; 
+		float radians = Mathf.Deg2Rad * angle;
+		
+		foreach(Transform kidTransform in parentBehavior.myKids){
 			Vector3 childPos = new Vector3();
 			childPos.x = Mathf.Cos(i*radians);
 			childPos.z = -Mathf.Sin (i*radians);
 			
 			Debug.Log(i*radians*Mathf.Rad2Deg + ": " + childPos);
 			
-//			kT.transform.localPosition = childPos * 3;
-//			kT.transform.localPosition += Vector3.up * 5;
-			kT.GetComponent<NodeBehavior>().desiredPos = childPos * 3 + Vector3.up * 5;
+			kidTransform.GetComponent<NodeBehavior>().desiredPos = childPos * 3 + Vector3.up * 2;
 			
 			i++;
 		}
@@ -41,24 +46,8 @@ public static class NodeMovement {
 
 
 
-
-	public static GameObject PlaceNodeInScene(List<GameObject> MyNodePool, Vector3 finalPosition)
-	{
-//		Debug.Log ("Im placing a node in the scene!");
-		GameObject currentNode = MyNodePool[0];
-		MyNodePool.Remove(currentNode);
-		currentNode.SetActive(true);
-		currentNode.transform.parent = null;
-		currentNode.transform.position = finalPosition;
-		return currentNode;
-	}
-
-
-
-
-
-	public static void PlaceNodeBackInPool(List<GameObject> MyNodePool,  GameObject node, GameManagerBehavior GameManager)
-	{
+	//	Placing a node back into the pool	
+	public static void PlaceNodeBackInPool(List<GameObject> MyNodePool,  GameObject node, GameManagerBehavior GameManager){
 		if(node != null){
 			NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior>();
 
@@ -66,7 +55,7 @@ public static class NodeMovement {
 			{
 				PlaceNodeBackInPool(MyNodePool, nodeChildren.gameObject, GameManager);
 			}
-//			Debug.Log ("Im placing a node back to the pool!");
+
 			node.SetActive(false);
 			node.transform.SetParent(GameManager.transform);
 			MyNodePool.Add(node);
