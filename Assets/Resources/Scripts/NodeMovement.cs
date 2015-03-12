@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
+using System;
+
 public static class NodeMovement {
 
-	public static GameObject PlaceNodeInSceneMyNodePool(List<GameObject> MyNodePool, GameObject parent){
+	public static GameObject PlaceNodeInSceneMyNodePool(GameObject currentNode, GameObject parent){
 		NodeBehavior parentBehavior = parent.GetComponent<NodeBehavior>();
-		GameObject currentNode = MyNodePool[0];
-		MyNodePool.Remove(currentNode);
+
 		parentBehavior.myKids.Add(currentNode.transform);
 		
 		// Actually setting the parent's transform as the parent of the node's transform. Otherwise they wont move together.
@@ -19,7 +20,20 @@ public static class NodeMovement {
 		return separateChildren(currentNode, parentBehavior);
 	}
 
-
+	public static GameObject PlaceNodeInSceneMyNodePool(List<GameObject> MyNodePool, GameObject parent){
+		NodeBehavior parentBehavior = parent.GetComponent<NodeBehavior>();
+		
+		GameObject currentNode = MyNodePool[0];
+		MyNodePool.Remove(currentNode);
+		
+		parentBehavior.myKids.Add(currentNode.transform);
+		
+		// Actually setting the parent's transform as the parent of the node's transform. Otherwise they wont move together.
+		currentNode.transform.SetParent (parent.transform);
+		currentNode.SetActive(true);
+		
+		return separateChildren(currentNode, parentBehavior);
+	}
 
 
 	// Separation of space b/t siblings around a unit circle
@@ -35,9 +49,9 @@ public static class NodeMovement {
 			childPos.x = Mathf.Cos(i*radians);
 			childPos.z = -Mathf.Sin (i*radians);
 			
-			Debug.Log(i*radians*Mathf.Rad2Deg + ": " + childPos);
+//			Debug.Log(i*radians*Mathf.Rad2Deg + ": " + childPos);
 			
-			kidTransform.GetComponent<NodeBehavior>().desiredPos = childPos * 3 + Vector3.up * 2;
+			kidTransform.GetComponent<NodeBehavior>().desiredPos = childPos * 1 + Vector3.up * 2;
 			
 			i++;
 		}
@@ -81,6 +95,7 @@ public static class NodeMovement {
 
 	public static GameObject getNodeWithGivenPath(string pathSubstringToFind, GameObject root){
 		NodeBehavior rootBehavior = root.GetComponent<NodeBehavior>();
+
 		foreach(Transform kidTransform in rootBehavior.myKids){
 			if(kidTransform.GetComponent<NodeBehavior>().GetNodeFilepath() == pathSubstringToFind){ 
 				return kidTransform.gameObject;

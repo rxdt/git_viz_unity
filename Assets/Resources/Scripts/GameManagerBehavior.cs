@@ -47,7 +47,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 	void Start () {
-		createNullNodes (500);
+//		createNullNodes (500);
 		StartCoroutine(createTree ());
 	}
 
@@ -110,15 +110,21 @@ public class GameManagerBehavior : MonoBehaviour {
 	/******* CASE A *******/
 						case 'A':
 							if(NodeMovement.stringExistsAsNode(pathSubstring, parent) == false){
-//								if(MyNodePool.Count == 1){
-//									createNullNodes(499);
+								GameObject nodeAdd;
+
+//								if(MyNodePool.Count > 0){
+//									nodeAdd = NodeMovement.PlaceNodeInSceneMyNodePool(MyNodePool, parent);
 //								}
-								// create node object & get node class
-								GameObject nodeAdd = NodeMovement.PlaceNodeInSceneMyNodePool(MyNodePool, parent);
-								NodeBehavior nodeAddBehavior = nodeAdd.GetComponent<NodeBehavior> ();
+//								else{
+									// create node object & get node's class methods
+									GameObject currentNode = (GameObject)Instantiate(NodePrefab, new Vector3(0,0,0), Quaternion.identity);
+									currentNode.SetActive(false);
+									nodeAdd = NodeMovement.PlaceNodeInSceneMyNodePool(currentNode, parent);
+//								}
 								
 								// accesses parent and adds a reference of the new node as being a child of parent
 								parentBehavior = parent.GetComponent<NodeBehavior> ();
+								NodeBehavior nodeAddBehavior = nodeAdd.GetComponent<NodeBehavior> ();
 								nodeAddBehavior.transform.localPosition = Vector3.zero;
 								nodeAddBehavior.parent = parent;
 								nodeAddBehavior.myPath = singleFilePathArray[directoryLevel];
@@ -127,6 +133,7 @@ public class GameManagerBehavior : MonoBehaviour {
 								if(directoryLevel == singleFilePathArray.Length - 1){
 									// filepath has a leaf node at the end i.e. when we're at the end of singleFilePathArray
 									nodeAddBehavior.leaf = true;
+								Debug.Log ("this node was just declared a leaf: " + nodeAddBehavior.myPath);
 								}
 								else{
 									parent = nodeAdd;
@@ -171,12 +178,15 @@ public class GameManagerBehavior : MonoBehaviour {
 						case 'M':
 							GameObject nodeToModify = NodeMovement.getNodeWithGivenPath(pathSubstring, parent);
 							NodeBehavior nodeToModifyBehavior = nodeToModify.GetComponent<NodeBehavior>();
-							if(nodeToModifyBehavior.leaf){
-								// TODO some visual effect goes here:
+							
+						if(nodeToModifyBehavior.leaf){
+							// TODO some visual effect goes here:
 								NodeMovement.showModificationEffect(nodeToModify, pathSubstring);
+								Debug.Log (nodeToModifyBehavior.myPath + "it's a leaf and this is the node to modify!");
 							}
 							else{
 								parent = nodeToModify;	
+								
 							}
 							break;
 
