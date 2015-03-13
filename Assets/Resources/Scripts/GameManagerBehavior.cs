@@ -92,7 +92,8 @@ public class GameManagerBehavior : MonoBehaviour {
 				++fileCount;
 				for(int directoryLevel = 0; directoryLevel < singleFilePathArray.Length; directoryLevel++){
 					string pathSubstring = singleFilePathArray[directoryLevel];
-					
+					Debug.Log(pathSubstring);
+
 
 					switch(key){
 
@@ -132,6 +133,10 @@ public class GameManagerBehavior : MonoBehaviour {
 
 	/******* CASE D *******/
 						case 'D':
+
+						Debug.Log(commitNum);
+						if(parent==null) Debug.Log ("yes");
+
 							GameObject nodeToDelete = NodeMovement.getNodeWithGivenPath(pathSubstring, parent);
 							NodeBehavior nodeToDeleteBehavior = nodeToDelete.GetComponent<NodeBehavior>();
 						
@@ -140,7 +145,7 @@ public class GameManagerBehavior : MonoBehaviour {
 								int parentKidsCount = parent.GetComponent<NodeBehavior>().myKids.Count;
 
 								// this doesn't decrement the parentBehavior's myKids.Count so using parentKidsCount...
-								NodeMovement.PlaceNodeBackInPool(nodeToDelete, this);
+								NodeMovement.removeNode(nodeToDelete, this);
 
 								directoryLevel = singleFilePathArray.Length;
 
@@ -148,8 +153,8 @@ public class GameManagerBehavior : MonoBehaviour {
 								parentKidsCount--;
 								
 								// git doesn't allow empty directories - it considers them implicitly deleted
-								if(parentKidsCount < 2){
-									NodeMovement.PlaceNodeBackInPool(parent, this);
+								if(parentKidsCount < 1){
+									NodeMovement.removeNode(parent, this);
 								}
 							}
 							parent = nodeToDelete;	

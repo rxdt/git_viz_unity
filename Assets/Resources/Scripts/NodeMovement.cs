@@ -68,14 +68,11 @@ public static class NodeMovement {
 
 
 
-	public static void PlaceNodeBackInPool(GameObject node, GameManagerBehavior GameManager){
+	public static void removeNode(GameObject node, GameManagerBehavior GameManager){
 		if(node != null){
 			NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior>();
-
-			foreach(Transform nodeChildren in nodeBehavior.myKids)
-			{
-				PlaceNodeBackInPool(nodeChildren.gameObject, GameManager);
-			}
+			NodeBehavior pb = nodeBehavior.parent.GetComponent<NodeBehavior>();
+			pb.myKids.Remove(node.transform);
 			GameObject.Destroy(node);
 		}
 	}
