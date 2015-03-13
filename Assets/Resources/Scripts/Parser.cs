@@ -10,12 +10,13 @@ using Newtonsoft.Json.Linq;
 public static class Parser {
 
 	// parses filename into a dictionary of dictionaries that is stored in a JSON object
-	public static List<Dictionary<char, List<string>>> parseCommitLog(string fileName){
+	public static List<Dictionary<char, List<string>>> parseCommitLog(string json){
 		try{
-			StreamReader theReader = new StreamReader("/Users/rxdt/commits_json.txt", Encoding.Default);
-			string json = theReader.ReadToEnd();
-			
-			using(theReader){
+//			StreamReader theReader = new StreamReader("/Users/rxdt/commits_json.txt", Encoding.Default);
+
+//			string json = theReader.ReadToEnd();
+
+//			using(theReader){
 				if(json != null){
 					JSONObject commitsJson = new JSONObject(json); // creates a dictionary of dictionaries
 					accessData(commitsJson);
@@ -24,7 +25,7 @@ public static class Parser {
 					return commits;
 				}
 			}
-		}
+//		}
 		catch (Exception e){
 			Debug.Log("The file could not be read: ");
 			Debug.Log(e.Message);

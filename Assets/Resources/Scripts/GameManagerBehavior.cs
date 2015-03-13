@@ -8,7 +8,6 @@ using System;
 public class GameManagerBehavior : MonoBehaviour {
 
 	private static 	int			    	commitNum;
-	public 		   	List<GameObject>  	MyNodePool;
 	public 		   	List<GameObject> 	MyKids; 
 	public 		   	GameObject	    	NodePrefab; 
 
@@ -19,36 +18,23 @@ public class GameManagerBehavior : MonoBehaviour {
 
 	// Off-center of scene-center(0,0,0) and just below the terrain surface is the tree's pseudo-root. 
 	// Pseudo-root position is relative to parent GameManager (pseudo-root position set in createNullRoot())
-	private static  Vector3 			ROOTLOCATION = new Vector3(0, -2, 53); 
+	private static  Vector3 			ROOTLOCATION = new Vector3(0, -0.1f, 53); 
 
 	// Returns a List of dictinoaries. 
 	// Each dictionary is one commit. Key is a string. Value as a list of strings/filnames.
 	List<
 		Dictionary<
-			char, List<string>>> 		commits = Parser.parseCommitLog("");
-
-
-
-
-	// creates the pool of 500 node clones ready for use in the scene as needed
-	void createNullNodes(int numNodesToCreate){
-		Debug.Log("creating null nodes and the commit num is:  " + commitNum);
-		
-		for(int count = 0; count < numNodesToCreate; count++)
-		{
-			GameObject currentNode = (GameObject)Instantiate(NodePrefab, new Vector3(0,0,0), Quaternion.identity);
-			MyNodePool.Add(currentNode);
-			currentNode.transform.SetParent(this.transform);
-			currentNode.SetActive(false);
-		} 
-	}
-
-
+			char, List<string>>> 		commits;
+	
 
 
 	void Start () {
-		createNullNodes (500);
-		StartCoroutine(createTree ());
+		//string url = "file://Users/rxdt/commits_json.txt";
+		//WWW www = new WWW(url);
+		//yield return www;
+		TextAsset json = Resources.Load ("commits_json 2", typeof(TextAsset)) as TextAsset;
+		commits = Parser.parseCommitLog(json.text);
+		StartCoroutine(createTree());
 	}
 
 
@@ -72,14 +58,15 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 	IEnumerator createTree(){
-
 		// sets global static ROOT game object and rootBehavior
 		createNullRoot(); 
 		commitNum = 0;		
 
-		// Each time3/11 Wednesday through the commits List gives us a dictionary that represents one commit
+		yield return new WaitForSeconds(10f);
+
+		// Each time through the commits List gives us a dictionary that represents one commit
 		foreach( Dictionary<char, List<string>> d in commits ){
-			parseSingleCommit(d);
+			yield return StartCoroutine(parseSingleCommit(d));
 			commitNum++;
 			yield return new WaitForSeconds(2);
 		}
@@ -90,96 +77,51 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 	// Gets us the key and its associated files list
-	void parseSingleCommit(Dictionary<char, List<string>> d){
-		Debug.Log("parsing a single commit and the COMMIT NUM:  " + commitNum);
-		// for each key of the key->value pairs
+	IEnumerator parseSingleCommit(Dictionary<char, List<string>> d){
+		const int MAX_FILES = 100;
+		int fileCount = 0;
+
+		// for each key of the key->value pairs...
 		foreach(char key in d.Keys){
 
 			// get the list of files associated with this particular key in this particular commit (e.g. the A/Additions in commit no.0)
 			List<string> listToAffect = d[key];
+
+			// for each file to do something to...
 			foreach(string filePath in listToAffect){
+
+				// to traverse - start back at the pseudo base ROOT of the tree 
 				parent = ROOT;
+
+				// check for each node of a filepath by splitting the filepath
 				string[] singleFilePathArray = filePath.Split ('/');
 
+				// Add, Delete, or Modify in bursts of 100 files for better viewing / more dynamic growth
+				if(fileCount > MAX_FILES){
+					yield return new WaitForSeconds(0.5f);
+					fileCount = 0;
+				}
+				++fileCount;
+
+				// traverse or create the filepath i.e. the path of nodes
 				for(int directoryLevel = 0; directoryLevel < singleFilePathArray.Length; directoryLevel++){
+
+					// one pathSubstring is or will be one node
 					string pathSubstring = singleFilePathArray[directoryLevel];
-					
 
 					switch(key){
-
 	/******* CASE A *******/
 						case 'A':
-							if(NodeMovement.stringExistsAsNode(pathSubstring, parent) == false){
-//								if(MyNodePool.Count == 1){
-//									createNullNodes(499);
-//								}
-								// create node object & get node class
-								GameObject nodeAdd = NodeMovement.PlaceNodeInSceneMyNodePool(MyNodePool, parent);
-								NodeBehavior nodeAddBehavior = nodeAdd.GetComponent<NodeBehavior> ();
-								
-								// accesses parent and adds a reference of the new node as being a child of parent
-								parentBehavior = parent.GetComponent<NodeBehavior> ();
-								nodeAddBehavior.transform.localPosition = Vector3.zero;
-								nodeAddBehavior.parent = parent;
-								nodeAddBehavior.myPath = singleFilePathArray[directoryLevel];
-
-								// finishing up one file's entire path
-								if(directoryLevel == singleFilePathArray.Length - 1){
-									// filepath has a leaf node at the end i.e. when we're at the end of singleFilePathArray
-									nodeAddBehavior.leaf = true;
-								}
-								else{
-									parent = nodeAdd;
-									parentBehavior = nodeAdd.GetComponent<NodeBehavior>();
-								}
-
-							} // close if(NodeMovement.stringExistsAsNode(pathSubstring, parent) == false)
-
-
-							else{
-								parent = NodeMovement.getNodeWithGivenPath(pathSubstring, parent); // get node GameObject
-								parentBehavior = parent.GetComponent<NodeBehavior>();
-							} // close else
+							AddNode(pathSubstring,singleFilePathArray, directoryLevel);
 							break;
-
 	/******* CASE D *******/
 						case 'D':
-							GameObject nodeToDelete = NodeMovement.getNodeWithGivenPath(pathSubstring, parent);
-							NodeBehavior nodeToDeleteBehavior = nodeToDelete.GetComponent<NodeBehavior>();
-						
-							if(nodeToDeleteBehavior.leaf){
-								// myKids is read-only so put it into a usable variable
-								int parentKidsCount = parent.GetComponent<NodeBehavior>().myKids.Count;
-
-								// this doesn't decrement the parentBehavior's myKids.Count so using parentKidsCount...
-								NodeMovement.PlaceNodeBackInPool(MyNodePool, nodeToDelete, this);
-
-								directoryLevel = singleFilePathArray.Length;
-
-								// using parentKidsCount to check if a parent directory will be empty after node deletions
-								parentKidsCount--;
-								
-								// git doesn't allow empty directories - it considers them implicitly deleted
-								if(parentKidsCount < 2){
-									NodeMovement.PlaceNodeBackInPool(MyNodePool, parent, this);
-								}
-							}
-							parent = nodeToDelete;	
+							DeleteNode(pathSubstring, singleFilePathArray.Length);
 							break;
-
 	/******* CASE M *******/
 						case 'M':
-							GameObject nodeToModify = NodeMovement.getNodeWithGivenPath(pathSubstring, parent);
-							NodeBehavior nodeToModifyBehavior = nodeToModify.GetComponent<NodeBehavior>();
-							if(nodeToModifyBehavior.leaf){
-								// TODO some visual effect goes here:
-								NodeMovement.showModificationEffect(nodeToModify, pathSubstring);
-							}
-							else{
-								parent = nodeToModify;	
-							}
+							ModifyNode(pathSubstring);
 							break;
-
 						default:
 							break;
 
@@ -192,32 +134,92 @@ public class GameManagerBehavior : MonoBehaviour {
 	} // close function
 
 
-//
-//
-//	// Update is called once per frame
-//	void Update () 
-//	{
-//		Vector3 final_position = new Vector3(5, 5, 5);
-//
-//		//print(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-//		if (Input.GetKeyUp ("space"))
-//		{
-//			NodeMovement.PlaceNodeInScene(MyNodePool, final_position);
-//		}
-//		else if (Input.GetMouseButtonDown (0))
-//		{
-//			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-//			RaycastHit hit;
-//			if(Physics.Raycast(ray, out hit, 100.0f) && hit.transform.tag == "Nodes")
-//			{
-//				print("Hit a node!");
-//				NodeMovement.PlaceNodeBackInPool(MyNodePool, hit.transform.gameObject, this);
-//			}
-//		}
-//		
-//	}
 
-}
+
+	/******* CASE A *******/
+
+	void AddNode(string pathSubstring, string[] singleFilePathArray, int directoryLevel){
+		if(NodeUtility.stringExistsAsNode(pathSubstring, parent) == false){
+			GameObject nodeAdd;
+			GameObject currentNode = (GameObject)Instantiate(NodePrefab, new Vector3(0,0,0), Quaternion.identity);
+			currentNode.SetActive(false);
+			nodeAdd = NodeUtility.PlaceNodeInScene(currentNode, parent);
+			
+			// accesses parent and adds a reference of the new node as being a child of parent
+			parentBehavior = parent.GetComponent<NodeBehavior> ();
+			NodeBehavior nodeAddBehavior = nodeAdd.GetComponent<NodeBehavior> ();
+			nodeAddBehavior.transform.localPosition = Vector3.zero;
+			nodeAddBehavior.parent = parent;
+			nodeAddBehavior.myPath = singleFilePathArray[directoryLevel];
+			
+			// finishing up one file's entire path
+			if(directoryLevel == singleFilePathArray.Length - 1){
+				// filepath has a leaf node at the end i.e. when we're at the end of singleFilePathArray
+				nodeAddBehavior.leaf = true;
+			}
+			else{
+				parent = nodeAdd;
+				parentBehavior = nodeAdd.GetComponent<NodeBehavior>();
+			}
+			
+		} // close if(NodeMovement.stringExistsAsNode(pathSubstring, parent) == false)
+		
+		else{
+			parent = NodeUtility.getNodeWithGivenPath(pathSubstring, parent); // get node GameObject
+			parentBehavior = parent.GetComponent<NodeBehavior>();
+		} // close else
+	}
+
+
+
+	
+	/******* CASE D *******/
+
+	void DeleteNode(string pathSubstring, int directoryLevel){
+		GameObject nodeToDelete = NodeUtility.getNodeWithGivenPath(pathSubstring, parent);
+		NodeBehavior nodeToDeleteBehavior = nodeToDelete.GetComponent<NodeBehavior>();
+		
+		if(nodeToDeleteBehavior.leaf){
+			// myKids is read-only so put it into a usable variable
+			int parentKidsCount = parent.GetComponent<NodeBehavior>().myKids.Count;
+			
+			// this doesn't decrement the parentBehavior's myKids.Count so using parentKidsCount...
+			NodeUtility.removeNode(nodeToDelete, this);
+			
+			// using parentKidsCount to check if a parent directory will be empty after node deletions
+			parentKidsCount--;
+			
+			// git doesn't allow empty directories - it considers them implicitly deleted
+			if(parentKidsCount < 1){
+				NodeUtility.removeNode(parent, this);
+			}
+		}
+		parent = nodeToDelete;	
+	}
+
+
+
+
+	/******* CASE M *******/
+
+	void ModifyNode(string pathSubstring){
+		GameObject nodeToModify = NodeUtility.getNodeWithGivenPath(pathSubstring, parent);
+		NodeBehavior nodeToModifyBehavior = nodeToModify.GetComponent<NodeBehavior>();
+		
+		if(nodeToModifyBehavior.leaf){
+			// TODO some visual effect goes here:
+			NodeUtility.showModificationEffect(nodeToModify, pathSubstring);
+			Debug.Log (nodeToModifyBehavior.myPath + "it's a leaf and this is the node to modify!");
+		}
+		else{
+			parent = nodeToModify;	
+		}
+	}
+
+
+
+
+} // close class
 
 
 
