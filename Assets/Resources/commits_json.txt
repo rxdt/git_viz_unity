@@ -1,0 +1,111 @@
+[
+  {
+    "A": [
+      ".gitignore", 
+      "README.md", 
+      "app/forms.py", 
+      "app/forms.pyc", 
+      "app/routes.py", 
+      "app/static/base.css", 
+      "app/templates/base.html", 
+      "app/templates/login.html", 
+      "app/templates/signup.html", 
+      "app/user_model.py", 
+      "app/user_model.pyc"
+    ]
+  }, 
+  {
+    "M": [
+      ".gitignore"
+    ]
+  }, 
+  {
+    "D": [
+      ".gitignore", 
+      "app/forms.pyc", 
+      "app/user_model.pyc"
+    ]
+  }, 
+  {
+    "A": [
+      ".gitignore", 
+      "app/templates/visualizer.html"
+    ], 
+    "M": [
+      "app/forms.py", 
+      "app/routes.py", 
+      "app/static/base.css", 
+      "app/user_model.py"
+    ]
+  }, 
+  {
+    "A": [
+      "app/gitviz_app/__init__.py", 
+      "app/gitviz_app/forms.py", 
+      "app/gitviz_app/routes.py", 
+      "app/gitviz_app/static/base.css", 
+      "app/gitviz_app/templates/base.html", 
+      "app/gitviz_app/templates/login.html", 
+      "app/gitviz_app/templates/signup.html", 
+      "app/gitviz_app/templates/visualizer.html", 
+      "app/gitviz_app/user_model.py"
+    ]
+  }, 
+  {
+    "A": [
+      "app/README.md", 
+      "app/gitviz_app/parse_commit_log.py", 
+      "app/gitviz_app/templates/gh_auth.html", 
+      "app/gitviz_app/templates/visualize.html", 
+      "requirements.txt"
+    ], 
+    "M": [
+      "app/gitviz_app/forms.py", 
+      "app/gitviz_app/routes.py", 
+      "app/gitviz_app/templates/base.html", 
+      "app/gitviz_app/templates/login.html", 
+      "app/gitviz_app/templates/signup.html", 
+      "app/gitviz_app/user_model.py"
+    ]
+  }, 
+  {
+    "D": [
+      "app/gitviz_app/parse_commit_log.py", 
+      "app/gitviz_app/templates/gh_auth.html", 
+      "app/gitviz_app/templates/visualizer.html"
+    ], 
+    "M": [
+      "app/gitviz_app/routes.py"
+    ]
+  }, 
+  {
+    "D": [
+      "README.md", 
+      "app/forms.py", 
+      "app/routes.py", 
+      "app/static/base.css", 
+      "app/templates/base.html", 
+      "app/templates/login.html", 
+      "app/templates/signup.html", 
+      "app/templates/visualizer.html", 
+      "app/user_model.py"
+    ], 
+    "M": [
+      "app/gitviz_app/routes.py", 
+      "app/gitviz_app/templates/base.html", 
+      "requirements.txt"
+    ]
+  }, 
+  {
+    "A": [
+      "app/gitviz_app/commits_json.txt", 
+      "app/gitviz_app/parse_log.py"
+    ]
+  }, 
+  {
+    "M": [
+      "app/gitviz_app/commits_json.txt", 
+      "app/gitviz_app/parse_log.py"
+    ]
+  }
+]
