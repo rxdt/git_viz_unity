@@ -6,7 +6,7 @@ using System.Text;
 
 //using System;
 
-public static class NodeUtility {
+public static class NodeMovement {
 
 	public static GameObject PlaceNodeInScene(GameObject currentNode, GameObject parent){
 		NodeBehavior parentBehavior = parent.GetComponent<NodeBehavior>();
