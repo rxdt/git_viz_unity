@@ -19,6 +19,8 @@ public class NodeBehavior : MonoBehaviour {
 	public 		List<Transform> myKids;
 
 	public Vector3 desiredPos;
+	public Vector3 centerOfChildren;
+	
 	public float speed = 0.8f;
 
 	public string GetNodeFilepath(){
@@ -26,7 +28,13 @@ public class NodeBehavior : MonoBehaviour {
 	}
 
 	public void Start(){
-		StartCoroutine(sway());
+		if(!leaf){
+			StartCoroutine(sway());
+		} 
+		centerOfChildren = Random.onUnitSphere;
+		centerOfChildren = new Vector3(centerOfChildren.x, Mathf.Abs(centerOfChildren.y), centerOfChildren.z);
+		centerOfChildren.Normalize();
+		centerOfChildren *= 6;
 	}
 
 	private IEnumerator sway(){
@@ -53,7 +61,14 @@ public class NodeBehavior : MonoBehaviour {
 	// update function moves node towards desired pos
 	public void Update(){
 		// every frame, move towards that desiredPos
-		Vector3 dir = (desiredPos - transform.localPosition).normalized;
+		if(parent != null){
+			line.SetPosition(0, parent.transform.position);
+			line.SetPosition(1, transform.position);
+		}
+
+		Vector3 dir = (desiredPos - transform.localPosition);
+		if(dir.sqrMagnitude < 0.1) return;
+		dir.Normalize();
 		if(Vector3.Distance(desiredPos, transform.localPosition) < speed * Time.deltaTime){
 			transform.localPosition = desiredPos;
 		}
@@ -61,9 +76,6 @@ public class NodeBehavior : MonoBehaviour {
 			transform.localPosition += dir * speed * Time.deltaTime;
 		}
 
-		if(parent != null){
-			line.SetPosition(0, parent.transform.position);
-			line.SetPosition(1, transform.position);
-		}
+
 	}
 }

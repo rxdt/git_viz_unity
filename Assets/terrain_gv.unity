@@ -229,7 +229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8487f8114efbe4d568484a8a6e2fd02e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyNodePool: []
   MyKids: []
   NodePrefab: {fileID: 128520, guid: 5a87a233587264d6086f635b7ff27fc8, type: 2}
 --- !u!4 &810461709
@@ -254,15 +253,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.0999999
+      value: .730000019
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.5999999
+      value: 2.28999996
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 33.5999985
+      value: 44.5999985
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalRotation.x
@@ -270,7 +269,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalRotation.y
-      value: .978083313
+      value: .0871554017
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalRotation.z
@@ -278,7 +277,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .208213985
+      value: -.99619472
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_RootOrder
@@ -314,8 +313,8 @@ Transform:
   m_PrefabParentObject: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
   m_PrefabInternal: {fileID: 947925136}
   m_GameObject: {fileID: 990298810}
-  m_LocalRotation: {x: 0, y: .978083313, z: 0, w: .208213985}
-  m_LocalPosition: {x: 2.0999999, y: 5.5999999, z: 33.5999985}
+  m_LocalRotation: {x: 0, y: .0871554017, z: 0, w: -.99619472}
+  m_LocalPosition: {x: .730000019, y: 2.28999996, z: 44.5999985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 427487061}

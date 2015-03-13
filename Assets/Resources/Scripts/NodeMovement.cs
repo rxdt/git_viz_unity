@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-using System;
+//using System;
 
 public static class NodeMovement {
 
-	public static GameObject PlaceNodeInSceneMyNodePool(GameObject currentNode, GameObject parent){
+	public static GameObject PlaceNodeInScene(GameObject currentNode, GameObject parent){
 		NodeBehavior parentBehavior = parent.GetComponent<NodeBehavior>();
 
 		parentBehavior.myKids.Add(currentNode.transform);
@@ -20,7 +20,7 @@ public static class NodeMovement {
 		return separateChildren(currentNode, parentBehavior);
 	}
 
-	public static GameObject PlaceNodeInSceneMyNodePool(List<GameObject> MyNodePool, GameObject parent){
+	public static GameObject PlaceNodeInScene(List<GameObject> MyNodePool, GameObject parent){
 		NodeBehavior parentBehavior = parent.GetComponent<NodeBehavior>();
 		
 		GameObject currentNode = MyNodePool[0];
@@ -38,41 +38,45 @@ public static class NodeMovement {
 
 	// Separation of space b/t siblings around a unit circle
 	static GameObject separateChildren(GameObject currentNode, NodeBehavior parentBehavior){
-		int i = 0;
-		int numChildren = parentBehavior.myKids.Count;
-		
-		float angle = 360.0f / numChildren; 
-		float radians = Mathf.Deg2Rad * angle;
-		
-		foreach(Transform kidTransform in parentBehavior.myKids){
-			Vector3 childPos = new Vector3();
-			childPos.x = Mathf.Cos(i*radians);
-			childPos.z = -Mathf.Sin (i*radians);
-			
-//			Debug.Log(i*radians*Mathf.Rad2Deg + ": " + childPos);
-			
-			kidTransform.GetComponent<NodeBehavior>().desiredPos = childPos * 1 + Vector3.up * 2;
-			
-			i++;
+//		int i = 0;
+//		int numChildren = parentBehavior.myKids.Count;
+//		
+//		float angle = 360.0f / numChildren; 
+//		float radians = Mathf.Deg2Rad * angle;
+//		
+//		foreach(Transform kidTransform in parentBehavior.myKids){
+//			Vector3 childPos = new Vector3();
+//			childPos.x = Mathf.Cos(i*radians);
+//			childPos.z = -Mathf.Sin (i*radians);
+//			
+//			kidTransform.GetComponent<NodeBehavior>().desiredPos = childPos * 1 + Vector3.up * 2;
+//			
+//			i++;
+//		}
+//		return currentNode;
+
+		foreach(Transform kt in parentBehavior.myKids){
+			Vector3 childPos = UnityEngine.Random.onUnitSphere;
+			childPos = new Vector3(childPos.x, Mathf.Abs(childPos.y), childPos.z);
+			childPos.Normalize();
+			childPos *= 6;
+			childPos += parentBehavior.centerOfChildren;
+			kt.GetComponent<NodeBehavior>().desiredPos = childPos;
 		}
 		return currentNode;
 	}
 
 
 
-	//	Placing a node back into the pool	
-	public static void PlaceNodeBackInPool(List<GameObject> MyNodePool,  GameObject node, GameManagerBehavior GameManager){
+	public static void PlaceNodeBackInPool(GameObject node, GameManagerBehavior GameManager){
 		if(node != null){
 			NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior>();
 
 			foreach(Transform nodeChildren in nodeBehavior.myKids)
 			{
-				PlaceNodeBackInPool(MyNodePool, nodeChildren.gameObject, GameManager);
+				PlaceNodeBackInPool(nodeChildren.gameObject, GameManager);
 			}
-
-			node.SetActive(false);
-			node.transform.SetParent(GameManager.transform);
-			MyNodePool.Add(node);
+			GameObject.Destroy(node);
 		}
 	}
 

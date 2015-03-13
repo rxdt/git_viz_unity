@@ -8,7 +8,6 @@ using System;
 public class GameManagerBehavior : MonoBehaviour {
 
 	private static 	int			    	commitNum;
-	public 		   	List<GameObject>  	MyNodePool;
 	public 		   	List<GameObject> 	MyKids; 
 	public 		   	GameObject	    	NodePrefab; 
 
@@ -19,36 +18,19 @@ public class GameManagerBehavior : MonoBehaviour {
 
 	// Off-center of scene-center(0,0,0) and just below the terrain surface is the tree's pseudo-root. 
 	// Pseudo-root position is relative to parent GameManager (pseudo-root position set in createNullRoot())
-	private static  Vector3 			ROOTLOCATION = new Vector3(0, -2, 53); 
+	private static  Vector3 			ROOTLOCATION = new Vector3(0, -0.1f, 53); 
 
 	// Returns a List of dictinoaries. 
 	// Each dictionary is one commit. Key is a string. Value as a list of strings/filnames.
 	List<
 		Dictionary<
 			char, List<string>>> 		commits = Parser.parseCommitLog("");
-
-
-
-
-	// creates the pool of 500 node clones ready for use in the scene as needed
-	void createNullNodes(int numNodesToCreate){
-		Debug.Log("creating null nodes and the commit num is:  " + commitNum);
-		
-		for(int count = 0; count < numNodesToCreate; count++)
-		{
-			GameObject currentNode = (GameObject)Instantiate(NodePrefab, new Vector3(0,0,0), Quaternion.identity);
-			MyNodePool.Add(currentNode);
-			currentNode.transform.SetParent(this.transform);
-			currentNode.SetActive(false);
-		} 
-	}
-
+	
 
 
 
 	void Start () {
-//		createNullNodes (500);
-		StartCoroutine(createTree ());
+		StartCoroutine(createTree());
 	}
 
 
@@ -72,14 +54,15 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 	IEnumerator createTree(){
-
 		// sets global static ROOT game object and rootBehavior
 		createNullRoot(); 
 		commitNum = 0;		
 
+		yield return new WaitForSeconds(10f);
+
 		// Each time3/11 Wednesday through the commits List gives us a dictionary that represents one commit
 		foreach( Dictionary<char, List<string>> d in commits ){
-			parseSingleCommit(d);
+			yield return StartCoroutine(parseSingleCommit(d));
 			commitNum++;
 			yield return new WaitForSeconds(2);
 		}
@@ -90,7 +73,9 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 	// Gets us the key and its associated files list
-	void parseSingleCommit(Dictionary<char, List<string>> d){
+	IEnumerator parseSingleCommit(Dictionary<char, List<string>> d){
+		const int MAX_FILES = 100;
+		int fileCount = 0;
 		Debug.Log("parsing a single commit and the COMMIT NUM:  " + commitNum);
 		// for each key of the key->value pairs
 		foreach(char key in d.Keys){
@@ -100,7 +85,11 @@ public class GameManagerBehavior : MonoBehaviour {
 			foreach(string filePath in listToAffect){
 				parent = ROOT;
 				string[] singleFilePathArray = filePath.Split ('/');
-
+				if(fileCount > MAX_FILES){
+					yield return new WaitForSeconds(0.5f);
+					fileCount =0;
+				}
+				++fileCount;
 				for(int directoryLevel = 0; directoryLevel < singleFilePathArray.Length; directoryLevel++){
 					string pathSubstring = singleFilePathArray[directoryLevel];
 					
@@ -111,16 +100,9 @@ public class GameManagerBehavior : MonoBehaviour {
 						case 'A':
 							if(NodeMovement.stringExistsAsNode(pathSubstring, parent) == false){
 								GameObject nodeAdd;
-
-//								if(MyNodePool.Count > 0){
-//									nodeAdd = NodeMovement.PlaceNodeInSceneMyNodePool(MyNodePool, parent);
-//								}
-//								else{
-									// create node object & get node's class methods
-									GameObject currentNode = (GameObject)Instantiate(NodePrefab, new Vector3(0,0,0), Quaternion.identity);
-									currentNode.SetActive(false);
-									nodeAdd = NodeMovement.PlaceNodeInSceneMyNodePool(currentNode, parent);
-//								}
+								GameObject currentNode = (GameObject)Instantiate(NodePrefab, new Vector3(0,0,0), Quaternion.identity);
+								currentNode.SetActive(false);
+								nodeAdd = NodeMovement.PlaceNodeInScene(currentNode, parent);
 								
 								// accesses parent and adds a reference of the new node as being a child of parent
 								parentBehavior = parent.GetComponent<NodeBehavior> ();
@@ -133,7 +115,6 @@ public class GameManagerBehavior : MonoBehaviour {
 								if(directoryLevel == singleFilePathArray.Length - 1){
 									// filepath has a leaf node at the end i.e. when we're at the end of singleFilePathArray
 									nodeAddBehavior.leaf = true;
-								Debug.Log ("this node was just declared a leaf: " + nodeAddBehavior.myPath);
 								}
 								else{
 									parent = nodeAdd;
@@ -159,7 +140,7 @@ public class GameManagerBehavior : MonoBehaviour {
 								int parentKidsCount = parent.GetComponent<NodeBehavior>().myKids.Count;
 
 								// this doesn't decrement the parentBehavior's myKids.Count so using parentKidsCount...
-								NodeMovement.PlaceNodeBackInPool(MyNodePool, nodeToDelete, this);
+								NodeMovement.PlaceNodeBackInPool(nodeToDelete, this);
 
 								directoryLevel = singleFilePathArray.Length;
 
@@ -168,7 +149,7 @@ public class GameManagerBehavior : MonoBehaviour {
 								
 								// git doesn't allow empty directories - it considers them implicitly deleted
 								if(parentKidsCount < 2){
-									NodeMovement.PlaceNodeBackInPool(MyNodePool, parent, this);
+									NodeMovement.PlaceNodeBackInPool(parent, this);
 								}
 							}
 							parent = nodeToDelete;	
@@ -202,32 +183,7 @@ public class GameManagerBehavior : MonoBehaviour {
 	} // close function
 
 
-//
-//
-//	// Update is called once per frame
-//	void Update () 
-//	{
-//		Vector3 final_position = new Vector3(5, 5, 5);
-//
-//		//print(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-//		if (Input.GetKeyUp ("space"))
-//		{
-//			NodeMovement.PlaceNodeInScene(MyNodePool, final_position);
-//		}
-//		else if (Input.GetMouseButtonDown (0))
-//		{
-//			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-//			RaycastHit hit;
-//			if(Physics.Raycast(ray, out hit, 100.0f) && hit.transform.tag == "Nodes")
-//			{
-//				print("Hit a node!");
-//				NodeMovement.PlaceNodeBackInPool(MyNodePool, hit.transform.gameObject, this);
-//			}
-//		}
-//		
-//	}
-
-}
+} // close class
 
 
 

@@ -44,7 +44,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 9d32c2efdb8794de3b449ab1bbc6459b, type: 2}
+  - {fileID: 2100000, guid: 05b222c593fe59341bf89d921d6f53bd, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -76,6 +76,7 @@ MonoBehaviour:
   parent: {fileID: 0}
   myKids: []
   desiredPos: {x: 0, y: 0, z: 0}
+  centerOfChildren: {x: 0, y: 0, z: 0}
   speed: 5
 --- !u!120 &12067008
 LineRenderer:
@@ -89,7 +90,7 @@ LineRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 931a19cb0acb14b44b83c1d6b967593d, type: 2}
+  - {fileID: 2100000, guid: 05b222c593fe59341bf89d921d6f53bd, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
