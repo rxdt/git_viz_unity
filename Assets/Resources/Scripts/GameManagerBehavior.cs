@@ -9,7 +9,8 @@ public class GameManagerBehavior : MonoBehaviour {
 
 	private static 	int			    	commitNum;
 	public 		   	List<GameObject> 	MyKids; 
-	public 		   	GameObject	    	NodePrefab; 
+	public 		   	GameObject	    	NodeDirPrefab; 
+	public 		   	GameObject	    	NodeLeafPrefab; 
 
 	// The pseudo-root never changes.
 	private static 	NodeBehavior 		parentBehavior;
@@ -41,7 +42,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 	GameObject createNullRoot(){
-		ROOT = (GameObject)Instantiate(NodePrefab, ROOTLOCATION, Quaternion.identity);
+		ROOT = (GameObject)Instantiate(NodeDirPrefab, ROOTLOCATION, Quaternion.identity);
 		parentBehavior = ROOT.GetComponent<NodeBehavior> ();
 
 		// root's parent is the game manager which is at 0,0,0 the center of world
@@ -140,26 +141,35 @@ public class GameManagerBehavior : MonoBehaviour {
 
 	void AddNode(string pathSubstring, string[] singleFilePathArray, int directoryLevel){
 		if(NodeUtility.stringExistsAsNode(pathSubstring, parent) == false){
-			GameObject nodeAdd;
-			GameObject currentNode = (GameObject)Instantiate(NodePrefab, new Vector3(0,0,0), Quaternion.identity);
+
+			GameObject nodeAdd, currentNode;
+			bool isLeaf;
+			if(directoryLevel == singleFilePathArray.Length - 1){
+				isLeaf = true;
+				currentNode = (GameObject)Instantiate(NodeLeafPrefab, new Vector3(0,0,0), Quaternion.identity);
+			}
+			else{
+				isLeaf = false;
+				currentNode = (GameObject)Instantiate(NodeDirPrefab, new Vector3(0,0,0), Quaternion.identity);
+			}
 			currentNode.SetActive(false);
-			nodeAdd = NodeUtility.PlaceNodeInScene(currentNode, parent);
+			currentNode = NodeUtility.PlaceNodeInScene(currentNode, parent);
 			
 			// accesses parent and adds a reference of the new node as being a child of parent
 			parentBehavior = parent.GetComponent<NodeBehavior> ();
-			NodeBehavior nodeAddBehavior = nodeAdd.GetComponent<NodeBehavior> ();
+			NodeBehavior nodeAddBehavior = currentNode.GetComponent<NodeBehavior> ();
 			nodeAddBehavior.transform.localPosition = Vector3.zero;
 			nodeAddBehavior.parent = parent;
 			nodeAddBehavior.myPath = singleFilePathArray[directoryLevel];
 			
 			// finishing up one file's entire path
-			if(directoryLevel == singleFilePathArray.Length - 1){
+			if(isLeaf){
 				// filepath has a leaf node at the end i.e. when we're at the end of singleFilePathArray
-				nodeAddBehavior.leaf = true;
+				nodeAddBehavior.leaf = isLeaf;
 			}
 			else{
-				parent = nodeAdd;
-				parentBehavior = nodeAdd.GetComponent<NodeBehavior>();
+				parent = currentNode;
+				parentBehavior = currentNode.GetComponent<NodeBehavior>();
 			}
 			
 		} // close if(NodeMovement.stringExistsAsNode(pathSubstring, parent) == false)
