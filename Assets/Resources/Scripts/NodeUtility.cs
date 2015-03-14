@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-//using System;
-
 public static class NodeUtility {
 
 	public static GameObject PlaceNodeInScene(GameObject currentNode, GameObject parent){

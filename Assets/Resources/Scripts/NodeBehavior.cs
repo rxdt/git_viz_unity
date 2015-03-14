@@ -4,19 +4,19 @@ using System.Collections.Generic;
 
 public class NodeBehavior : MonoBehaviour {
 
-	private 	float 			swayTime 		= 1;
-	private		float 			speed 			= 0.8f;
-	private 	float 			rotationSpeed 	= 1;
-	private 	int 			rotDir 			= 1;
-	private 	LineRenderer 	line;
+	private float swayTime = 1;
+	private	float speed = 0.8f;
+	private	float rotationSpeed = 1;
+	private	int rotDir = 1;
+	private	LineRenderer line;
 	
-	public 		bool 			leaf 			= false;
-	public 		string 			myPath 			= null;
-	public 		string			parentName 		= null;
-	public 		GameObject 		parent 			= null;
-	public 		List<Transform> myKids;
-	public		Vector3 		centerOfChildren;
-	public		Vector3 		desiredPos;
+	public bool	leaf = false;
+	public string myPath = null;
+	public string parentName = null;
+	public GameObject parent = null;
+	public List<Transform> myKids;
+	public Vector3 centerOfChildren;
+	public Vector3 desiredPos;
 	
 
 

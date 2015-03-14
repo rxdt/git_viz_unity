@@ -29,10 +29,8 @@ public class GameManagerBehavior : MonoBehaviour {
 	
 
 
+
 	void Start () {
-		//string url = "file://Users/rxdt/commits_json.txt";
-		//WWW www = new WWW(url);
-		//yield return www;
 		TextAsset json = Resources.Load ("commits_json 2", typeof(TextAsset)) as TextAsset;
 		commits = Parser.parseCommitLog(json.text);
 		StartCoroutine(createTree());
@@ -225,9 +223,6 @@ public class GameManagerBehavior : MonoBehaviour {
 			parent = nodeToModify;	
 		}
 	}
-
-
-
 
 } // close class
 
