@@ -452,71 +452,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1016216640}
-  m_LocalRotation: {x: -.0483780652, y: .745217025, z: -.13453792, w: -.651314676}
-  m_LocalPosition: {x: 2.18000007, y: .25, z: .0700000003}
-  m_LocalScale: {x: .00205048383, y: .00205048383, z: .00205048383}
-  m_Children: []
-  m_Father: {fileID: 2065964988}
-  m_RootOrder: 0
---- !u!1 &1042373493
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1042373495}
-  - 108: {fileID: 1042373494}
-  m_Layer: 0
-  m_Name: Directional light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &1042373494
-Light:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1042373493}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Type: 1
-  m_Color: {r: .477941155, g: .428741336, b: .454189509, a: 1}
-  m_Intensity: 1.45000005
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_Strength: 1
-    m_Bias: .0500000007
-    m_Softness: 4
-    m_SoftnessFade: 1
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_ActuallyLightmapped: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 1
-  m_ShadowSamples: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
-  m_IndirectIntensity: 1
-  m_AreaSize: {x: 1, y: 1}
---- !u!4 &1042373495
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1042373493}
-  m_LocalRotation: {x: .350917101, y: .505045772, z: -.235506713, w: .752544105}
-  m_LocalPosition: {x: -1.70000005, y: 1.69000006, z: -.49000001}
+  m_LocalRotation: {x: -.124831863, y: .736278892, z: -.200868145, w: -.63400507}
+  m_LocalPosition: {x: 1.86000001, y: 1.13999999, z: .0700000003}
   m_LocalScale: {x: .00205048383, y: .00205048383, z: .00205048383}
   m_Children: []
   m_Father: {fileID: 2065964988}
@@ -646,6 +583,69 @@ Prefab:
   m_RootGameObject: {fileID: 2065964984}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1460336162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1460336163}
+  - 108: {fileID: 1460336164}
+  m_Layer: 0
+  m_Name: Spotlight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1460336163
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1460336162}
+  m_LocalRotation: {x: .641390324, y: .297555447, z: -.301064074, w: .639874816}
+  m_LocalPosition: {x: .108675659, y: .0038959193, z: -0}
+  m_LocalScale: {x: .0020504836, y: .00205048313, z: .00205048337}
+  m_Children: []
+  m_Father: {fileID: 2065964988}
+  m_RootOrder: 0
+--- !u!108 &1460336164
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1460336162}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 0
+  m_Color: {r: .582397878, g: .925490201, b: .86684221, a: 1}
+  m_Intensity: .5
+  m_Range: 5
+  m_SpotAngle: 1
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 1
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
 --- !u!1 &2065964984
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,8 +720,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 487.689758, y: 487.689758, z: 487.689758}
   m_Children:
+  - {fileID: 1460336163}
   - {fileID: 1016216642}
-  - {fileID: 1042373495}
   m_Father: {fileID: 810461709}
   m_RootOrder: 0
 --- !u!64 &2065964989

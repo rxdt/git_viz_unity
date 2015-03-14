@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11481372}
   - 120: {fileID: 12067008}
   - 135: {fileID: 13528520}
+  - 122: {fileID: 12213812}
   m_Layer: 0
   m_Name: NodeLeafPrefab
   m_TagString: Untagged
@@ -45,6 +46,8 @@ Renderer:
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
   - {fileID: 2100000, guid: dcdac227fa8ae0e419ab9168eee8b08f, type: 2}
+  - {fileID: 2100000, guid: b29a788670523a54082c020884944cbf, type: 2}
+  - {fileID: 2100000, guid: 5d07628057bf34bc4aa7e37d04672b29, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -92,7 +95,7 @@ LineRenderer:
   - {fileID: 2100000, guid: fe08a6d8d0deade47ae0369650293b6d, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
+  m_UseLightProbes: 1
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
@@ -110,6 +113,17 @@ LineRenderer:
       serializedVersion: 2
       rgba: 3808953608
   m_UseWorldSpace: 1
+--- !u!122 &12213812
+Halo:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128520}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 1392377731
+  m_Size: .0500000007
 --- !u!135 &13528520
 SphereCollider:
   m_ObjectHideFlags: 0

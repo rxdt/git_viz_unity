@@ -7,25 +7,25 @@ using System;
 
 public class GameManagerBehavior : MonoBehaviour {
 
-	private static 	int			    	commitNum;
-	public 		   	List<GameObject> 	MyKids; 
-	public 		   	GameObject	    	NodeDirPrefab; 
-	public 		   	GameObject	    	NodeLeafPrefab; 
+	private static int commitNum;
+	public List<GameObject> MyKids; 
+	public GameObject NodeDirPrefab; 
+	public GameObject NodeLeafPrefab; 
 
 	// The pseudo-root never changes.
-	private static 	NodeBehavior 		parentBehavior;
-	private static 	GameObject 			ROOT; 
-	private			GameObject			parent;
+	private static NodeBehavior parentBehavior;
+	private static GameObject ROOT; 
+	private	GameObject parent;
 
 	// Off-center of scene-center(0,0,0) and just below the terrain surface is the tree's pseudo-root. 
 	// Pseudo-root position is relative to parent GameManager (pseudo-root position set in createNullRoot())
-	private static  Vector3 			ROOTLOCATION = new Vector3(0, -0.1f, 53); 
+	private static  Vector3 ROOTLOCATION = new Vector3(0, -0.1f, 53); 
 
 	// Returns a List of dictinoaries. 
 	// Each dictionary is one commit. Key is a string. Value as a list of strings/filnames.
 	List<
 		Dictionary<
-			char, List<string>>> 		commits;
+			char, List<string>>> commits;
 	
 
 
