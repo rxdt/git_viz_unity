@@ -31,7 +31,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 	void Start () {
-		TextAsset json = Resources.Load ("commits_json 2", typeof(TextAsset)) as TextAsset;
+		TextAsset json = Resources.Load ("rails", typeof(TextAsset)) as TextAsset;
 		commits = Parser.parseCommitLog(json.text);
 		StartCoroutine(createTree());
 	}

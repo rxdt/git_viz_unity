@@ -45,9 +45,9 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: dcdac227fa8ae0e419ab9168eee8b08f, type: 2}
-  - {fileID: 2100000, guid: b29a788670523a54082c020884944cbf, type: 2}
-  - {fileID: 2100000, guid: 5d07628057bf34bc4aa7e37d04672b29, type: 2}
+  - {fileID: 2100000, guid: e097e0ca551c28647a5a126e44c35bbc, type: 2}
+  - {fileID: 2100000, guid: 40ddda021ce77480d8a47a41b57bbb6a, type: 2}
+  - {fileID: 2100000, guid: 3049dffabc5225d40b27675901977fdd, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -92,7 +92,7 @@ LineRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: fe08a6d8d0deade47ae0369650293b6d, type: 2}
+  - {fileID: 2100000, guid: 03f3b4747259a364b800508ac27e1c17, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -104,8 +104,8 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
-    startWidth: .0199999996
-    endWidth: .0199999996
+    startWidth: .00999999978
+    endWidth: .00999999978
     m_StartColor:
       serializedVersion: 2
       rgba: 4289483322
@@ -122,8 +122,8 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 1392377731
-  m_Size: .0500000007
+    rgba: 1385012223
+  m_Size: .0299999993
 --- !u!135 &13528520
 SphereCollider:
   m_ObjectHideFlags: 0
