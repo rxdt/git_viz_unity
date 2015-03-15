@@ -30,7 +30,7 @@ public class NodeBehavior : MonoBehaviour {
 
 	public void Start(){
 		if(!leaf){
-			StartCoroutine(sway());
+			StartCoroutine(Sway());
 		} 
 		centerOfChildren = Random.onUnitSphere;
 		centerOfChildren = new Vector3(centerOfChildren.x, Mathf.Abs(centerOfChildren.y), centerOfChildren.z);
@@ -41,7 +41,15 @@ public class NodeBehavior : MonoBehaviour {
 
 
 
-	private IEnumerator sway(){
+	public void Awake(){
+		desiredPos = transform.localPosition;
+		line = GetComponent<LineRenderer>();
+	}
+
+	
+
+
+	private IEnumerator Sway(){
 		float swayTimer = 0;
 		while(Application.isPlaying){
 			while(swayTimer < swayTime){
@@ -56,15 +64,7 @@ public class NodeBehavior : MonoBehaviour {
 			}
 		}
 	}
-
-
-
-
-	public void Awake(){
-		desiredPos = transform.localPosition;
-		line = GetComponent<LineRenderer>();
-	}
-
+		
 
 
 
@@ -86,12 +86,4 @@ public class NodeBehavior : MonoBehaviour {
 		}
 	}
 
-
-
-
-	public void ShowModifyEffect(){
-		ParticleSystem particlesystem = (ParticleSystem)gameObject.GetComponent("ParticleSystem");
-		Debug.Log ("Particle system: " + particlesystem.IsAlive());
-		particlesystem.enableEmission = true;
-	}
 }

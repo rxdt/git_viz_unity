@@ -2,6 +2,6 @@ using UnityEngine;
 
 public class Commits{
 
-	public Commit commit { get; set; }
+	public Commit Commit { get; set; }
 
 }

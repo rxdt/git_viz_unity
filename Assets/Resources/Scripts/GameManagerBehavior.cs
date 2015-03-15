@@ -11,6 +11,7 @@ public class GameManagerBehavior : MonoBehaviour {
 	public List<GameObject> MyKids; 
 	public GameObject NodeDirPrefab; 
 	public GameObject NodeLeafPrefab; 
+	public GameObject ThreeDTextPrefab;
 
 	// The pseudo-root never changes.
 	private static NodeBehavior parentBehavior;
@@ -32,14 +33,14 @@ public class GameManagerBehavior : MonoBehaviour {
 
 	void Start () {
 		TextAsset json = Resources.Load ("rails", typeof(TextAsset)) as TextAsset;
-		commits = Parser.parseCommitLog(json.text);
+		commits = Parser.ParseCommitLog(json.text);
 		StartCoroutine(CreateTree());
 	}
 
 
 
 
-	GameObject createNullRoot(){
+	GameObject CreateNullRoot(){
 		ROOT = (GameObject)Instantiate(NodeDirPrefab, ROOTLOCATION, Quaternion.identity);
 		parentBehavior = ROOT.GetComponent<NodeBehavior> ();
 
@@ -58,7 +59,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 	IEnumerator CreateTree(){
 		// sets global static ROOT game object and rootBehavior
-		createNullRoot(); 
+		CreateNullRoot(); 
 		commitNum = 0;		
 
 		yield return new WaitForSeconds(10f);
@@ -137,10 +138,13 @@ public class GameManagerBehavior : MonoBehaviour {
 	/******* CASE A *******/
 
 	void AddNode(string pathSubstring, string[] singleFilePathArray, int directoryLevel){
-		if(NodeUtility.stringExistsAsNode(pathSubstring, parent) == false){
 
-			GameObject nodeAdd, currentNode;
+		// create node if it doesn't exist
+		if(NodeUtility.StringExistsAsNode(pathSubstring, parent) == false){
+
+			GameObject currentNode;
 			bool isLeaf;
+
 			if(directoryLevel == singleFilePathArray.Length - 1){
 				isLeaf = true;
 				currentNode = (GameObject)Instantiate(NodeLeafPrefab, new Vector3(0,0,0), Quaternion.identity);
@@ -149,32 +153,29 @@ public class GameManagerBehavior : MonoBehaviour {
 				isLeaf = false;
 				currentNode = (GameObject)Instantiate(NodeDirPrefab, new Vector3(0,0,0), Quaternion.identity);
 			}
-			currentNode.SetActive(false);
 			currentNode = NodeUtility.PlaceNodeInScene(currentNode, parent);
+
+			SetNodeText(currentNode, pathSubstring);
 			
-			// accesses parent and adds a reference of the new node as being a child of parent
-			parentBehavior = parent.GetComponent<NodeBehavior> ();
-			NodeBehavior nodeAddBehavior = currentNode.GetComponent<NodeBehavior> ();
-			nodeAddBehavior.transform.localPosition = Vector3.zero;
-			nodeAddBehavior.parent = parent;
-			nodeAddBehavior.myPath = singleFilePathArray[directoryLevel];
+			// accesses parent & adds a reference of the new node as being a child of parent & returns nodeBehavior
+			NodeBehavior nodeToAddBehavior = setNodeAsChildOfParent(currentNode, pathSubstring);
 			
-			// finishing up one file's entire path
-			if(isLeaf){
-				// filepath has a leaf node at the end i.e. when we're at the end of singleFilePathArray
-				nodeAddBehavior.leaf = isLeaf;
-			}
-			else{
+			// filepath has a leaf node at the end i.e. when we're at the end of singleFilePathArray
+			nodeToAddBehavior.leaf = isLeaf;
+
+			if(!isLeaf){
 				parent = currentNode;
 				parentBehavior = currentNode.GetComponent<NodeBehavior>();
 			}
 			
-		} // close if(NodeMovement.stringExistsAsNode(pathSubstring, parent) == false)
-		
+		} // close if
+
+
+		// else the node with substring exists and continue traversal
 		else{
-			parent = NodeUtility.getNodeWithGivenPath(pathSubstring, parent); // get node GameObject
+			parent = NodeUtility.GetNodeWithGivenPath(pathSubstring, parent); // get node GameObject
 			parentBehavior = parent.GetComponent<NodeBehavior>();
-		} // close else
+		} 
 	}
 
 
@@ -183,7 +184,7 @@ public class GameManagerBehavior : MonoBehaviour {
 	/******* CASE D *******/
 
 	void DeleteNode(string pathSubstring, int directoryLevel){
-		GameObject nodeToDelete = NodeUtility.getNodeWithGivenPath(pathSubstring, parent);
+		GameObject nodeToDelete = NodeUtility.GetNodeWithGivenPath(pathSubstring, parent);
 		NodeBehavior nodeToDeleteBehavior = nodeToDelete.GetComponent<NodeBehavior>();
 		
 		if(nodeToDeleteBehavior.leaf){
@@ -191,14 +192,14 @@ public class GameManagerBehavior : MonoBehaviour {
 			int parentKidsCount = parent.GetComponent<NodeBehavior>().myKids.Count;
 			
 			// this doesn't decrement the parentBehavior's myKids.Count so using parentKidsCount...
-			NodeUtility.removeNode(nodeToDelete, this);
+			NodeUtility.RemoveNode(nodeToDelete, this);
 			
 			// using parentKidsCount to check if a parent directory will be empty after node deletions
 			parentKidsCount--;
 			
 			// git doesn't allow empty directories - it considers them implicitly deleted
 			if(parentKidsCount < 1){
-				NodeUtility.removeNode(parent, this);
+				NodeUtility.RemoveNode(parent, this);
 			}
 		}
 		parent = nodeToDelete;	
@@ -210,7 +211,7 @@ public class GameManagerBehavior : MonoBehaviour {
 	/******* CASE M *******/
 
 	void ModifyNode(string pathSubstring){
-		GameObject nodeToModify = NodeUtility.getNodeWithGivenPath(pathSubstring, parent);
+		GameObject nodeToModify = NodeUtility.GetNodeWithGivenPath(pathSubstring, parent);
 		NodeBehavior nodeToModifyBehavior = nodeToModify.GetComponent<NodeBehavior>();
 
 		if(nodeToModifyBehavior.leaf){
@@ -223,6 +224,27 @@ public class GameManagerBehavior : MonoBehaviour {
 		}
 	}
 
+
+
+
+	void SetNodeText(GameObject currentNode, string pathSubstring){
+		GameObject threeDText = (GameObject)Instantiate(ThreeDTextPrefab, currentNode.transform.position, Quaternion.identity);
+		GameBillboardText gbt = threeDText.GetComponent<GameBillboardText>();
+		gbt.SetText(pathSubstring);
+	}
+
+
+
+
+	NodeBehavior setNodeAsChildOfParent(GameObject currentNode, string pathSubstring){
+		parentBehavior = parent.GetComponent<NodeBehavior> ();
+		NodeBehavior nodeBehavior = currentNode.GetComponent<NodeBehavior> ();
+		nodeBehavior.transform.localPosition = Vector3.zero;
+		nodeBehavior.parent = parent;
+		nodeBehavior.myPath = pathSubstring;
+		return nodeBehavior;
+	}
+	
 } // close class
 
 

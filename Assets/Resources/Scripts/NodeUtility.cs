@@ -7,12 +7,14 @@ using System.Text;
 public static class NodeUtility {
 
 	public static GameObject PlaceNodeInScene(GameObject currentNode, GameObject parent){
-		NodeBehavior parentBehavior = parent.GetComponent<NodeBehavior>();
+		currentNode.SetActive(false);
 
+		NodeBehavior parentBehavior = parent.GetComponent<NodeBehavior>();
 		parentBehavior.myKids.Add(currentNode.transform);
-		
+
 		// Actually setting the parent's transform as the parent of the node's transform. Otherwise they wont move together.
 		currentNode.transform.SetParent (parent.transform);
+
 		currentNode.SetActive(true);
 
 		return SeparateChildren(currentNode, parentBehavior);
@@ -45,7 +47,7 @@ public static class NodeUtility {
 			Vector3 childPos = UnityEngine.Random.onUnitSphere;
 			childPos = new Vector3(childPos.x, Mathf.Abs(childPos.y), childPos.z);
 			childPos.Normalize();
-			childPos *= 6;
+			childPos *= 5;
 			childPos += parentBehavior.centerOfChildren;
 			kt.GetComponent<NodeBehavior>().desiredPos = childPos;
 		}
@@ -91,10 +93,7 @@ public static class NodeUtility {
 		}
 		return null;
 	}
-
-
-
-
+	
 }
 
 

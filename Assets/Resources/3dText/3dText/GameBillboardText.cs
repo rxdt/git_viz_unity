@@ -8,19 +8,17 @@ public class GameBillboardText : MonoBehaviour
 	public String Text = "Filename";
 	public Text TextUI;
 
-	protected void Awake()
-	{
+	protected void Awake(){	
+		Target = GameObject.Find ("OVRCameraRig").camera.transform;
 		SetText(Text);
 	}
 
-	public void SetText(string text)
-	{
+	public void SetText(string text){
 		Text = text;
 		TextUI.text = Text;
 	}
 
-	protected void FixedUpdate()
-	{
+	protected void FixedUpdate(){
 		var toTarget = transform.position - Target.position;
 		toTarget.y = 0;
 		transform.rotation = Quaternion.LookRotation(toTarget, Vector3.up);
