@@ -15,7 +15,7 @@ public static class NodeUtility {
 		currentNode.transform.SetParent (parent.transform);
 		currentNode.SetActive(true);
 
-		return separateChildren(currentNode, parentBehavior);
+		return SeparateChildren(currentNode, parentBehavior);
 	}
 
 
@@ -33,14 +33,14 @@ public static class NodeUtility {
 		currentNode.transform.SetParent (parent.transform);
 		currentNode.SetActive(true);
 		
-		return separateChildren(currentNode, parentBehavior);
+		return SeparateChildren(currentNode, parentBehavior);
 	}
 
 
 
 
 	// Separation of space b/t siblings around a unit circle
-	static GameObject separateChildren(GameObject currentNode, NodeBehavior parentBehavior){
+	static GameObject SeparateChildren(GameObject currentNode, NodeBehavior parentBehavior){
 		foreach(Transform kt in parentBehavior.myKids){
 			Vector3 childPos = UnityEngine.Random.onUnitSphere;
 			childPos = new Vector3(childPos.x, Mathf.Abs(childPos.y), childPos.z);
@@ -55,7 +55,7 @@ public static class NodeUtility {
 
 
 
-	public static void removeNode(GameObject node, GameManagerBehavior GameManager){
+	public static void RemoveNode(GameObject node, GameManagerBehavior GameManager){
 		if(node != null){
 			NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior>();
 			NodeBehavior pb = nodeBehavior.parent.GetComponent<NodeBehavior>();
@@ -67,7 +67,7 @@ public static class NodeUtility {
 
 
 
-	public static bool stringExistsAsNode(string pathSubstringToFind, GameObject ROOT){
+	public static bool StringExistsAsNode(string pathSubstringToFind, GameObject ROOT){
 		NodeBehavior rootBehavior = ROOT.GetComponent<NodeBehavior>();
 
 		foreach(Transform kidTransform in rootBehavior.myKids){
@@ -81,7 +81,7 @@ public static class NodeUtility {
 
 
 
-	public static GameObject getNodeWithGivenPath(string pathSubstringToFind, GameObject root){
+	public static GameObject GetNodeWithGivenPath(string pathSubstringToFind, GameObject root){
 		NodeBehavior rootBehavior = root.GetComponent<NodeBehavior>();
 
 		foreach(Transform kidTransform in rootBehavior.myKids){
@@ -95,9 +95,6 @@ public static class NodeUtility {
 
 
 
-	public static void showModificationEffect(GameObject node, string pathSubstring){
-
-	}
 }
 
 

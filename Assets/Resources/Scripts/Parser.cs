@@ -10,11 +10,11 @@ using Newtonsoft.Json.Linq;
 public static class Parser {
 
 	// parses filename into a dictionary of dictionaries that is stored in a JSON object
-	public static List<Dictionary<char, List<string>>> parseCommitLog(string json){
+	public static List<Dictionary<char, List<string>>> ParseCommitLog(string json){
 		try{
 			if(json != null){
 				JSONObject commitsJson = new JSONObject(json); // creates a dictionary of dictionaries
-				accessData(commitsJson);
+				AccessData(commitsJson);
 				List<Dictionary<char, List<string>>> commits = JsonConvert.DeserializeObject< List<Dictionary<char, List<string>>> >(json);
 
 				return commits;
@@ -30,18 +30,18 @@ public static class Parser {
 
 
 
-	static void accessData(JSONObject obj){
+	static void AccessData(JSONObject obj){
 		switch(obj.type){
 		case JSONObject.Type.OBJECT:
 			for(int i = 0; i < obj.list.Count; i++){
 				char key = (obj.keys[i])[0];
 				JSONObject j = (JSONObject)obj.list[i];
-				accessData(j);
+				AccessData(j);
 			}
 			break;
 		case JSONObject.Type.ARRAY:
 			foreach(JSONObject j in obj.list){
-				accessData(j);
+				AccessData(j);
 			}
 			break;
 		case JSONObject.Type.STRING:

@@ -33,7 +33,7 @@ public class GameManagerBehavior : MonoBehaviour {
 	void Start () {
 		TextAsset json = Resources.Load ("rails", typeof(TextAsset)) as TextAsset;
 		commits = Parser.parseCommitLog(json.text);
-		StartCoroutine(createTree());
+		StartCoroutine(CreateTree());
 	}
 
 
@@ -56,7 +56,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 
-	IEnumerator createTree(){
+	IEnumerator CreateTree(){
 		// sets global static ROOT game object and rootBehavior
 		createNullRoot(); 
 		commitNum = 0;		
@@ -65,7 +65,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 		// Each time through the commits List gives us a dictionary that represents one commit
 		foreach( Dictionary<char, List<string>> d in commits ){
-			yield return StartCoroutine(parseSingleCommit(d));
+			yield return StartCoroutine(ParseSingleCommit(d));
 			commitNum++;
 			yield return new WaitForSeconds(2);
 		}
@@ -76,7 +76,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 	// Gets us the key and its associated files list
-	IEnumerator parseSingleCommit(Dictionary<char, List<string>> d){
+	IEnumerator ParseSingleCommit(Dictionary<char, List<string>> d){
 		const int MAX_FILES = 100;
 		int fileCount = 0;
 
@@ -125,7 +125,6 @@ public class GameManagerBehavior : MonoBehaviour {
 							break;
 
 					} // close switch(key)
-
 
 				} // close for loop
 			} // close foreach filepath in listToAffect
@@ -218,7 +217,6 @@ public class GameManagerBehavior : MonoBehaviour {
 			ParticleSystem particlesystem = (ParticleSystem)nodeToModify.GetComponent("ParticleSystem");
 			particlesystem.particleSystem.Play();
 			particlesystem.enableEmission = true;
-			Debug.Log ("Particle system: " + particlesystem.IsAlive());
 		}
 		else{
 			parent = nodeToModify;	
