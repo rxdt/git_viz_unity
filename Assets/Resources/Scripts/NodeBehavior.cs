@@ -85,4 +85,13 @@ public class NodeBehavior : MonoBehaviour {
 			transform.localPosition += dir * speed * Time.deltaTime;
 		}
 	}
+
+
+
+
+	public void ShowModifyEffect(){
+		ParticleSystem particlesystem = (ParticleSystem)gameObject.GetComponent("ParticleSystem");
+		Debug.Log ("Particle system: " + particlesystem.IsAlive());
+		particlesystem.enableEmission = true;
+	}
 }

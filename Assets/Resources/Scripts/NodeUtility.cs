@@ -96,7 +96,7 @@ public static class NodeUtility {
 
 
 	public static void showModificationEffect(GameObject node, string pathSubstring){
-//		Debug.Log(" pathsubstring of file/node to get visual: " + pathSubstring);
+
 	}
 }
 

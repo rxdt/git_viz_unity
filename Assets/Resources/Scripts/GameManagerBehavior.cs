@@ -213,11 +213,12 @@ public class GameManagerBehavior : MonoBehaviour {
 	void ModifyNode(string pathSubstring){
 		GameObject nodeToModify = NodeUtility.getNodeWithGivenPath(pathSubstring, parent);
 		NodeBehavior nodeToModifyBehavior = nodeToModify.GetComponent<NodeBehavior>();
-		
+
 		if(nodeToModifyBehavior.leaf){
-			// TODO some visual effect goes here:
-			NodeUtility.showModificationEffect(nodeToModify, pathSubstring);
-			Debug.Log (nodeToModifyBehavior.myPath + "it's a leaf and this is the node to modify!");
+			ParticleSystem particlesystem = (ParticleSystem)nodeToModify.GetComponent("ParticleSystem");
+			particlesystem.particleSystem.Play();
+			particlesystem.enableEmission = true;
+			Debug.Log ("Particle system: " + particlesystem.IsAlive());
 		}
 		else{
 			parent = nodeToModify;	
