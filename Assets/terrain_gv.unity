@@ -232,6 +232,7 @@ MonoBehaviour:
   MyKids: []
   NodeDirPrefab: {fileID: 144462, guid: 21460e5a4818f4ce2935df354658c9de, type: 2}
   NodeLeafPrefab: {fileID: 128520, guid: 5a87a233587264d6086f635b7ff27fc8, type: 2}
+  ThreeDTextPrefab: {fileID: 165966, guid: 6f34d4895510b1a42ba94a21403f709c, type: 2}
 --- !u!4 &810461709
 Transform:
   m_ObjectHideFlags: 0

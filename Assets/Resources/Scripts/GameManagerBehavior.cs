@@ -8,15 +8,17 @@ using System;
 public class GameManagerBehavior : MonoBehaviour {
 
 	private static int commitNum;
+	private	const int MAX_FILES = 100;
 	public List<GameObject> MyKids; 
 	public GameObject NodeDirPrefab; 
 	public GameObject NodeLeafPrefab; 
 	public GameObject ThreeDTextPrefab;
+	public static Transform CameraTransform;
 
 	// The pseudo-root never changes.
 	private static NodeBehavior parentBehavior;
 	private static GameObject ROOT; 
-	private	GameObject parent;
+	private	static GameObject parent;
 
 	// Off-center of scene-center(0,0,0) and just below the terrain surface is the tree's pseudo-root. 
 	// Pseudo-root position is relative to parent GameManager (pseudo-root position set in createNullRoot())
@@ -40,7 +42,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 
-	GameObject CreateNullRoot(){
+	GameObject CreatePseudoRoot(){
 		ROOT = (GameObject)Instantiate(NodeDirPrefab, ROOTLOCATION, Quaternion.identity);
 		parentBehavior = ROOT.GetComponent<NodeBehavior> ();
 
@@ -58,10 +60,11 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 	IEnumerator CreateTree(){
-		// sets global static ROOT game object and rootBehavior
-		CreateNullRoot(); 
+		// sets global static ROOT game object and its rootBehavior
+		CreatePseudoRoot(); 
 		commitNum = 0;		
 
+		// pause to give the viewer time to settle in
 		yield return new WaitForSeconds(10f);
 
 		// Each time through the commits List gives us a dictionary that represents one commit
@@ -76,12 +79,11 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 
-	// Gets us the key and its associated files list
 	IEnumerator ParseSingleCommit(Dictionary<char, List<string>> d){
-		const int MAX_FILES = 100;
 		int fileCount = 0;
 
 		// for each key of the key->value pairs...
+		// Gets us the key and its associated files list
 		foreach(char key in d.Keys){
 
 			// get the list of files associated with this particular key in this particular commit (e.g. the A/Additions in commit no.0)
@@ -154,8 +156,6 @@ public class GameManagerBehavior : MonoBehaviour {
 				currentNode = (GameObject)Instantiate(NodeDirPrefab, new Vector3(0,0,0), Quaternion.identity);
 			}
 			currentNode = NodeUtility.PlaceNodeInScene(currentNode, parent);
-
-			SetNodeText(currentNode, pathSubstring);
 			
 			// accesses parent & adds a reference of the new node as being a child of parent & returns nodeBehavior
 			NodeBehavior nodeToAddBehavior = setNodeAsChildOfParent(currentNode, pathSubstring);
@@ -166,6 +166,7 @@ public class GameManagerBehavior : MonoBehaviour {
 			if(!isLeaf){
 				parent = currentNode;
 				parentBehavior = currentNode.GetComponent<NodeBehavior>();
+				//SetNodeText(currentNode, pathSubstring);
 			}
 			
 		} // close if
@@ -229,13 +230,17 @@ public class GameManagerBehavior : MonoBehaviour {
 
 	void SetNodeText(GameObject currentNode, string pathSubstring){
 		GameObject threeDText = (GameObject)Instantiate(ThreeDTextPrefab, currentNode.transform.position, Quaternion.identity);
+		threeDText.SetActive(false);
 		GameBillboardText gbt = threeDText.GetComponent<GameBillboardText>();
+		gbt.Target = GameManagerBehavior.CameraTransform.transform;
+		threeDText.transform.SetParent (currentNode.transform);
 		gbt.SetText(pathSubstring);
+		threeDText.SetActive(true);
 	}
 
 
 
-
+	
 	NodeBehavior setNodeAsChildOfParent(GameObject currentNode, string pathSubstring){
 		parentBehavior = parent.GetComponent<NodeBehavior> ();
 		NodeBehavior nodeBehavior = currentNode.GetComponent<NodeBehavior> ();

@@ -9,7 +9,7 @@ public class GameBillboardText : MonoBehaviour
 	public Text TextUI;
 
 	protected void Awake(){	
-		Target = GameObject.Find ("OVRCameraRig").camera.transform;
+//		Target = GameManagerBehavior.OVRCameraRig.
 		SetText(Text);
 	}
 
@@ -19,7 +19,10 @@ public class GameBillboardText : MonoBehaviour
 	}
 
 	protected void FixedUpdate(){
-		var toTarget = transform.position - Target.position;
+		Vector3 tp = transform.position;
+		Vector3 Targ = Target.position;
+		var toTarget = tp - Targ;
+//		var toTarget = transform.position - Target.position;
 		toTarget.y = 0;
 		transform.rotation = Quaternion.LookRotation(toTarget, Vector3.up);
 	}
