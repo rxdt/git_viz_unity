@@ -166,9 +166,9 @@ public class GameManagerBehavior : MonoBehaviour {
 			if(!isLeaf){
 				parent = currentNode;
 				parentBehavior = currentNode.GetComponent<NodeBehavior>();
-				SetNodeText(currentNode, pathSubstring);
 			}
-			
+			SetNodeText(currentNode, pathSubstring);
+
 		} // close if
 
 
