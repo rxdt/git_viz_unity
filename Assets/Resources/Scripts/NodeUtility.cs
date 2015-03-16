@@ -47,7 +47,7 @@ public static class NodeUtility {
 			Vector3 childPos = UnityEngine.Random.onUnitSphere;
 			childPos = new Vector3(childPos.x, Mathf.Abs(childPos.y), childPos.z);
 			childPos.Normalize();
-			childPos *= 5;
+			childPos *= 6;
 			childPos += parentBehavior.centerOfChildren;
 			kt.GetComponent<NodeBehavior>().desiredPos = childPos;
 		}
@@ -60,8 +60,10 @@ public static class NodeUtility {
 	public static void RemoveNode(GameObject node, GameManagerBehavior GameManager){
 		if(node != null){
 			NodeBehavior nodeBehavior = node.GetComponent<NodeBehavior>();
-			NodeBehavior pb = nodeBehavior.parent.GetComponent<NodeBehavior>();
-			pb.myKids.Remove(node.transform);
+			if(nodeBehavior.parent != null){
+				NodeBehavior pb = nodeBehavior.parent.GetComponent<NodeBehavior>();
+				pb.myKids.Remove(node.transform);
+			}
 			GameObject.Destroy(node);
 		}
 	}

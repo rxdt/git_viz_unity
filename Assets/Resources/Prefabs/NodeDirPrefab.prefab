@@ -46,10 +46,9 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: b29a788670523a54082c020884944cbf, type: 2}
   - {fileID: 2100000, guid: 11a0c3f23125d82438a256e8b00f7117, type: 2}
-  - {fileID: 2100000, guid: ebf996884992847a8bf2f4f12b04677c, type: 2}
-  - {fileID: 2100000, guid: 3049dffabc5225d40b27675901977fdd, type: 2}
+  - {fileID: 2100000, guid: 931a19cb0acb14b44b83c1d6b967593d, type: 2}
+  - {fileID: 2100000, guid: a88369406251a59489e61461666db6fa, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -94,7 +93,7 @@ LineRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 03f3b4747259a364b800508ac27e1c17, type: 2}
+  - {fileID: 2100000, guid: b1d09fb72fa587649801a1fa508512fe, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -106,14 +105,14 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
-    startWidth: .0199999996
-    endWidth: .0199999996
+    startWidth: .00800000038
+    endWidth: .00999999978
     m_StartColor:
       serializedVersion: 2
-      rgba: 4283706411
+      rgba: 4278386945
     m_EndColor:
       serializedVersion: 2
-      rgba: 4291035136
+      rgba: 4278386688
   m_UseWorldSpace: 1
 --- !u!122 &12286170
 Halo:
@@ -124,8 +123,8 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 2496770303
-  m_Size: .0500000007
+    rgba: 1978760330
+  m_Size: .0649999976
 --- !u!198 &19861624
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -370,7 +369,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 300
+    maxNumParticles: 700
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -388,7 +387,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 200
+      scalar: 350
       maxCurve:
         serializedVersion: 2
         m_Curve:

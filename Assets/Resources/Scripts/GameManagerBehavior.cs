@@ -14,6 +14,7 @@ public class GameManagerBehavior : MonoBehaviour {
 	public GameObject NodeLeafPrefab; 
 	public GameObject ThreeDTextPrefab;
 	public Transform CameraTransform;
+	private TextAsset json;
 
 	// The pseudo-root never changes.
 	private static NodeBehavior parentBehavior;
@@ -33,8 +34,15 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 
-	void Start () {
-		TextAsset json = Resources.Load ("rails", typeof(TextAsset)) as TextAsset;
+	void Start (){
+		json = Resources.Load ("this_web", typeof(TextAsset)) as TextAsset;
+		BeginViz();
+	}
+
+
+
+
+	void BeginViz(){
 		commits = Parser.ParseCommitLog(json.text);
 		StartCoroutine(CreateTree());
 	}
@@ -65,15 +73,25 @@ public class GameManagerBehavior : MonoBehaviour {
 		commitNum = 0;		
 
 		// pause to give the viewer time to settle in
-		yield return new WaitForSeconds(10f);
+		yield return new WaitForSeconds(20f);
 
 		// Each time through the commits List gives us a dictionary that represents one commit
 		foreach( Dictionary<char, List<string>> d in commits ){
 			yield return StartCoroutine(ParseSingleCommit(d));
 			commitNum++;
+			Debug.Log ("Commit num: " + commitNum);
 			yield return new WaitForSeconds(2);
 		}
+		StartOver();
 		yield break;
+	}
+
+
+
+
+	void StartOver(){
+		NodeUtility.RemoveNode(ROOT, this);
+		BeginViz();
 	}
 
 
@@ -228,8 +246,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 
-	public void SetNodeText(GameObject currentNode, string pathSubstring)
-	{
+	public void SetNodeText(GameObject currentNode, string pathSubstring){
 		var threeDText = Instantiate(ThreeDTextPrefab, currentNode.transform.position, Quaternion.identity) as GameObject;
 		if (!threeDText) return;
 		threeDText.SetActive(false);

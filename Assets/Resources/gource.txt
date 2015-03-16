@@ -1,0 +1,5153 @@
+[
+  {
+    "A": [
+      ".gitignore", 
+      "COPYING", 
+      "INSTALL", 
+      "Makefile.in", 
+      "README", 
+      "README-SDL", 
+      "THANKS", 
+      "aclocal.m4", 
+      "configure", 
+      "configure.ac", 
+      "gource.win32.cbp", 
+      "m4/acx_pthread.m4", 
+      "m4/ax_check_gl.m4", 
+      "m4/ax_check_glu.m4", 
+      "m4/ax_check_glut.m4", 
+      "m4/ax_lang_compiler_ms.m4", 
+      "m4/freetype2.m4", 
+      "src/.gitignore", 
+      "src/Makefile.in", 
+      "src/action.cpp", 
+      "src/action.h", 
+      "src/commitlog.cpp", 
+      "src/commitlog.h", 
+      "src/core/.gitignore", 
+      "src/core/Makefile.in", 
+      "src/core/bounds.h", 
+      "src/core/camera.cpp", 
+      "src/core/camera.h", 
+      "src/core/display.cpp", 
+      "src/core/display.h", 
+      "src/core/extensions.cpp", 
+      "src/core/extensions.h", 
+      "src/core/frustum.cpp", 
+      "src/core/frustum.h", 
+      "src/core/fxfont.cpp", 
+      "src/core/fxfont.h", 
+      "src/core/logger.cpp", 
+      "src/core/logger.h", 
+      "src/core/pi.h", 
+      "src/core/plane.cpp", 
+      "src/core/plane.h", 
+      "src/core/quadtree.cpp", 
+      "src/core/quadtree.h", 
+      "src/core/regex.cpp", 
+      "src/core/regex.h", 
+      "src/core/resource.cpp", 
+      "src/core/resource.h", 
+      "src/core/sdlapp.cpp", 
+      "src/core/sdlapp.h", 
+      "src/core/seeklog.cpp", 
+      "src/core/seeklog.h", 
+      "src/core/stringhash.cpp", 
+      "src/core/stringhash.h", 
+      "src/core/texture.cpp", 
+      "src/core/texture.h", 
+      "src/core/vectors.h", 
+      "src/custom.cpp", 
+      "src/custom.h", 
+      "src/cvs-exp.cpp", 
+      "src/cvs-exp.h", 
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/file.cpp", 
+      "src/file.h", 
+      "src/git.cpp", 
+      "src/git.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp", 
+      "src/main.h", 
+      "src/pawn.cpp", 
+      "src/pawn.h", 
+      "src/slider.cpp", 
+      "src/slider.h", 
+      "src/spline.cpp", 
+      "src/spline.h", 
+      "src/user.cpp", 
+      "src/user.h", 
+      "src/zoomcamera.cpp", 
+      "src/zoomcamera.h"
+    ]
+  }, 
+  {
+    "A": [
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "A": [
+      "data/beam.png", 
+      "data/file.png", 
+      "data/no_photo.png"
+    ]
+  }, 
+  {
+    "A": [
+      "data/fonts/FreeSans.ttf", 
+      "data/fonts/README"
+    ], 
+    "M": [
+      "src/file.cpp", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/slider.cpp", 
+      "src/user.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      ".gitignore"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.in"
+    ]
+  }, 
+  {
+    "A": [
+      "config.guess", 
+      "config.sub", 
+      "install-sh"
+    ]
+  }, 
+  {
+    "M": [
+      ".gitignore"
+    ]
+  }, 
+  {
+    "M": [
+      "README"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "README"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "A": [
+      "debian/changelog", 
+      "debian/compat", 
+      "debian/control", 
+      "debian/copyright", 
+      "debian/dirs", 
+      "debian/docs", 
+      "debian/rules"
+    ]
+  }, 
+  {
+    "M": [
+      "src/git.cpp", 
+      "src/git.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "debian/changelog"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "src/core/display.cpp", 
+      "src/core/display.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/fxfont.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/texture.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/git.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      ".gitignore"
+    ]
+  }, 
+  {
+    "M": [
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "src/git.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README"
+    ]
+  }, 
+  {
+    "A": [
+      "README.win32.txt"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "src/git.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/git.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/git.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/git.cpp", 
+      "src/git.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/Makefile.in", 
+      "src/core/Makefile.in"
+    ]
+  }, 
+  {
+    "M": [
+      "src/Makefile.in", 
+      "src/core/Makefile.in"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/commitlog.cpp", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/commitlog.cpp", 
+      "src/core/seeklog.cpp", 
+      "src/core/seeklog.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "README"
+    ]
+  }, 
+  {
+    "M": [
+      "src/git.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/git.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README.win32.txt"
+    ]
+  }, 
+  {
+    "M": [
+      "src/git.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/git.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "D": [
+      "README.win32.txt"
+    ], 
+    "M": [
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      "README.win32.txt"
+    ]
+  }, 
+  {
+    "M": [
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/commitlog.cpp"
+    ]
+  }, 
+  {
+    "D": [
+      "README.win32.txt"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/git.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      ".gitignore"
+    ]
+  }, 
+  {
+    "M": [
+      "src/cvs-exp.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      "src/gitraw.cpp", 
+      "src/gitraw.h"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/commitlog.cpp", 
+      "src/commitlog.h", 
+      "src/git.cpp", 
+      "src/git.h"
+    ]
+  }, 
+  {
+    "M": [
+      "README"
+    ]
+  }, 
+  {
+    "M": [
+      "src/Makefile.in"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/main.cpp", 
+      "src/zoomcamera.cpp", 
+      "src/zoomcamera.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/git.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      "src/core/utf8/checked.h", 
+      "src/core/utf8/core.h", 
+      "src/core/utf8/unchecked.h", 
+      "src/core/utf8/utf8.h"
+    ], 
+    "M": [
+      "debian/copyright", 
+      "src/commitlog.cpp", 
+      "src/commitlog.h"
+    ]
+  }, 
+  {
+    "M": [
+      "README"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.in", 
+      "README", 
+      "configure", 
+      "configure.ac", 
+      "debian/changelog", 
+      "src/core/Makefile.in", 
+      "src/core/display.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      "dev/.gitignore", 
+      "dev/bin/build_tar.pl"
+    ], 
+    "M": [
+      ".gitignore"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/utf8/utf8.h"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "A": [
+      "dev/bin/build_win32.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_win32.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "data/gource.1"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "README"
+    ]
+  }, 
+  {
+    "M": [
+      "src/git.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "debian/changelog", 
+      "dev/bin/build_tar.pl", 
+      "dev/bin/build_win32.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_tar.pl", 
+      "dev/bin/build_win32.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "debian/changelog"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "src/action.cpp", 
+      "src/action.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp", 
+      "src/user.cpp", 
+      "src/user.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/user.cpp"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "src/git.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README"
+    ]
+  }, 
+  {
+    "M": [
+      "src/commitlog.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      "m4/sdl.m4"
+    ], 
+    "M": [
+      "README", 
+      "aclocal.m4", 
+      "configure", 
+      "configure.ac", 
+      "src/Makefile.in", 
+      "src/core/extensions.h", 
+      "src/core/sdlapp.h", 
+      "src/core/texture.h"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "src/Makefile.in", 
+      "src/core/Makefile.in"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/display.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/user.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      "m4/pkg.m4"
+    ], 
+    "M": [
+      "README", 
+      "aclocal.m4", 
+      "configure", 
+      "configure.ac", 
+      "src/core/fxfont.h"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "configure", 
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "README"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/extensions.h", 
+      "src/core/fxfont.h", 
+      "src/core/sdlapp.h", 
+      "src/core/texture.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/main.cpp", 
+      "src/user.cpp", 
+      "src/user.h"
+    ]
+  }, 
+  {
+    "A": [
+      "src/apache.cpp", 
+      "src/apache.h"
+    ], 
+    "M": [
+      "gource.win32.cbp", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "src/Makefile.in", 
+      "src/apache.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/apache.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      "src/ffmpeg.cpp", 
+      "src/ffmpeg.h"
+    ], 
+    "M": [
+      "README", 
+      "configure", 
+      "configure.ac", 
+      "src/Makefile.in", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "configure", 
+      "configure.ac", 
+      "src/ffmpeg.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/ffmpeg.cpp", 
+      "src/ffmpeg.h", 
+      "src/gource.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/ffmpeg.cpp", 
+      "src/ffmpeg.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "configure", 
+      "configure.ac", 
+      "src/ffmpeg.cpp", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/ffmpeg.cpp", 
+      "src/ffmpeg.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_tar.pl", 
+      "dev/bin/build_win32.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "configure", 
+      "configure.ac"
+    ]
+  }, 
+  {
+    "A": [
+      "src/ppm.cpp", 
+      "src/ppm.h"
+    ], 
+    "D": [
+      "src/ffmpeg.cpp", 
+      "src/ffmpeg.h"
+    ], 
+    "M": [
+      "README", 
+      "configure", 
+      "configure.ac", 
+      "data/gource.1", 
+      "src/Makefile.in", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/main.cpp", 
+      "src/ppm.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_tar.pl", 
+      "dev/bin/build_win32.pl", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "debian/changelog", 
+      "debian/control", 
+      "debian/copyright"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/ppm.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/texture.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "configure", 
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/seeklog.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "configure", 
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/main.cpp", 
+      "src/pawn.cpp", 
+      "src/pawn.h", 
+      "src/user.cpp", 
+      "src/user.h"
+    ]
+  }, 
+  {
+    "M": [
+      "configure", 
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_tar.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "src/commitlog.h", 
+      "src/git.cpp", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/extensions.h", 
+      "src/core/sdlapp.h", 
+      "src/core/texture.h"
+    ]
+  }, 
+  {
+    "M": [
+      "configure", 
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "README"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "debian/changelog"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "src/cvs-exp.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "configure", 
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "debian/changelog", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "debian/changelog", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "A": [
+      "contrib/svn-gource.py"
+    ]
+  }, 
+  {
+    "A": [
+      "contrib/mercurial-gource.py"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_tar.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "src/commitlog.h", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {}, 
+  {
+    "A": [
+      "data/bloom.tga"
+    ], 
+    "M": [
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      "ChangeLog"
+    ], 
+    "M": [
+      "README"
+    ]
+  }, 
+  {
+    "M": [
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_tar.pl", 
+      "dev/bin/build_win32.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.in"
+    ]
+  }, 
+  {
+    "M": [
+      "src/action.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "configure"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/display.cpp", 
+      "src/core/display.h", 
+      "src/core/sdlapp.cpp", 
+      "src/core/sdlapp.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/commitlog.cpp", 
+      "src/commitlog.h", 
+      "src/git.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      "data/gource.style"
+    ]
+  }, 
+  {
+    "M": [
+      "src/custom.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      "src/hg.cpp", 
+      "src/hg.h"
+    ], 
+    "M": [
+      "src/Makefile.in", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_tar.pl", 
+      "dev/bin/build_win32.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.in"
+    ]
+  }, 
+  {
+    "M": [
+      "debian/changelog"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/gource.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/custom.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "configure", 
+      "configure.ac", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "debian/changelog"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/core/sdlapp.cpp", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "contrib/svn-gource.py"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "gource.win32.cbp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/hg.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "debian/changelog", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "configure"
+    ]
+  }, 
+  {
+    "M": [
+      "contrib/svn-gource.py"
+    ]
+  }, 
+  {
+    "M": [
+      "contrib/svn-gource.py"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure", 
+      "configure.ac", 
+      "src/dirnode.cpp", 
+      "src/file.cpp", 
+      "src/file.h", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "debian/changelog"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_win32.pl", 
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/main.cpp", 
+      "src/ppm.cpp", 
+      "src/ppm.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/core/resource.h", 
+      "src/core/texture.cpp", 
+      "src/core/texture.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/sdlapp.h", 
+      "src/core/seeklog.cpp", 
+      "src/core/seeklog.h"
+    ]
+  }, 
+  {
+    "A": [
+      "Makefile.am"
+    ], 
+    "D": [
+      "Makefile.in", 
+      "aclocal.m4", 
+      "config.guess", 
+      "config.sub", 
+      "configure", 
+      "install-sh", 
+      "src/Makefile.in", 
+      "src/core/Makefile.in"
+    ], 
+    "M": [
+      ".gitignore", 
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am"
+    ]
+  }, 
+  {
+    "M": [
+      "src/ppm.cpp", 
+      "src/ppm.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/ppm.cpp", 
+      "src/ppm.h"
+    ]
+  }, 
+  {
+    "D": [
+      "contrib/mercurial-gource.py"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "Makefile.am", 
+      "configure.ac", 
+      "debian/changelog", 
+      "dev/bin/build_tar.pl", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am", 
+      "src/core/sdlapp.cpp", 
+      "src/core/sdlapp.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/ppm.cpp", 
+      "src/ppm.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/ppm.cpp", 
+      "src/ppm.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/ppm.cpp", 
+      "src/ppm.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/display.cpp", 
+      "src/core/display.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/ppm.cpp", 
+      "src/ppm.h"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "src/ppm.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/display.cpp", 
+      "src/core/display.h", 
+      "src/core/fxfont.cpp", 
+      "src/core/fxfont.h", 
+      "src/core/logger.cpp", 
+      "src/core/regex.cpp", 
+      "src/core/regex.h", 
+      "src/main.cpp", 
+      "src/ppm.cpp", 
+      "src/ppm.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/regex.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/seeklog.cpp", 
+      "src/core/seeklog.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/sdlapp.cpp", 
+      "src/core/sdlapp.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/sdlapp.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/seeklog.cpp", 
+      "src/core/seeklog.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/seeklog.cpp", 
+      "src/core/seeklog.h", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/commitlog.cpp", 
+      "src/commitlog.h", 
+      "src/custom.cpp", 
+      "src/custom.h"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am", 
+      "dev/bin/build_tar.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/commitlog.cpp", 
+      "src/core/seeklog.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "debian/control"
+    ]
+  }, 
+  {
+    "M": [
+      "src/ppm.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/seeklog.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/seeklog.cpp", 
+      "src/core/seeklog.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/core/seeklog.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "INSTALL", 
+      "README"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am", 
+      "src/core/logger.cpp", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      "src/bzr.cpp", 
+      "src/bzr.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/bzr.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/logger.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/commitlog.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/bzr.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "gource.win32.cbp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/cvs-exp.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/hg.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/ppm.cpp", 
+      "src/ppm.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/sdlapp.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/apache.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "configure.ac", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/pawn.cpp", 
+      "src/user.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/vectors.h", 
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/file.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      "src/core/conffile.cpp", 
+      "src/core/conffile.h", 
+      "src/core/settings.cpp", 
+      "src/core/settings.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h"
+    ], 
+    "M": [
+      "Makefile.am", 
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/file.cpp", 
+      "src/file.h", 
+      "src/git.cpp", 
+      "src/git.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/main.cpp", 
+      "src/user.cpp", 
+      "src/user.h", 
+      "src/zoomcamera.cpp", 
+      "src/zoomcamera.h"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "src/ppm.cpp", 
+      "src/ppm.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/conffile.cpp", 
+      "src/core/conffile.h"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "dev/bin/build_tar.pl", 
+      "src/core/conffile.cpp", 
+      "src/core/conffile.h", 
+      "src/core/settings.cpp", 
+      "src/core/settings.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/regex.cpp", 
+      "src/core/regex.h"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/core/settings.cpp", 
+      "src/core/settings.h", 
+      "src/core/texture.cpp", 
+      "src/core/texture.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/main.cpp", 
+      "src/user.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/settings.cpp"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/core/settings.cpp", 
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/conffile.cpp", 
+      "src/core/conffile.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/conffile.cpp", 
+      "src/core/conffile.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/settings.cpp", 
+      "src/core/settings.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {}, 
+  {
+    "A": [
+      "src/gource_demo.cpp", 
+      "src/gource_demo.h"
+    ], 
+    "M": [
+      "Makefile.am", 
+      "src/core/conffile.cpp", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/main.cpp", 
+      "src/main.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/gource_settings.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/bloom.tga", 
+      "data/gource.1", 
+      "src/core/display.cpp", 
+      "src/core/display.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/core/display.cpp", 
+      "src/core/settings.cpp", 
+      "src/core/settings.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/spline.cpp", 
+      "src/spline.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/core/display.cpp", 
+      "src/gource.cpp", 
+      "src/gource_demo.cpp", 
+      "src/gource_demo.h", 
+      "src/slider.cpp", 
+      "src/slider.h"
+    ]
+  }, 
+  {
+    "A": [
+      "m4/ax_pthread.m4"
+    ], 
+    "D": [
+      "m4/acx_pthread.m4"
+    ], 
+    "M": [
+      "m4/ax_check_gl.m4", 
+      "m4/ax_check_glu.m4", 
+      "m4/ax_check_glut.m4"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/user.cpp", 
+      "src/user.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/display.cpp", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/conffile.cpp", 
+      "src/core/conffile.h", 
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core/vectors.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_demo.cpp", 
+      "src/gource_demo.h", 
+      "src/gource_settings.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/bzr.cpp", 
+      "src/commitlog.cpp", 
+      "src/commitlog.h", 
+      "src/git.cpp", 
+      "src/hg.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/commitlog.cpp"
+    ]
+  }, 
+  {
+    "D": [
+      "src/core/.gitignore", 
+      "src/core/bounds.h", 
+      "src/core/camera.cpp", 
+      "src/core/camera.h", 
+      "src/core/conffile.cpp", 
+      "src/core/conffile.h", 
+      "src/core/display.cpp", 
+      "src/core/display.h", 
+      "src/core/extensions.cpp", 
+      "src/core/extensions.h", 
+      "src/core/frustum.cpp", 
+      "src/core/frustum.h", 
+      "src/core/fxfont.cpp", 
+      "src/core/fxfont.h", 
+      "src/core/logger.cpp", 
+      "src/core/logger.h", 
+      "src/core/pi.h", 
+      "src/core/plane.cpp", 
+      "src/core/plane.h", 
+      "src/core/quadtree.cpp", 
+      "src/core/quadtree.h", 
+      "src/core/regex.cpp", 
+      "src/core/regex.h", 
+      "src/core/resource.cpp", 
+      "src/core/resource.h", 
+      "src/core/sdlapp.cpp", 
+      "src/core/sdlapp.h", 
+      "src/core/seeklog.cpp", 
+      "src/core/seeklog.h", 
+      "src/core/settings.cpp", 
+      "src/core/settings.h", 
+      "src/core/stringhash.cpp", 
+      "src/core/stringhash.h", 
+      "src/core/texture.cpp", 
+      "src/core/texture.h", 
+      "src/core/utf8/checked.h", 
+      "src/core/utf8/core.h", 
+      "src/core/utf8/unchecked.h", 
+      "src/core/utf8/utf8.h", 
+      "src/core/vectors.h"
+    ]
+  }, 
+  {
+    "A": [
+      ".gitmodules", 
+      "src/core"
+    ]
+  }, 
+  {
+    "D": [
+      "src/ppm.cpp", 
+      "src/ppm.h"
+    ], 
+    "M": [
+      "Makefile.am", 
+      "src/core", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "INSTALL"
+    ]
+  }, 
+  {
+    "M": [
+      ".gitmodules"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/core", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/apache.cpp", 
+      "src/cvs-exp.cpp", 
+      "src/dirnode.cpp", 
+      "src/gource.cpp", 
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "A": [
+      "src/gource_shell.cpp", 
+      "src/gource_shell.h"
+    ], 
+    "D": [
+      "src/gource_demo.cpp", 
+      "src/gource_demo.h"
+    ], 
+    "M": [
+      "Makefile.am", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/main.cpp", 
+      "src/main.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_shell.cpp", 
+      "src/gource_shell.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/git.cpp", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/git.cpp", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_shell.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_shell.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "A": [
+      "data/bloom_alpha.tga"
+    ], 
+    "M": [
+      "Makefile.am", 
+      "data/bloom.tga", 
+      "dev/bin/build_tar.pl", 
+      "dev/bin/build_win32.pl", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/gource_shell.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/action.cpp", 
+      "src/action.h", 
+      "src/core", 
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/file.cpp", 
+      "src/file.h", 
+      "src/main.cpp", 
+      "src/pawn.h", 
+      "src/spline.cpp", 
+      "src/spline.h", 
+      "src/user.cpp", 
+      "src/user.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am", 
+      "src/core", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      "data/cursor.png"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp", 
+      "src/dirnode.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/dirnode.cpp", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/gource.cpp", 
+      "src/user.cpp", 
+      "src/user.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/file.cpp", 
+      "src/file.h", 
+      "src/pawn.cpp", 
+      "src/pawn.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/user.cpp", 
+      "src/user.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      "data/cursor.png"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "data/cursor.png"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp", 
+      "src/dirnode.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/pawn.cpp", 
+      "src/pawn.h"
+    ]
+  }, 
+  {
+    "M": [
+      "INSTALL", 
+      "Makefile.am", 
+      "configure.ac", 
+      "src/core"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/file.cpp", 
+      "src/file.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/pawn.cpp", 
+      "src/pawn.h", 
+      "src/user.cpp", 
+      "src/user.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp", 
+      "src/dirnode.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/file.cpp", 
+      "src/file.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp", 
+      "src/file.cpp", 
+      "src/file.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_shell.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_shell.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/dirnode.cpp", 
+      "src/file.cpp", 
+      "src/file.h", 
+      "src/gource.cpp", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/pawn.cpp", 
+      "src/pawn.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "dev/bin/build_tar.pl", 
+      "gource.win32.cbp", 
+      "src/core", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_win32.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "A": [
+      "scripts/gource-ps.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "src/bzr.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "scripts/gource-ps.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "scripts/gource-ps.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/apache.cpp", 
+      "src/apache.h", 
+      "src/bzr.cpp", 
+      "src/bzr.h", 
+      "src/commitlog.cpp", 
+      "src/commitlog.h", 
+      "src/custom.cpp", 
+      "src/custom.h", 
+      "src/cvs-exp.cpp", 
+      "src/cvs-exp.h", 
+      "src/git.cpp", 
+      "src/git.h", 
+      "src/gitraw.cpp", 
+      "src/gitraw.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/hg.cpp", 
+      "src/hg.h", 
+      "src/pawn.cpp", 
+      "src/pawn.h", 
+      "src/slider.cpp", 
+      "src/slider.h", 
+      "src/user.cpp", 
+      "src/user.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/cvs-exp.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/user.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_shell.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/zoomcamera.cpp", 
+      "src/zoomcamera.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp", 
+      "src/pawn.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/core", 
+      "src/file.cpp", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/pawn.cpp", 
+      "src/pawn.h", 
+      "src/user.cpp", 
+      "src/user.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/action.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      ".gitignore"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/core", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/main.cpp", 
+      "src/pawn.cpp", 
+      "src/pawn.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/commitlog.cpp", 
+      "src/git.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/file.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/zoomcamera.cpp", 
+      "src/zoomcamera.h"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/zoomcamera.cpp", 
+      "src/zoomcamera.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/file.cpp", 
+      "src/file.h", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      "src/svn.cpp", 
+      "src/svn.h", 
+      "src/tinyxml/tinystr.cpp", 
+      "src/tinyxml/tinystr.h", 
+      "src/tinyxml/tinyxml.cpp", 
+      "src/tinyxml/tinyxml.h", 
+      "src/tinyxml/tinyxmlerror.cpp", 
+      "src/tinyxml/tinyxmlparser.cpp"
+    ], 
+    "M": [
+      ".gitignore", 
+      "Makefile.am", 
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog"
+    ]
+  }, 
+  {
+    "A": [
+      "src/cvs2cl.cpp", 
+      "src/cvs2cl.h", 
+      "src/textbox.cpp", 
+      "src/textbox.h"
+    ], 
+    "M": [
+      "ChangeLog", 
+      "Makefile.am", 
+      "README", 
+      "data/gource.1", 
+      "src/file.cpp", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/pawn.cpp", 
+      "src/user.cpp", 
+      "src/user.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/file.cpp", 
+      "src/file.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/user.cpp", 
+      "src/user.h"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/core", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/gource.cpp", 
+      "src/spline.cpp", 
+      "src/spline.h"
+    ]
+  }, 
+  {
+    "A": [
+      "src/key.cpp", 
+      "src/key.h"
+    ], 
+    "M": [
+      "ChangeLog", 
+      "Makefile.am", 
+      "README", 
+      "data/gource.1", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/textbox.cpp", 
+      "src/textbox.h"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/file.cpp", 
+      "src/file.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/key.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/user.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/file.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/core", 
+      "src/dirnode.h", 
+      "src/file.cpp", 
+      "src/file.h", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/cvs2cl.cpp", 
+      "src/cvs2cl.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "src/core", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/svn.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/svn.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "INSTALL", 
+      "Makefile.am", 
+      "configure.ac", 
+      "src/cvs2cl.h", 
+      "src/gource_settings.h", 
+      "src/svn.h"
+    ]
+  }, 
+  {
+    "M": [
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "src/gource.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/bzr.cpp", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/dirnode.cpp", 
+      "src/gource.cpp", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "configure.ac", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "A": [
+      "data/shaders/shadow.frag", 
+      "data/shaders/shadow.vert", 
+      "src/vbo.cpp", 
+      "src/vbo.h"
+    ], 
+    "M": [
+      "gource.win32.cbp", 
+      "src/core", 
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/file.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/main.cpp", 
+      "src/pawn.h", 
+      "src/user.h"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/vbo.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/pawn.cpp", 
+      "src/pawn.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/vbo.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/bzr.cpp", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/dirnode.cpp", 
+      "src/gource.cpp", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "configure.ac", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/file.cpp", 
+      "src/file.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/textbox.cpp", 
+      "src/user.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/vbo.cpp", 
+      "src/vbo.h"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/core", 
+      "src/gource_settings.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "INSTALL", 
+      "configure.ac", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/vbo.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am"
+    ]
+  }, 
+  {
+    "M": [
+      "src/vbo.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/file.cpp", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/pawn.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/vbo.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "A": [
+      "data/shaders/bloom.frag", 
+      "data/shaders/bloom.vert", 
+      "src/bloom.cpp", 
+      "src/bloom.h"
+    ], 
+    "M": [
+      "Makefile.am", 
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "data/shaders/bloom.frag"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog"
+    ]
+  }, 
+  {
+    "M": [
+      "data/shaders/bloom.frag"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "data/shaders/shadow.vert"
+    ]
+  }, 
+  {
+    "M": [
+      "data/shaders/shadow.frag"
+    ]
+  }, 
+  {
+    "M": [
+      "src/bloom.cpp", 
+      "src/bloom.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/file.cpp", 
+      "src/file.h", 
+      "src/pawn.cpp", 
+      "src/pawn.h", 
+      "src/user.cpp", 
+      "src/user.h"
+    ]
+  }, 
+  {
+    "A": [
+      "data/shaders/text.frag", 
+      "data/shaders/text.vert"
+    ], 
+    "D": [
+      "src/vbo.cpp", 
+      "src/vbo.h"
+    ], 
+    "M": [
+      "ChangeLog", 
+      "Makefile.am", 
+      "gource.win32.cbp", 
+      "src/core", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "D": [
+      "debian/changelog", 
+      "debian/compat", 
+      "debian/control", 
+      "debian/copyright", 
+      "debian/dirs", 
+      "debian/docs", 
+      "debian/rules"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog"
+    ]
+  }, 
+  {
+    "M": [
+      "src/pawn.cpp", 
+      "src/pawn.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_tar.pl", 
+      "dev/bin/build_win32.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/bloom.cpp", 
+      "src/bloom.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/action.cpp", 
+      "src/action.h", 
+      "src/core", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/user.cpp", 
+      "src/user.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/bloom.h"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "src/core", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/key.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/key.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/action.cpp", 
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "data/shaders/shadow.vert", 
+      "data/shaders/text.frag", 
+      "data/shaders/text.vert", 
+      "src/core", 
+      "src/dirnode.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/spline.cpp", 
+      "src/spline.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "src/gource.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/hg.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/hg.cpp", 
+      "src/hg.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/commitlog.cpp", 
+      "src/custom.cpp", 
+      "src/custom.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/key.cpp", 
+      "src/key.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/svn.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "src/gource_settings.h", 
+      "src/svn.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/svn.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "INSTALL"
+    ]
+  }, 
+  {
+    "M": [
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "Makefile.am", 
+      "configure.ac", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      ".gitignore"
+    ]
+  }, 
+  {
+    "A": [
+      "data/user.png", 
+      "resources/file.xcf", 
+      "resources/user.xcf"
+    ], 
+    "D": [
+      "data/no_photo.png"
+    ], 
+    "M": [
+      "ChangeLog", 
+      "Makefile.am", 
+      "data/file.png", 
+      "dev/bin/build_tar.pl", 
+      "dev/bin/build_win32.pl", 
+      "src/core", 
+      "src/gource.cpp", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/user.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "data/shaders/text.frag"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "INSTALL", 
+      "configure.ac", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "A": [
+      "m4/m4_ax_boost_base.m4", 
+      "m4/m4_ax_boost_filesystem.m4", 
+      "m4/m4_ax_boost_system.m4"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "data/shaders/text.frag"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "data/file.png", 
+      "src/file.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/user.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am", 
+      "src/action.cpp", 
+      "src/action.h", 
+      "src/bloom.cpp", 
+      "src/bloom.h", 
+      "src/commitlog.cpp", 
+      "src/commitlog.h", 
+      "src/core", 
+      "src/custom.cpp", 
+      "src/custom.h", 
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/file.cpp", 
+      "src/file.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/gource_shell.cpp", 
+      "src/gource_shell.h", 
+      "src/key.cpp", 
+      "src/key.h", 
+      "src/main.cpp", 
+      "src/pawn.cpp", 
+      "src/pawn.h", 
+      "src/slider.cpp", 
+      "src/slider.h", 
+      "src/spline.cpp", 
+      "src/spline.h", 
+      "src/textbox.cpp", 
+      "src/textbox.h", 
+      "src/user.cpp", 
+      "src/user.h", 
+      "src/zoomcamera.cpp", 
+      "src/zoomcamera.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/gource.cpp", 
+      "src/gource_shell.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/action.cpp", 
+      "src/dirnode.cpp", 
+      "src/spline.cpp", 
+      "src/user.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/bloom.cpp", 
+      "src/bloom.h", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/gource_shell.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/gource_shell.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "INSTALL", 
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_shell.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "README"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/core", 
+      "src/gource.cpp", 
+      "src/gource_shell.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/commitlog.cpp", 
+      "src/commitlog.h", 
+      "src/git.cpp", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/dirnode.cpp", 
+      "src/gource.cpp", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "D": [
+      "data/cursor.png"
+    ], 
+    "M": [
+      "Makefile.am", 
+      "dev/bin/build_win32.pl", 
+      "src/core", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_shell.cpp", 
+      "src/gource_shell.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_tar.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog"
+    ]
+  }, 
+  {
+    "M": [
+      "INSTALL", 
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/key.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/core", 
+      "src/gource_settings.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/gource.cpp", 
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/zoomcamera.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/custom.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README"
+    ]
+  }, 
+  {
+    "M": [
+      "INSTALL"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README"
+    ]
+  }, 
+  {
+    "M": [
+      "data/gource.1"
+    ]
+  }, 
+  {}, 
+  {}, 
+  {}, 
+  {
+    "M": [
+      "INSTALL"
+    ]
+  }, 
+  {
+    "M": [
+      "INSTALL"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "INSTALL"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "INSTALL"
+    ]
+  }, 
+  {
+    "A": [
+      "src/formats/apache.cpp", 
+      "src/formats/apache.h", 
+      "src/formats/bzr.cpp", 
+      "src/formats/bzr.h", 
+      "src/formats/commitlog.cpp", 
+      "src/formats/commitlog.h", 
+      "src/formats/custom.cpp", 
+      "src/formats/custom.h", 
+      "src/formats/cvs-exp.cpp", 
+      "src/formats/cvs-exp.h", 
+      "src/formats/cvs2cl.cpp", 
+      "src/formats/cvs2cl.h", 
+      "src/formats/git.cpp", 
+      "src/formats/git.h", 
+      "src/formats/gitraw.cpp", 
+      "src/formats/gitraw.h", 
+      "src/formats/hg.cpp", 
+      "src/formats/hg.h", 
+      "src/formats/svn.cpp", 
+      "src/formats/svn.h", 
+      "src/logmill.cpp", 
+      "src/logmill.h"
+    ], 
+    "D": [
+      "src/apache.cpp", 
+      "src/apache.h", 
+      "src/bzr.cpp", 
+      "src/bzr.h", 
+      "src/commitlog.cpp", 
+      "src/commitlog.h", 
+      "src/custom.cpp", 
+      "src/custom.h", 
+      "src/cvs-exp.cpp", 
+      "src/cvs-exp.h", 
+      "src/cvs2cl.cpp", 
+      "src/cvs2cl.h", 
+      "src/git.cpp", 
+      "src/git.h", 
+      "src/gitraw.cpp", 
+      "src/gitraw.h", 
+      "src/hg.cpp", 
+      "src/hg.h", 
+      "src/svn.cpp", 
+      "src/svn.h"
+    ], 
+    "M": [
+      "gource.win32.cbp", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/gource_shell.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_shell.cpp", 
+      "src/gource_shell.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/file.cpp", 
+      "src/gource.cpp", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/pawn.cpp", 
+      "src/pawn.h", 
+      "src/user.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/.gitignore"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/logmill.cpp", 
+      "src/logmill.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_shell.cpp", 
+      "src/gource_shell.h", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "data/fonts/FreeSans.ttf", 
+      "data/fonts/README"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/dirnode.cpp", 
+      "src/file.cpp", 
+      "src/gource.cpp", 
+      "src/user.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "Makefile.am", 
+      "src/core", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource_shell.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      "autogen.sh"
+    ], 
+    "M": [
+      "INSTALL"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/logmill.cpp"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "A": [
+      "m4/ax_boost_base.m4", 
+      "m4/ax_boost_filesystem.m4", 
+      "m4/ax_boost_system.m4"
+    ], 
+    "D": [
+      "m4/m4_ax_boost_base.m4", 
+      "m4/m4_ax_boost_filesystem.m4", 
+      "m4/m4_ax_boost_system.m4"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "src/file.cpp", 
+      "src/file.h", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "src/formats/custom.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/action.cpp", 
+      "src/action.h", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog"
+    ]
+  }, 
+  {
+    "M": [
+      ".gitignore", 
+      "dev/bin/build_win32.pl", 
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "m4/ax_boost_filesystem.m4", 
+      "m4/ax_boost_system.m4"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "A": [
+      "src/caption.cpp", 
+      "src/caption.h"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am"
+    ]
+  }, 
+  {
+    "D": [
+      "m4/freetype2.m4", 
+      "m4/sdl.m4"
+    ], 
+    "M": [
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "configure.ac"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "ChangeLog"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "Makefile.am", 
+      "src/action.h", 
+      "src/core", 
+      "src/formats/commitlog.h", 
+      "src/formats/hg.cpp", 
+      "src/main.cpp", 
+      "src/pawn.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/caption.cpp", 
+      "src/caption.h", 
+      "src/gource.cpp", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/formats/commitlog.cpp", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/logmill.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/formats/commitlog.cpp", 
+      "src/formats/commitlog.h", 
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/formats/custom.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "A": [
+      "dev/nsis/welcome.bmp", 
+      "dev/nsis/welcome.xcf"
+    ], 
+    "M": [
+      "dev/bin/build_win32.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_win32.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_win32.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "INSTALL", 
+      "src/core"
+    ]
+  }, 
+  {
+    "A": [
+      "\"tests/images/\\303\\201rv\\303\\255zt\\305\\261r\\305\\221 t\\303\\274k\\303\\266rf\\303\\272r\\303\\263g\\303\\251p.png\"", 
+      "tests/logs/custom-dir-delete.log", 
+      "tests/logs/file-removal.log", 
+      "tests/logs/file-to-dir.log", 
+      "tests/logs/svn-dir-delete.log", 
+      "\"tests/logs/\\303\\241rv\\303\\255zt\\305\\261r\\305\\221 t\\303\\274k\\303\\266rf\\303\\272r\\303\\263g\\303\\251p.log\"", 
+      "tests/test.conf"
+    ]
+  }, 
+  {
+    "A": [
+      "tests/logs/utf8.log"
+    ], 
+    "D": [
+      "\"tests/logs/\\303\\241rv\\303\\255zt\\305\\261r\\305\\221 t\\303\\274k\\303\\266rf\\303\\272r\\303\\263g\\303\\251p.log\""
+    ], 
+    "M": [
+      "tests/test.conf"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_win32.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "src/dirnode.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      "tests/logs/utf8-caption.log"
+    ], 
+    "M": [
+      "src/core", 
+      "src/formats/commitlog.cpp", 
+      "src/formats/commitlog.h", 
+      "src/gource.cpp", 
+      "tests/test.conf"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/slider.cpp", 
+      "src/slider.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_win32.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/formats/commitlog.cpp", 
+      "src/gource_settings.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "A": [
+      ".gitattributes", 
+      "cmd/gource", 
+      "cmd/gource.cmd"
+    ], 
+    "M": [
+      ".gitignore", 
+      "dev/bin/build_win32.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "cmd/gource.cmd", 
+      "gource.win32.cbp", 
+      "src/core", 
+      "src/formats/commitlog.cpp", 
+      "src/gource_settings.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_tar.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "dev/bin/build_win32.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "src/core", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "INSTALL"
+    ]
+  }, 
+  {
+    "M": [
+      "INSTALL"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/formats/commitlog.cpp", 
+      "src/formats/commitlog.h", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/gource_shell.cpp", 
+      "src/gource_shell.h", 
+      "src/logmill.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/formats/bzr.cpp", 
+      "src/formats/bzr.h", 
+      "src/formats/cvs-exp.cpp", 
+      "src/formats/cvs-exp.h", 
+      "src/formats/cvs2cl.cpp", 
+      "src/formats/cvs2cl.h", 
+      "src/formats/git.cpp", 
+      "src/formats/git.h", 
+      "src/formats/hg.cpp", 
+      "src/formats/hg.h", 
+      "src/formats/svn.cpp", 
+      "src/formats/svn.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h", 
+      "src/logmill.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "INSTALL", 
+      "configure.ac", 
+      "src/core", 
+      "src/gource.cpp", 
+      "src/gource.h", 
+      "src/gource_shell.cpp", 
+      "src/gource_shell.h", 
+      "src/logmill.cpp", 
+      "src/main.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/gource.cpp", 
+      "src/gource_shell.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/formats/apache.cpp", 
+      "src/formats/apache.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "src/formats/commitlog.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/core", 
+      "src/dirnode.cpp", 
+      "src/file.cpp", 
+      "src/file.h", 
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/core", 
+      "src/formats/bzr.cpp", 
+      "src/formats/git.cpp", 
+      "src/formats/hg.cpp", 
+      "src/formats/svn.cpp", 
+      "src/gource.cpp", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "Makefile.am", 
+      "src/core", 
+      "src/formats/commitlog.cpp", 
+      "src/formats/commitlog.h", 
+      "src/gource.cpp", 
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "gource.win32.cbp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core"
+    ]
+  }, 
+  {
+    "M": [
+      "src/logmill.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1", 
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "INSTALL", 
+      "configure.ac", 
+      "src/core"
+    ]
+  }, 
+  {
+    "D": [
+      "README-SDL"
+    ], 
+    "M": [
+      "dev/bin/build_tar.pl", 
+      "dev/bin/build_win32.pl"
+    ]
+  }, 
+  {
+    "M": [
+      ".gitignore", 
+      "ChangeLog", 
+      "INSTALL", 
+      "Makefile.am", 
+      "gource.win32.cbp", 
+      "src/gource.cpp", 
+      "src/gource.h"
+    ]
+  }, 
+  {
+    "M": [
+      "configure.ac"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "README", 
+      "data/gource.1"
+    ]
+  }, 
+  {
+    "M": [
+      "src/tinyxml/tinystr.cpp", 
+      "src/tinyxml/tinystr.h", 
+      "src/tinyxml/tinyxml.cpp", 
+      "src/tinyxml/tinyxml.h", 
+      "src/tinyxml/tinyxmlerror.cpp", 
+      "src/tinyxml/tinyxmlparser.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "README", 
+      "data/gource.1", 
+      "src/dirnode.cpp", 
+      "src/dirnode.h", 
+      "src/gource_settings.cpp", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      ".gitignore", 
+      "configure.ac", 
+      "dev/bin/build_tar.pl"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/core", 
+      "src/formats/bzr.cpp", 
+      "src/formats/git.cpp", 
+      "src/formats/hg.cpp", 
+      "src/formats/svn.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/formats/git.cpp", 
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/formats/bzr.cpp"
+    ]
+  }, 
+  {}, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "src/core", 
+      "src/gource_settings.h"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/formats/commitlog.cpp", 
+      "src/formats/hg.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "src/formats/hg.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "src/gource_settings.cpp"
+    ]
+  }, 
+  {
+    "M": [
+      "ChangeLog", 
+      "configure.ac", 
+      "m4/ax_boost_base.m4", 
+      "m4/ax_boost_filesystem.m4", 
+      "m4/ax_boost_system.m4", 
+      "src/gource_settings.h"
+    ]
+  }
+]

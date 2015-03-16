@@ -12,7 +12,6 @@ GameObject:
   - 23: {fileID: 2328520}
   - 114: {fileID: 11481372}
   - 120: {fileID: 12067008}
-  - 135: {fileID: 13528520}
   - 122: {fileID: 12213812}
   - 198: {fileID: 19812830}
   - 199: {fileID: 19912830}
@@ -31,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 128520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13, y: 334.328583, z: 33.6815033}
-  m_LocalScale: {x: .200000003, y: .200000003, z: .200000003}
+  m_LocalScale: {x: .150000006, y: .150000006, z: .150000006}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -47,9 +46,8 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: e097e0ca551c28647a5a126e44c35bbc, type: 2}
-  - {fileID: 2100000, guid: 40ddda021ce77480d8a47a41b57bbb6a, type: 2}
-  - {fileID: 2100000, guid: 3049dffabc5225d40b27675901977fdd, type: 2}
+  - {fileID: 2100000, guid: dcdac227fa8ae0e419ab9168eee8b08f, type: 2}
+  - {fileID: 2100000, guid: b29a788670523a54082c020884944cbf, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -94,10 +92,10 @@ LineRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 03f3b4747259a364b800508ac27e1c17, type: 2}
+  - {fileID: 2100000, guid: b1d09fb72fa587649801a1fa508512fe, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
+  m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
@@ -106,14 +104,14 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
-    startWidth: .00999999978
+    startWidth: .00800000038
     endWidth: .00999999978
     m_StartColor:
       serializedVersion: 2
-      rgba: 4289483322
+      rgba: 4278453252
     m_EndColor:
       serializedVersion: 2
-      rgba: 3808953608
+      rgba: 3808953605
   m_UseWorldSpace: 1
 --- !u!122 &12213812
 Halo:
@@ -124,20 +122,8 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 1385012223
-  m_Size: .0299999993
---- !u!135 &13528520
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128520}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: .25
-  m_Center: {x: 0, y: 0, z: 0}
+    rgba: 2583686032
+  m_Size: .0399999991
 --- !u!198 &19812830
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -312,10 +298,10 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4280151807
+        rgba: 4294934087
       minMaxState: 0
     startSize:
-      scalar: .0500000007
+      scalar: .0599999987
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -382,7 +368,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 300
+    maxNumParticles: 700
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -400,7 +386,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 200
+      scalar: 350
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -517,7 +503,7 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4283004154
+          rgba: 4294626377
         key1:
           serializedVersion: 2
           rgba: 4294967295
@@ -1197,12 +1183,12 @@ ParticleSystemRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128520}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 7c98ffa948c8d43d5ac42a3e9f0ea897, type: 2}
+  - {fileID: 2100000, guid: 9d32c2efdb8794de3b449ab1bbc6459b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
