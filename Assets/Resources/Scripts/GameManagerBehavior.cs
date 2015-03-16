@@ -13,7 +13,7 @@ public class GameManagerBehavior : MonoBehaviour {
 	public GameObject NodeDirPrefab; 
 	public GameObject NodeLeafPrefab; 
 	public GameObject ThreeDTextPrefab;
-	public static Transform CameraTransform;
+	public Transform CameraTransform;
 
 	// The pseudo-root never changes.
 	private static NodeBehavior parentBehavior;
@@ -166,7 +166,7 @@ public class GameManagerBehavior : MonoBehaviour {
 			if(!isLeaf){
 				parent = currentNode;
 				parentBehavior = currentNode.GetComponent<NodeBehavior>();
-				//SetNodeText(currentNode, pathSubstring);
+				SetNodeText(currentNode, pathSubstring);
 			}
 			
 		} // close if
@@ -228,13 +228,25 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 
-	void SetNodeText(GameObject currentNode, string pathSubstring){
-		GameObject threeDText = (GameObject)Instantiate(ThreeDTextPrefab, currentNode.transform.position, Quaternion.identity);
+//	void SetNodeText(GameObject currentNode, string pathSubstring){
+//		GameObject threeDText = (GameObject)Instantiate(ThreeDTextPrefab, currentNode.transform.position, Quaternion.identity);
+//		threeDText.SetActive(false);
+//		GameBillboardText gbt = threeDText.GetComponent<GameBillboardText>();
+//		gbt.Target = GameManagerBehavior.CameraTransform.transform;
+//		threeDText.transform.SetParent (currentNode.transform);
+//		gbt.SetText(pathSubstring);
+//		threeDText.SetActive(true);
+//	}
+	public void SetNodeText(GameObject currentNode, string pathSubstring)
+	{
+		var threeDText = Instantiate(ThreeDTextPrefab, currentNode.transform.position, Quaternion.identity) as GameObject;
+		if (!threeDText) return;
 		threeDText.SetActive(false);
-		GameBillboardText gbt = threeDText.GetComponent<GameBillboardText>();
-		gbt.Target = GameManagerBehavior.CameraTransform.transform;
-		threeDText.transform.SetParent (currentNode.transform);
-		gbt.SetText(pathSubstring);
+		threeDText.transform.SetParent(currentNode.transform);
+		var text = threeDText.GetComponent<GameBillboardText>();
+		if (!text) return;
+		text.Target = CameraTransform.transform;
+		text.SetText(pathSubstring);
 		threeDText.SetActive(true);
 	}
 

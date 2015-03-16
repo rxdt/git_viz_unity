@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>git_viz_rails_app</string>
+	<string>gitviz_rails</string>
 	<key>CFBundleGetInfoString</key>
 	<string>Unity Player version 4.6.2f1 (bd99309c2ad7). (c) 2014 Unity Technologies ApS. All rights reserved.</string>
 	<key>CFBundleIconFile</key>
@@ -15,7 +15,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>git_viz_rails_app</string>
+	<string>gitviz_rails</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
