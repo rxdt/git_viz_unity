@@ -228,15 +228,6 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 
-//	void SetNodeText(GameObject currentNode, string pathSubstring){
-//		GameObject threeDText = (GameObject)Instantiate(ThreeDTextPrefab, currentNode.transform.position, Quaternion.identity);
-//		threeDText.SetActive(false);
-//		GameBillboardText gbt = threeDText.GetComponent<GameBillboardText>();
-//		gbt.Target = GameManagerBehavior.CameraTransform.transform;
-//		threeDText.transform.SetParent (currentNode.transform);
-//		gbt.SetText(pathSubstring);
-//		threeDText.SetActive(true);
-//	}
 	public void SetNodeText(GameObject currentNode, string pathSubstring)
 	{
 		var threeDText = Instantiate(ThreeDTextPrefab, currentNode.transform.position, Quaternion.identity) as GameObject;
