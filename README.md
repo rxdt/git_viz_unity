@@ -7,3 +7,5 @@ Using the Oculus Rift headset and the Unity game engine, users can visualize any
 Oculus Rift app: C# / Unity, JSON.Net
 
 Web app: Python / Flask, HTML, CSS
+
+https://cloud.githubusercontent.com/assets/6334979/6678281/f78f8d84-cbf5-11e4-9f8f-6e5f49b50a0e.png
