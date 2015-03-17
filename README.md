@@ -16,7 +16,7 @@ Each node in the tree visualization represents either a file or directory - leaf
 
 
 
-Demo Visualization for a Ruby on Rails web app using multiple APIs:
+<br>Demo Visualization for a Ruby on Rails web app using multiple APIs:
 <img src="https://cloud.githubusercontent.com/assets/6334979/6678281/f78f8d84-cbf5-11e4-9f8f-6e5f49b50a0e.png" height="20%">
 
 
@@ -41,7 +41,7 @@ Reads JSON and converts it into a C# usable data structure.
 <strong>parse_log.py</strong>
 Parses a repository's commit log and puts it into JSON.
 
-<strong>GameBillboardText<strong>
+<strong>GameBillboardText</strong>
 Sets a node's text in the scene from the filename. Ensures that the text is always facing the viewer so they can read it.
 
 <strong>A simplified sample of a JSONified commit log</strong>
