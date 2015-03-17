@@ -15,12 +15,14 @@ Each node in the tree visualization represents either a file or directory - leaf
 <h4>See the web app at:</h4> https://github.com/rxdt/git_viz_web.git
 
 
+
 Demo Visualization for a Ruby on Rails web app using multiple APIs:
 <img src="https://cloud.githubusercontent.com/assets/6334979/6678281/f78f8d84-cbf5-11e4-9f8f-6e5f49b50a0e.png" height="20%">
 
 
 A visualization of Gource, a different open-source 2D visualizer of commit logs:
 <img src="https://cloud.githubusercontent.com/assets/6334979/6678295/1a13517e-cbf6-11e4-87e1-7dbbf866f6f3.png" height="20%">
+
 
 <h3>Architecture</h3>
 
@@ -43,11 +45,12 @@ Parses a repository's commit log and puts it into JSON.
 Sets a node's text in the scene from the filename. Ensures that the text is always facing the viewer so they can read it.
 
 <strong>A simplified sample of a JSONified commit log</strong>
+<pre>
 <code>[
   {
     "A": [
-      "git_viz.py", 
-      "parse_log.py", 
+      "git_viz.py",
+      "parse_log.py",
       "templates/index.html"
     ]
   }, 
@@ -91,6 +94,8 @@ Sets a node's text in the scene from the filename. Ensures that the text is alwa
     ]
   }
 ]</code>
+</pre>
+
 
 
 <strong>See the web app for more info:</strong> https://github.com/rxdt/git_viz_web.git
