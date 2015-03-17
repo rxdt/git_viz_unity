@@ -12,17 +12,7 @@ Each node in the tree visualization represents either a file or directory and le
 
 <strong>Web app:</strong> Python / Flask, HTML, CSS
 
-<h4>See the web app at:</h4> https://github.com/rxdt/git_viz_web.git
-
-
-
-<br>Demo Visualization for a Ruby on Rails web app using multiple APIs:
-<img src="https://cloud.githubusercontent.com/assets/6334979/6678281/f78f8d84-cbf5-11e4-9f8f-6e5f49b50a0e.png" height="13%">
-
-
-A visualization of Gource, a different open-source 2D visualizer of commit logs:
-<img src="https://cloud.githubusercontent.com/assets/6334979/6678295/1a13517e-cbf6-11e4-87e1-7dbbf866f6f3.png" height="13%">
-
+<h4>See the web portal at:</h4> https://github.com/rxdt/git_viz_web.git
 
 <h3>Architecture</h3>
 
@@ -98,9 +88,7 @@ Sets a node's text in the scene from the filename. Ensures that the text is alwa
 ]</code>
 </pre>
 
-
-
-<strong>See the web app for more:</strong> https://github.com/rxdt/git_viz_web.git
+<strong>See the web portal for more:</strong> https://github.com/rxdt/git_viz_web.git
 
 
 <h3>Potential future iterations</h3>
@@ -109,5 +97,16 @@ Sets a node's text in the scene from the filename. Ensures that the text is alwa
 <li>Enable mass-size repo visualizations e.g. Linux kernel repository.</li>
 <li>Integrate LeapMotion controller so a user can manipulate nodes or follow a node's path.</li>
 </ul>
+
+
+
+<br>Demo Visualization for a Ruby on Rails web app using multiple APIs:
+<img src="https://cloud.githubusercontent.com/assets/6334979/6678281/f78f8d84-cbf5-11e4-9f8f-6e5f49b50a0e.png" height="13%">
+
+
+A visualization of Gource, a different open-source 2D visualizer of commit logs:
+<img src="https://cloud.githubusercontent.com/assets/6334979/6678295/1a13517e-cbf6-11e4-87e1-7dbbf866f6f3.png" height="13%">
+
+
 
 Learn about the developer at: www.linkedin.com/in/roxdt/en
