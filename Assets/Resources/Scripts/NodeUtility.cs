@@ -47,7 +47,7 @@ public static class NodeUtility {
 			Vector3 childPos = UnityEngine.Random.onUnitSphere;
 			childPos = new Vector3(childPos.x, Mathf.Abs(childPos.y), childPos.z);
 			childPos.Normalize();
-			childPos *= 6;
+			childPos *= 4;
 			childPos += parentBehavior.centerOfChildren;
 			kt.GetComponent<NodeBehavior>().desiredPos = childPos;
 		}

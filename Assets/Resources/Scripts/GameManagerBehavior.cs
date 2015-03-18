@@ -35,7 +35,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 
 	void Start (){
-		json = Resources.Load ("this_web", typeof(TextAsset)) as TextAsset;
+		json = Resources.Load ("rails", typeof(TextAsset)) as TextAsset;
 		BeginViz();
 	}
 
@@ -118,7 +118,7 @@ public class GameManagerBehavior : MonoBehaviour {
 
 				// Add, Delete, or Modify in bursts of 100 files for better viewing / more dynamic growth
 				if(fileCount > MAX_FILES){
-					yield return new WaitForSeconds(0.5f);
+					yield return new WaitForSeconds(0.3f);
 					fileCount = 0;
 				}
 				++fileCount;

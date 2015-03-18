@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 128520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13, y: 334.328583, z: 33.6815033}
-  m_LocalScale: {x: .150000006, y: .150000006, z: .150000006}
+  m_LocalScale: {x: .349999994, y: .349999994, z: .349999994}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -46,8 +46,8 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: dcdac227fa8ae0e419ab9168eee8b08f, type: 2}
-  - {fileID: 2100000, guid: b29a788670523a54082c020884944cbf, type: 2}
+  - {fileID: 2100000, guid: 3049dffabc5225d40b27675901977fdd, type: 2}
+  - {fileID: 2100000, guid: 40ddda021ce77480d8a47a41b57bbb6a, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -104,14 +104,14 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
   m_Parameters:
-    startWidth: .00800000038
+    startWidth: .00999999978
     endWidth: .00999999978
     m_StartColor:
       serializedVersion: 2
-      rgba: 4278453252
+      rgba: 4294967295
     m_EndColor:
       serializedVersion: 2
-      rgba: 3808953605
+      rgba: 3824812024
   m_UseWorldSpace: 1
 --- !u!122 &12213812
 Halo:
@@ -122,15 +122,15 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 2583686032
-  m_Size: .0399999991
+    rgba: 2573427455
+  m_Size: .0549999997
 --- !u!198 &19812830
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128520}
-  lengthInSec: .899999976
+  lengthInSec: 1.20000005
   startDelay: 0
   speed: 1
   randomSeed: 0
@@ -301,7 +301,7 @@ ParticleSystem:
         rgba: 4294934087
       minMaxState: 0
     startSize:
-      scalar: .0599999987
+      scalar: .0700000003
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -368,7 +368,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 700
+    maxNumParticles: 1000
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -386,7 +386,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 350
+      scalar: 600
       maxCurve:
         serializedVersion: 2
         m_Curve:

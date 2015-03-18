@@ -35,7 +35,7 @@ public class NodeBehavior : MonoBehaviour {
 		centerOfChildren = Random.onUnitSphere;
 		centerOfChildren = new Vector3(centerOfChildren.x, Mathf.Abs(centerOfChildren.y), centerOfChildren.z);
 		centerOfChildren.Normalize();
-		centerOfChildren *= 6;
+		centerOfChildren *= 4;
 	}
 
 
